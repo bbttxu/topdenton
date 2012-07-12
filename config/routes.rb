@@ -1,4 +1,6 @@
 Denton::Application.routes.draw do
+  resources :gigs
+
   resources :shows
 
   resources :venues
