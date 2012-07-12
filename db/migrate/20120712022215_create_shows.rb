@@ -6,6 +6,7 @@ class CreateShows < ActiveRecord::Migration
       t.string :source
       t.datetime :starts_at
       t.string :admittance
+      t.integer :venue_id
 
       t.timestamps
     end
