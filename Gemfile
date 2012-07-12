@@ -32,3 +32,4 @@ gem 'foreman'
 # To use debugger
 # gem 'ruby-debug'
 
+gem 'resque'  
