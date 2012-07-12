@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  doors_at: 2012-07-11 21:22:15
+  price: 1
+  source: MyString
+  starts_at: 2012-07-11 21:22:15
+  admittance: MyString
+
+two:
+  doors_at: 2012-07-11 21:22:15
+  price: 1
+  source: MyString
+  starts_at: 2012-07-11 21:22:15
+  admittance: MyString

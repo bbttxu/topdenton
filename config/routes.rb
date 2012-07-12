@@ -1,4 +1,6 @@
 Denton::Application.routes.draw do
+  resources :shows
+
   resources :venues
 
   resources :artists
