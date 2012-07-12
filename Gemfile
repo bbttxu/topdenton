@@ -33,3 +33,4 @@ gem 'foreman'
 # gem 'ruby-debug'
 
 gem 'resque'  
+gem 'clockwork'
