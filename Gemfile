@@ -34,3 +34,4 @@ gem 'foreman'
 
 gem 'resque'  
 gem 'clockwork'
+gem "zurb-foundation", :group => :assets
