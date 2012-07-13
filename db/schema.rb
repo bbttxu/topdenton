@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20120712022815) do
   create_table "gigs", :force => true do |t|
     t.integer  "position"
     t.datetime "plays_at"
-    t.integer  "band_id"
+    t.integer  "artist_id"
     t.integer  "show_id"
     t.datetime "created_at"
     t.datetime "updated_at"
