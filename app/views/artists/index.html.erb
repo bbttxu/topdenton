@@ -2,7 +2,6 @@
 
 <table>
   <tr>
-    <th>Name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,8 +9,7 @@
 
 <% @artists.each do |artist| %>
   <tr>
-    <td><%= artist.name %></td>
-    <td><%= link_to 'Show', artist %></td>
+    <td><%= link_to artist.name, artist %></td>
     <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
     <td><%= link_to 'Destroy', artist, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
