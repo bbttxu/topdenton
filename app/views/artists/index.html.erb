@@ -3,19 +3,11 @@
 <table>
   <tr>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @artists.each do |artist| %>
   <tr>
-    <td><%= link_to artist.name, artist %></td>
-    <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-    <td><%= link_to 'Destroy', artist, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to artist.name, artist %> next show at</td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%- link_to 'New Artist', new_artist_path %>

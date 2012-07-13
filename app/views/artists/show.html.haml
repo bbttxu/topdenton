@@ -1,0 +1,6 @@
+%p( id="notice")= notice
+
+%p= @artist.name
+
+- @artist.gigs.each do |gig|
+  = gig.id
