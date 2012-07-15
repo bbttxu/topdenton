@@ -1,0 +1,5 @@
+- @show.gigs.each do |gig|
+  %h2( class="position-#{gig.position}")= gig.artist.name 
+
+%p= [ @show.doors_at, @show.starts_at ].uniq.join ", "
+%p= link_to "[ source ]", @show.source

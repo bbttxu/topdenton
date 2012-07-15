@@ -1,0 +1,8 @@
+%h1 Listing shows
+
+%ul
+  - @shows.each do |show|
+    %li
+      %h3
+        = link_to "#{show.gigs.collect{|x|x.artist.name}.uniq.join(", ")}", "/shows/#{show.id}"
+        = "@#{show.venue.name}"

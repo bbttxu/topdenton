@@ -52,7 +52,7 @@ class Dans
       show.save
       
       puts "show at #{dans.name}, #{show.starts_at}"
-      bands.split('/').each do | band_name |
+      bands.split('/').each_with_index do | band_name, i |
         # puts band_name
         cleansed_band_name = band_name.downcase
         full_name = cleansed_band_name.split(' ').collect{ | x | x.capitalize}
@@ -64,6 +64,7 @@ class Dans
         gig = Gig.new
         gig.artist_id = artist.id
         gig.show_id = show.id
+        gig.position = i
         gig.save
         puts gig
 
