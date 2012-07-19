@@ -5,19 +5,20 @@ module ArtistsHelper
   end
   
   def split_on_semicolon( names )
-    good_break_points = []
+    new_chunks = []
     
     names.each do |name|
       if name.match(": ") 
         crap = []
-        crap << name.split(": ")
-        good_break_points << crap
+        crap << name.split(": ").each_with_index do |chunk,i|
+          new_chunks[i] = "#{chunk}:".strip if i == 0
+          new_chunks[i] = "#{chunk}".strip unless i == 0
+        end
       else
-        good_break_points << name
+        new_chunks << name
       end
     end
-    good_break_points.flatten
-    
+    new_chunks.flatten
   end
 
 
@@ -26,8 +27,8 @@ module ArtistsHelper
     chunks.each do | chunk |
       if chunk.match " And "
         chunk.split(" And ").each_with_index do |chunk,i|
-          new_chunks[i] = "#{chunk}" if i == 0
-          new_chunks[i] = "& #{chunk}" unless i == 0
+          new_chunks[i] = "#{chunk}".strip if i == 0
+          new_chunks[i] = "& #{chunk}".strip unless i == 0
         end
       else
         new_chunks << chunk
