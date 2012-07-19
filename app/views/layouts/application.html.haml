@@ -9,8 +9,9 @@
     %meta( name="viewport" content="width=device-width, initial-scale=1.0" )
     
   %body
-    .row#content
-      = yield
+    #page
+      .row#content
+        = yield
 
     #footer
       .row
@@ -20,4 +21,3 @@
           %a( href="https://github.com/bbttxu")I write code
           in
           %a( href="http://maps.google.com/maps?q=Denton,+TX&hl=en&sll=37.0625,-95.677068&sspn=45.601981,81.298828&oq=denton&hnear=Denton,+Texas&t=m&z=12")Denton, TX
-        
