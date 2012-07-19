@@ -24,6 +24,12 @@
               = "@#{show.venue.name}"
           .artists
             %h3
-              %a{ :href=>"/shows/#{show.id}"}= raw band_names.collect{|x| "<span class=\"slabtext\">#{x[0]}</span>"}.join '<br/>'
-  - else
+              %a{ :href=>"/shows/#{show.id}"}
+                - artists = band_names.flatten
+                - chunks = split_on_important_stuff artists
+                - chunks.each do |chunk|
+                  %span.slabtext= chunk
+                
+  - else        
+  
     %p.notice no shows
