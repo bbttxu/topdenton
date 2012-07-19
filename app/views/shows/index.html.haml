@@ -1,8 +1,29 @@
-%h1 Listing shows
-
-%ul
-  - @shows.each do |show|
-    %li
-      %h3
-        = link_to "#{show.gigs.collect{|x|x.artist.name}.uniq.join(", ")}", "/shows/#{show.id}"
-        = "@#{show.venue.name}"
+.twelve.columns
+  - if @shows.count > 0
+    %ul.shows.four-up.block-grid.mobile
+      - date_format = "%A, %B %d, %Y"
+      - show_date = "a non-existent show-date"
+      - past_abr_dotw = ''
+      - @shows.each_with_index do |show, index|
+        - day_of_the_week = Time.at(show.starts_at).strftime( "%A" ).downcase
+        - abbreviated_day_of_the_week = Time.at(show.starts_at).strftime( "%a" ).downcase
+        - band_names = show.artists.collect{|band| band.name.gsub(/\s/, " ")}
+        - band_names = band_names.collect{|band| band.split( ", ")}
+        - # band_names.collect
+        - # x.collect{|band| band}.collect{|band| band.gsub(/\s/, "&nbsp;") }
+        - unless show_date == Time.at(show.starts_at).strftime( date_format )
+          %li.divider{ :style => "clear: both", :class => "#{(index % 2 == 1 ? :odd : :even )} #{day_of_the_week} #{past_abr_dotw}"}
+            %h5= Time.at(show.starts_at).strftime( date_format )
+          - show_date = Time.at(show.starts_at).strftime( date_format )
+          / this shouldn't really matter, we assume views are sorted TODO FIXME
+          - past_abr_dotw = abbreviated_day_of_the_week
+        %li.show{ :class => "#{(index % 2 == 1 ? :odd : :even )} #{past_abr_dotw}" }
+          .meta
+            %h6
+              = do_time show.starts_at
+              = "@#{show.venue.name}"
+          .artists
+            %h3
+              %a{ :href=>"/shows/#{show.id}"}= raw band_names.collect{|x| "<span class=\"slabtext\">#{x[0]}</span>"}.join '<br/>'
+  - else
+    %p.notice no shows

@@ -16,6 +16,8 @@ class Dans
     
     html = Nokogiri::HTML( open( 'http://danssilverleaf.com/' ) )
  
+    shows = Show.delete_all :venue_id => dans.id
+ 
     html.css("div.show").each do | show |
       bands = show.at_css('h2').text
       

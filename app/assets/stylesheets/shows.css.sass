@@ -1,0 +1,81 @@
+.londrina-solid
+  font:
+    family: 'Londrina Solid', serif
+    weight: 400
+
+.swanky
+  font:
+    family: 'Swanky and Moo Moo', serif
+    weight: 400
+
+
+.waiting
+  font:
+    family: 'Waiting for the Sunrise', serif
+    weight: 400
+    color: red
+
+.walter-turncoat
+  font:
+    family: 'Walter Turncoat', serif
+    weight: 400
+    color: red
+
+
+.miltonian
+  font:
+    family: 'Miltonian', serif
+    weight: 400
+    color: red
+
+/*
+  shows stylesheet
+    _________.__
+   /   _____/|  |__   ______  _  ________
+   \_____  \ |  |  \ /  _ \ \/ \/ /  ___/
+   /        \|   Y  (  <_> )     /\___ \
+  /_______  /|___|  /\____/ \/\_//____  >
+          \/      \/                  \/ @/
+
+
+body
+  background:
+    image: url('/images/Chalkboard.jpg') !important
+    positions: center
+
+body.show
+
+  div.artists
+
+ul.shows
+  li.divider
+
+    @extend .solid
+
+    // TODO
+    h4, h5
+      @extend .walter-turncoat
+      text-align: center
+      color: #ccf !important
+
+      @media (min-width: 480px)
+        text-align: left
+
+
+li.show
+  div.meta
+    h6
+      @extend .walter-turncoat
+      // TODO
+      color: #f77 !important
+
+  div.artists
+    h3
+      @extend .miltonian
+      a
+        color: white
+
+ul.shows
+  li.divider
+    h5
+      line-height: 1
