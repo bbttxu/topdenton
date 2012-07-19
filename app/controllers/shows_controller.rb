@@ -2,8 +2,8 @@ class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.json
   def index
-    @shows = Show.all
-
+    @shows = Show.upcoming
+    @n_shows = Show.all.count
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @shows }
