@@ -25,7 +25,7 @@
 
 
     %p
-      %a.venue{:href=>"/venue/#{@show.venue.id}"}= "@#{@show.venue.name}"
+      %a.venue{:href=>"/venues/#{@show.venue.id}"}= "@#{@show.venue.name}"
     %p.admittance= "Admittance: #{@show.admittance}" unless @show.admittance == ""
 
     %p.source
