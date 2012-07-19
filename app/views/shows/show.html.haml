@@ -1,28 +1,34 @@
 - date_format = "%A, %B %e"
 - time_format = "%I:%M %p"
-.show.twelve.columns  
-  %p.doors_at
-    %span.slabtext
-      %span.starts_at= "#{Time.at(@show.starts_at).strftime( date_format )}"
-      %span.doors_at= "#{Time.at(@show.starts_at).strftime( time_format )}"
+.show
+  .eight.columns
+    %ul.lineup
+      - @show.artists.each_with_index do |band, i|
+        %li{:role=>:option}
+          - if band.shows.count > 1
+            %a{ :href=>"/band/#{band.key}"}
+              %h3= split_on_important_stuff([band.name])
+          - else
+            %h3
+              -split_on_important_stuff([band.name]).each do |chunk|
+                %span.slabtext= chunk
+  
 
-  %p
-    %span.price= @show.price
-  %ul.lineup
-    - @show.artists.each_with_index do |band, i|
-      %li{:role=>:option}
-        - if band.shows.count > 1
-          %a{ :href=>"/band/#{band.key}"}
-            %h3= band.name
-        - else
-          %h3= band.name
+  .four.columns
+    %p.doors_at
+      %span.slabtext
+        %span.starts_at= "#{Time.at(@show.starts_at).strftime( date_format )}"
+        %span.doors_at= "#{Time.at(@show.starts_at).strftime( time_format )}"
+
+    %p
+      %span.price= @show.price
 
 
-  %p
-    %a.venue{:href=>"/venue/#{@show.venue.id}"}= "@#{@show.venue.name}"
-  %p.admittance= "Admittance: #{@show.admittance}" unless @show.admittance == ""
+    %p
+      %a.venue{:href=>"/venue/#{@show.venue.id}"}= "@#{@show.venue.name}"
+    %p.admittance= "Admittance: #{@show.admittance}" unless @show.admittance == ""
 
-  %p.source
-    %a.source.button.black{:href=>"#{@show.source}"}= "Source page"
+    %p.source
+      %a.source.button.black{:href=>"#{@show.source}"}= "Source page"
 
 
