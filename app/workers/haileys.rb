@@ -84,5 +84,7 @@ class Haileys
         show.gigs << gig
       end
     end
+    
+    
   end  
 end
