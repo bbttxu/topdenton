@@ -6,8 +6,10 @@
       - @show.artists.each_with_index do |band, i|
         %li{:role=>:option}
           - if band.shows.count > 1
-            %a{ :href=>"/band/#{band.key}"}
-              %h3= split_on_important_stuff([band.name])
+            %a{ :href=>"/band/#{band.id}"}
+              %h3
+                -split_on_important_stuff([band.name]).each do |chunk|
+                  %span.slabtext= chunk
           - else
             %h3
               -split_on_important_stuff([band.name]).each do |chunk|

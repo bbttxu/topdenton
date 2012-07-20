@@ -21,12 +21,9 @@ class Dans
     html.css("div.show").each do | show |
       bands = show.at_css('h2').text
       
-
-
-
       time = show.at_css('h2').text
          
-     infos = time.split " | "
+      infos = time.split " | "
       # debug infos
       date = show.at_css('h6').text.split(', ')[1]
       time = show.css('div.details p:first').text.gsub(/\s+/, "")
