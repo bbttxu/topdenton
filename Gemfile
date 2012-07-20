@@ -38,3 +38,7 @@ gem "zurb-foundation", :group => :assets
 gem 'nokogiri'
 gem 'chronic'
 gem 'haml'
+
+group :development do
+  gem "capistrano"
+end
