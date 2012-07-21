@@ -25,11 +25,9 @@
           .artists
             %h3
               %a{ :href=>"/shows/#{show.id}"}
-                - artists = band_names.flatten
-                - chunks = split_on_important_stuff artists
-                - chunks.each do |chunk|
-                  %span.slabtext= chunk
-                
-  - else        
-  
+              -split_on_important_stuff(band_names.flatten).each do |chunk|
+                %span.slabtext= chunk
+
+
+  - else
     %p.notice no shows

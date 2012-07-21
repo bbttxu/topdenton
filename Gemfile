@@ -42,3 +42,7 @@ gem 'haml'
 group :development do
   gem "capistrano"
 end
+
+# javascript run-time needed fer soomething
+gem 'execjs' 
+gem 'therubyracer'
