@@ -44,7 +44,7 @@ group :development do
 end
 
 # javascript run-time needed for asset pipeline(?)
-gem 'execjs' 
+# gem 'execjs' 
 gem 'therubyracer'
 
 gem 'linguistics'

@@ -156,7 +156,6 @@ DEPENDENCIES
   chronic
   clockwork
   coffee-rails (~> 3.1.1)
-  execjs
   foreman
   haml
   jquery-rails
