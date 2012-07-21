@@ -43,6 +43,8 @@ group :development do
   gem "capistrano"
 end
 
-# javascript run-time needed fer soomething
+# javascript run-time needed for asset pipeline(?)
 gem 'execjs' 
 gem 'therubyracer'
+
+gem 'linguistics'
