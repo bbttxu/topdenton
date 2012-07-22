@@ -45,6 +45,6 @@ end
 
 # javascript run-time needed for asset pipeline(?)
 # gem 'execjs' 
-gem 'therubyracer'
+# gem 'johnson'
 
 gem 'linguistics'
