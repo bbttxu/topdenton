@@ -11,6 +11,7 @@ set :deploy_via, :remote_cache # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `m
 
 set :deploy_to, "/home/adam/#{application}"
 
+
 if ENV['DEPLOY'] == 'PRODUCTION'
    puts "*** Deploying to the \033[1;41m  PRODUCTION  \033[0m servers!"
    role :app, "50.56.244.214"                          # Your HTTP server, Apache/etc
