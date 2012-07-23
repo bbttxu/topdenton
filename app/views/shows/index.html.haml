@@ -1,25 +1,3 @@
-/ #navigation.three.columns.float-right.hide-on-phones
-/   %ul
-/     %li.shows
-/       %h4
-/         %a{ :href=>"/shows", :title => :shows }
-/           %span.wordy= numerify @n_shows
-/           / %span.numbery= @n_shows
-/           %span shows
-/     %li.bands
-/       %h4
-/         %a{ :href=>"/bands", :title => :bands }
-/           %span.wordy= numerify @n_artists
-/           / %span.numbery= @n_artists
-/           %span bands
-/     %li.venues
-/       %h4
-/         %a{ :href=>"/venues", :title => :venues }
-/           %span.wordy= numerify @n_venues
-/           / %span.numbery= @n_venues
-/           %span venues
-
-
 .twelve.columns
   - if @shows.count > 0
     %ul.shows.four-up.block-grid.mobile
@@ -52,9 +30,10 @@
           
           .artists
             %h3
-              %a{ :href => show.source}
-              -split_on_important_stuff(band_names.flatten).each do |chunk|
-                %span.slabtext= chunk
+              - source = ( show.source == nil ? "/shows/#{show.id}" : show.source ) 
+              %a{ :href => source}
+                -split_on_important_stuff(band_names.flatten).each do |chunk|
+                  %span.slabtext= chunk
 
 
   - else
