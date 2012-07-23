@@ -5,4 +5,25 @@
  *= require_self
  *= require_tree . 
  */
+ 
 @import "foundation"
+@import "shows"
+
+.londrina-solid, .base-font
+  font:
+    family: 'Londrina Solid', serif
+    weight: 400
+
+
+html
+  background: 
+    color: #333
+
+#page
+  background:
+    image: url('/images/Chalkboard.jpg') !important
+    positions: center
+
+
+body
+  @extend .base-font

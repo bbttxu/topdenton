@@ -1,33 +1,3 @@
-.londrina-solid
-  font:
-    family: 'Londrina Solid', serif
-    weight: 400
-
-.swanky
-  font:
-    family: 'Swanky and Moo Moo', serif
-    weight: 400
-
-
-.waiting
-  font:
-    family: 'Waiting for the Sunrise', serif
-    weight: 400
-    color: red
-
-.walter-turncoat
-  font:
-    family: 'Walter Turncoat', serif
-    weight: 400
-    color: red
-
-
-.miltonian
-  font:
-    family: 'Miltonian', serif
-    weight: 400
-    color: red
-
 /*
   shows stylesheet
     _________.__
@@ -35,19 +5,9 @@
    \_____  \ |  |  \ /  _ \ \/ \/ /  ___/
    /        \|   Y  (  <_> )     /\___ \
   /_______  /|___|  /\____/ \/\_//____  >
-          \/      \/                  \/ @/
+          \/      \/                  \/ 
 
-html
-  background: black
-#page
-  background:
-    image: url('/images/Chalkboard.jpg') !important
-    color: #333
-    positions: center
 
-body.show
-
-  div.artists
 
 ul.shows
   li.divider
@@ -55,7 +15,7 @@ ul.shows
 
     // TODO
     h4, h5
-      @extend .londrina-solid
+      @extend .base-font
       text-align: center
       color: #ccf !important
 
@@ -66,14 +26,14 @@ ul.shows
 li.show
   div.meta
     h6
-      @extend .londrina-solid
+      @extend .base-font
       font-weight: 200
       // TODO
       color: #f77 !important
 
   div.artists
     h3
-      @extend .londrina-solid
+      @extend .base-font
       a
         color: #afa
 
@@ -84,13 +44,13 @@ ul.shows
 
 ul.lineup
   li
-    @extend .londrina-solid
+    @extend .base-font
     
 #footer
   h1 
     color: red !important
   a 
-  @extend .londrina-solid
+  @extend .base-font
   background: black
 .bbttxu
   color: #2A85E8 !important
