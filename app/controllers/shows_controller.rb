@@ -3,9 +3,11 @@ class ShowsController < ApplicationController
   # GET /shows.json
   def index
     @shows = Show.upcoming
-    # @n_shows = Show.all.count
-    # @n_artists = Artist.all.count
-    # @n_venues = Venue.all.count
+
+    # TODO move to application!
+    @n_shows = Show.all.count
+    @n_artists = Artist.all.count
+    @n_venues = Venue.all.count
 
 
     respond_to do |format|

@@ -10,6 +10,15 @@
     
   %body
     #page
+      .row#header
+        .six.columns
+
+        .six.columns
+          %ul.three-up.mobile.block-grid
+            %li= link_to "#{@n_shows} Shows", '/shows'
+            %li= link_to "#{@n_venues} Venues", '/venues'
+            %li= link_to "#{@n_artists} Artists", '/artists'
+
       .row#content
         = yield
 
