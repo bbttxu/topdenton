@@ -32,7 +32,7 @@
             %h3
               - source = ( show.source == nil ? "/shows/#{show.id}" : show.source ) 
               %a{ :href => source}
-                -split_on_important_stuff(band_names.flatten).each do |chunk|
+                -split_on_important_stuff(band_names.flatten.reverse).each do |chunk|
                   %span.slabtext= chunk
 
 
