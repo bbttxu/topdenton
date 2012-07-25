@@ -3,8 +3,6 @@ require 'rubygems'
 require 'open-uri'
 require 'nokogiri'
 require 'chronic'
-require 'ri_cal'
-# require 'httparty'
 
 class Andys  
   @queue = :andys
