@@ -4,10 +4,6 @@ class ShowsController < ApplicationController
   def index
     @shows = Show.upcoming
 
-    # TODO move to application!
-    @n_shows = Show.all.count
-    @n_artists = Artist.all.count
-    @n_venues = Venue.all.count
 
 
     respond_to do |format|
