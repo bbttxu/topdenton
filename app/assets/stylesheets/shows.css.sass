@@ -12,11 +12,11 @@
 .shows
   .divider
     @extend .solid
+    @extend .lightblue
     h4, h5
       @extend .base-font
       text-align: center
-      color: #ccf !important
-
+      
       @media (min-width: 480px)
         text-align: left
 
@@ -27,8 +27,9 @@ ul.shows
     // TODO
     h4, h5
       @extend .base-font
+      @extend .lightblue
+      
       text-align: center
-      color: #ccf !important
 
       @media (min-width: 480px)
         text-align: left
@@ -46,8 +47,7 @@ li.show
     h3
       @extend .base-font
       a
-        color: #afa
-
+        @extend .lightgreen
 ul.shows
   li.divider
     h5
@@ -64,5 +64,3 @@ ul.lineup
   @extend .base-font
   background: black
   
-.bbttxu
-  color: #2A85E8 !important
