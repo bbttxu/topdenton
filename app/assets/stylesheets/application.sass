@@ -9,18 +9,17 @@
 @import "scaffolds"
 @import "slabtext"
 
+@import "typography"
 @import "colors"
 @import "shows"
 
-.londrina-solid, .base-font
-  font:
-    family: 'Londrina Solid', serif
-    weight: 400
 
 
 html
   background: 
     color: #333
+body
+  @extend .base-font
 
 #page
   background:
@@ -34,5 +33,3 @@ html
     a
       color: green !important
       
-body
-  @extend .base-font
