@@ -14,10 +14,16 @@
         .six.columns
 
         .six.columns
-          %ul.three-up.mobile.block-grid
-            %li= link_to "#{@n_shows} Shows", '/shows'
-            %li= link_to "#{@n_venues} Venues", '/venues'
-            %li= link_to "#{@n_artists} Artists", '/artists'
+          %ul.three-up.block-grid#navigation
+            %li
+              %h5
+                %span.slabtext= link_to "#{@n_shows} Shows", '/shows'
+            %li
+              %h5
+                %span.slabtext= link_to "#{@n_venues} Venues", '/venues'
+            %li
+              %h5
+                %span.slabtext= link_to "#{@n_artists} Artists", '/artists'
 
       .row#content
         = yield

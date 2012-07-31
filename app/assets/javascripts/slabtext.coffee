@@ -5,4 +5,4 @@ $(document).ready ->
   # $('.meta h6').slabText()
   $('li.divider h5').slabText()
   $('ul.lineup li').slabText()
-  $('#navigation h4').slabText()
+  $('#navigation h5').slabText()
