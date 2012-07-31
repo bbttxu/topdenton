@@ -1,6 +1,6 @@
 module ArtistsHelper
   def split_on_important_stuff(stuff)
-    split_of_the_life_of  split_on_and  split_on_semicolon stuff
+    split_of_the_life_of  split_on_and  split_on_semicolon  split_on_ampersand stuff
     
   end
   

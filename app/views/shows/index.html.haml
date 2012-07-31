@@ -1,5 +1,6 @@
 .twelve.columns
   - @shows.keys.each do |date|
+    %hr
     .row.shows
       .three.columns.divider
         %h5= Time.at(date).strftime( "%A, %B %d, %Y" )
@@ -28,7 +29,6 @@
                       %span.slabtext= chunk
               / %pre= debug show
 
-  
 
 
 

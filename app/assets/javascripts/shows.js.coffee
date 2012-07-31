@@ -7,3 +7,4 @@ $ = jQuery
 $(document).ready ->
   $('.shows .divider h5').slabText()
   $('.meta h6').slabText()
+  $('#header h1').slabText()
