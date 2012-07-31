@@ -2,7 +2,7 @@ class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.json
   def index
-    @shows = Show.upcoming.group_by{ |u| Time.at(u.starts_at).to_date.to_datetime.to_i }
+    @shows = Show.all.group_by{ |u| Time.at(u.starts_at).to_date.to_datetime.to_i }
 
 
 
