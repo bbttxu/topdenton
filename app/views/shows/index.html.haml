@@ -1,41 +1,64 @@
 .twelve.columns
-  - if @shows.count > 0
-    %ul.shows.four-up.block-grid.mobile
-      - date_format = "%A, %B %d, %Y"
-      - show_date = "a non-existent show-date"
-      - past_abr_dotw = ''
-      - @shows.each_with_index do |show, index|
-        - day_of_the_week = Time.at(show.starts_at).strftime( "%A" ).downcase
-        - abbreviated_day_of_the_week = Time.at(show.starts_at).strftime( "%a" ).downcase
-        - band_names = show.artists.collect{|band| band.name.gsub(/\s/, " ")}
-        - band_names = band_names.collect{|band| band.split( ", ")}
-        - # band_names.collect
-        - # x.collect{|band| band}.collect{|band| band.gsub(/\s/, "&nbsp;") }
-        - unless show_date == Time.at(show.starts_at).strftime( date_format )
-          %li.divider{ :style => "clear: both", :class => "#{(index % 2 == 1 ? :odd : :even )} #{day_of_the_week} #{past_abr_dotw}"}
-            %h5= Time.at(show.starts_at).strftime( date_format )
-          - show_date = Time.at(show.starts_at).strftime( date_format )
-          / this shouldn't really matter, we assume views are sorted TODO FIXME
-          - past_abr_dotw = abbreviated_day_of_the_week
-        %li.show{ :class => "#{(index % 2 == 1 ? :odd : :even )} #{past_abr_dotw}" }
-          .meta
-            %h6
-              %span.slabtext
-                - hype = []
-                - hype << "#{do_time show.starts_at}"
-                - hype << "@#{show.venue.name}"
-                - hype << "#{pricify show.price}"
-                = hype.reject{|x|x == ""}.join(", ")
-          
-          
-          .artists
-            %h3
-              - source = ( show.source == nil ? "/shows/#{show.id}" : show.source ) 
-              %a{ :href => source}
-                -split_on_important_stuff(band_names.flatten.reverse).each do |chunk|
-                  %span.slabtext= chunk
+  - @shows.keys.each do |date|
+    .row.shows
+      .three.columns.divider
+        %h5= Time.at(date).strftime( "%A, %B %d, %Y" )
+      .nine.columns.shows
+        - ul_class = "one-up"
+        - ul_class = "three-up" if @shows[date].count >= 3
+        - ul_class = "two-up" if @shows[date].count % 2 == 0
+        %ul.shows.block-grid.mobile( class = ul_class )
+          - @shows[date].each_with_index do |show,index|
+            - band_names = show.artists.collect{|band| band.name.gsub(/\s/, " ")}
+            %li.show{ :class => "#{(index % 2 == 1 ? :odd : :even )}" }
+              .meta.row
+                .twelve.columns
+                  %h6
+                    %span.slabtext
+                      - hype = []
+                      - hype << "#{do_time show.starts_at}"
+                      - hype << "@#{show.venue.name}"
+                      - hype << "#{pricify show.price}"
+                      = hype.reject{|x|x == ""}.join(" | ")
+              .artists
+                %h3
+                  - source = ( show.source == nil ? "/shows/#{show.id}" : show.source ) 
+                  %a{ :href => source}
+                    -split_on_important_stuff(band_names.flatten.reverse).each do |chunk|
+                      %span.slabtext= chunk
+              / %pre= debug show
+
+  
 
 
-  - else
-    %p.notice no shows
 
+
+/   - if @shows.count > 0
+/       - date_format = "%A, %B %d, %Y"
+/       - show_date = "a non-existent show-date"
+/       - past_abr_dotw = ''
+/       - @shows.each_with_index do |show, index|
+/         - day_of_the_week = Time.at(show.starts_at).strftime( "%A" ).downcase
+/         - abbreviated_day_of_the_week = Time.at(show.starts_at).strftime( "%a" ).downcase
+/         - band_names = band_names.collect{|band| band.split( ", ")}
+/         - # band_names.collect
+/         - # x.collect{|band| band}.collect{|band| band.gsub(/\s/, "&nbsp;") }
+/         - unless show_date == Time.at(show.starts_at).strftime( date_format )
+/           %li.divider{ :style => "clear: both", :class => "#{(index % 2 == 1 ? :odd : :even )} #{day_of_the_week} #{past_abr_dotw}"}
+/             %h5= Time.at(show.starts_at).strftime( date_format )
+/           - show_date = Time.at(show.starts_at).strftime( date_format )
+/           / this shouldn't really matter, we assume views are sorted TODO FIXME
+/           - past_abr_dotw = abbreviated_day_of_the_week
+/           
+/           
+/           .artists
+/             %h3
+/               - source = ( show.source == nil ? "/shows/#{show.id}" : show.source ) 
+/               %a{ :href => source}
+/                 -split_on_important_stuff(band_names.flatten.reverse).each do |chunk|
+/                   %span.slabtext= chunk
+/ 
+/ 
+/   - else
+/     %p.notice no shows
+/ 
