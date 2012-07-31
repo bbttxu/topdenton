@@ -77,9 +77,5 @@ class Andys
 
       end
     end
-
-
-
-
   end  
 end
