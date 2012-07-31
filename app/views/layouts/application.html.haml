@@ -11,20 +11,20 @@
   %body
     #page
       .row#header
-        .six.columns
+        .six.columns.mobile-one
           %h1 
-            %span.slabtext Upcoming, Denton TX
-        .six.columns
+            Upcoming, Denton TX
+        .six.columns.mobile-three
           %ul.three-up.block-grid#navigation
             %li
               %h5
-                %span.slabtext= link_to "#{@n_shows} Shows", '/shows'
+                = link_to "#{@n_shows} Shows", '/shows'
             %li
               %h5
-                %span.slabtext= link_to "#{@n_venues} Venues", '/venues'
+                = link_to "#{@n_venues} Venues", '/venues'
             %li
               %h5
-                %span.slabtext= link_to "#{@n_artists} Artists", '/artists'
+                = link_to "#{@n_artists} Artists", '/artists'
 
       .row#content
         = yield

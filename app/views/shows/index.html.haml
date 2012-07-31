@@ -2,7 +2,7 @@
   - @shows.keys.each do |date|
     %hr
     .row.shows
-      .three.columns.divider
+      .three.columns.divider.mobile-one
         %h5= Time.at(date).strftime( "%A, %B %d, %Y" )
       .nine.columns.shows
         - ul_class = "one-up"
