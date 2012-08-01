@@ -1,7 +1,8 @@
 module ApplicationHelper
   def numerify(text)
     Linguistics::use(:en)
-    text.en.numwords
+    word = text.en.numwords
+    text.to_s.length == 1 ? word : text
   end
   
   def pricify(dollars = nil)

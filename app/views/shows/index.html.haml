@@ -21,52 +21,9 @@
                       - hype << "@#{show.venue.name}"
                       - hype << "#{pricify show.price}"
                       = hype.reject{|x|x == ""}.join(" | ")
-                / .two.columns
-                /   %h6
-                /     %span.slabtext
-                /       - hype = []
-                /       / - hype << "#{do_time show.starts_at}"
-                /       / - hype << "@#{show.venue.name}"
-                /       / - hype << "#{pricify show.price}"
-                /       / = hype.reject{|x|x == ""}.join(" | ")
               .artists
                 %h3
                   - source = ( show.source == nil ? "/shows/#{show.id}" : show.source ) 
                   %a{ :href => source}
                     -split_on_important_stuff(band_names.flatten.reverse).each do |chunk|
                       %span.slabtext= chunk
-              / %pre= debug show
-
-
-
-
-
-/   - if @shows.count > 0
-/       - date_format = "%A, %B %d, %Y"
-/       - show_date = "a non-existent show-date"
-/       - past_abr_dotw = ''
-/       - @shows.each_with_index do |show, index|
-/         - day_of_the_week = Time.at(show.starts_at).strftime( "%A" ).downcase
-/         - abbreviated_day_of_the_week = Time.at(show.starts_at).strftime( "%a" ).downcase
-/         - band_names = band_names.collect{|band| band.split( ", ")}
-/         - # band_names.collect
-/         - # x.collect{|band| band}.collect{|band| band.gsub(/\s/, "&nbsp;") }
-/         - unless show_date == Time.at(show.starts_at).strftime( date_format )
-/           %li.divider{ :style => "clear: both", :class => "#{(index % 2 == 1 ? :odd : :even )} #{day_of_the_week} #{past_abr_dotw}"}
-/             %h5= Time.at(show.starts_at).strftime( date_format )
-/           - show_date = Time.at(show.starts_at).strftime( date_format )
-/           / this shouldn't really matter, we assume views are sorted TODO FIXME
-/           - past_abr_dotw = abbreviated_day_of_the_week
-/           
-/           
-/           .artists
-/             %h3
-/               - source = ( show.source == nil ? "/shows/#{show.id}" : show.source ) 
-/               %a{ :href => source}
-/                 -split_on_important_stuff(band_names.flatten.reverse).each do |chunk|
-/                   %span.slabtext= chunk
-/ 
-/ 
-/   - else
-/     %p.notice no shows
-/ 
