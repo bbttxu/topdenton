@@ -4,7 +4,7 @@
     .row.shows
       .three.columns.divider.mobile-one
         %h5= Time.at(date).strftime( "%A, %B %d, %Y" )
-      .nine.columns.shows
+      .nine.columns.shows.mobile-three
         - ul_class = "one-up"
         - ul_class = "three-up" if @shows[date].count >= 3
         - ul_class = "two-up" if @shows[date].count % 2 == 0
