@@ -3,7 +3,7 @@
     %hr
     .row.shows
       .three.columns.divider.mobile-four
-        %h5= Time.at(date).strftime( "%A, %B %d, %Y" )
+        %h5= Time.at(date + 7 * 60* 60).strftime( "%A, %B %d, %Y" )
       .nine.columns.shows.mobile-four
         - ul_class = "one-up"
         - ul_class = "three-up" if @shows[date].count >= 3
