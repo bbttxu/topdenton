@@ -3,7 +3,7 @@
     %hr
     .row.shows
       .three.columns.divider.mobile-four
-        %h5= Time.at(date + 7 * 60* 60).strftime( "%A, %B %d, %Y" )
+        %h5= Time.at(date + 7 * 60* 60).strftime( "%A / %B %d / %Y" )
       .nine.columns.shows.mobile-four
         - ul_class = "one-up"
         - ul_class = "three-up" if @shows[date].count >= 3
@@ -11,7 +11,7 @@
         %ul.shows.block-grid( class = ul_class )
           - @shows[date].each_with_index do |show,index|
             - band_names = show.artists.collect{|band| band.name.gsub(/\s/, " ")}
-            %li.show{ :class => "#{(index % 2 == 1 ? :odd : :even )}" }
+            %li.show.mobile-two{ :class => "#{(index % 2 == 1 ? :odd : :even )}" }
               .meta.row
                 .nine.columns
                   %h6
