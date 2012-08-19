@@ -3,7 +3,7 @@
     %hr
     .row.shows
       .three.columns.divider.mobile-four
-        %h5= Time.at(date + 7 * 60* 60).strftime( "%A / %B %d / %Y" )
+        %h5= Time.at(date + 7 * 60* 60).strftime( "%A, %B %d, %Y" )
       .nine.columns.shows.mobile-four
         - ul_class = "one-up"
         - ul_class = "three-up" if @shows[date].count >= 3
@@ -22,8 +22,9 @@
                       - hype << "#{pricify show.price}"
                       = hype.reject{|x|x == ""}.join(" | ")
               .artists
-                %h3
-                  - source = ( show.source == nil ? "/shows/#{show.id}" : show.source ) 
-                  %a{ :href => source}
-                    -split_on_important_stuff(band_names.flatten.reverse).each do |chunk|
-                      %span.slabtext= chunk
+                - source = ( show.source == nil ? "/shows/#{show.id}" : show.source ) 
+                %a{ :href => source}
+                  %h3
+                    - split_on_important_stuff(band_names.flatten.reverse).each do |text|
+                      %span.slabtext= text
+                      
