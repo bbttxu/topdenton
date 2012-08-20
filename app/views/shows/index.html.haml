@@ -25,6 +25,6 @@
                 - source = ( show.source == nil ? "/shows/#{show.id}" : show.source ) 
                 %a{ :href => source}
                   %h3
-                    - split_on_important_stuff(band_names.flatten.reverse).each do |text|
+                    - split_on_important_stuff(band_names.flatten).each do |text|
                       %span.slabtext= text
                       
