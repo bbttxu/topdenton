@@ -5,7 +5,7 @@
    \_____  \ |  |  \ /  _ \ \/ \/ /  ___/
    /        \|   Y  (  <_> )     /\___ \
   /_______  /|___|  /\____/ \/\_//____  >
-          \/      \/                  \/ 
+          \/      \/                  \/
 
 
 
@@ -16,7 +16,7 @@
     h4, h5
       @extend .base-font
       text-align: center
-      
+
       @media (min-width: 480px)
         text-align: left
 
@@ -29,12 +29,13 @@
 ul.shows
   li.divider
     @extend .solid
-
     // TODO
     h4, h5
       @extend .base-font
       @extend .lightblue
-      
+      span
+        color: #eee !important
+
       text-align: center
 
       @media (min-width: 480px)
@@ -45,21 +46,21 @@ li.show
   float: left !important
   div.meta
     h6
-      @extend .londrina-solid
+      @extend .architects-daughter
       font-weight: 200
       // TODO
       //color: #f77 !important
-      margin: 
+      margin:
         bottom: 0px
 
   div.artists
     h3
-    
+
       @extend .base-font
-    
-      margin: 
+
+      margin:
         top: 0px
-    
+
       line:
         height: 0.85
       a
@@ -72,4 +73,4 @@ ul.shows
 ul.lineup
   li
     @extend .base-font
-  
+

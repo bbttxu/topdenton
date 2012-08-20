@@ -16,7 +16,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.1.5'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
-  
+
   gem 'compass-rails', '~> 1.0.3'
   gem 'zurb-foundation', '~> 3.0.1'
 
@@ -37,7 +37,7 @@ gem 'foreman'
 # To use debugger
 # gem 'ruby-debug'
 
-gem 'resque'  
+gem 'resque'
 gem 'clockwork'
 gem 'nokogiri'
 gem 'chronic'
@@ -48,7 +48,7 @@ group :development do
 end
 
 # javascript run-time needed for asset pipeline(?)
-# gem 'execjs' 
+# gem 'execjs'
 # gem 'johnson'
 
 gem 'linguistics'

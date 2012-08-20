@@ -2,12 +2,12 @@
   %head
     %title
       BBTTXU
-    %link( href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css' )
+    %link( href='http://fonts.googleapis.com/css?family=Anton|Architects+Daughter' rel='stylesheet' type='text/css' )
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
     %meta( name="viewport" content="width=device-width, initial-scale=1.0" )
-    
+
   %body
     #page
       .row#header
@@ -17,17 +17,17 @@
           %ul.three-up.block-grid#navigation
             %li
               %h5
-                %a{ :src => "/shows"} 
+                %a{ :src => "/shows"}
                   %span( class="slabtext" )=@n_shows
                   %span.slabtext Shows
             %li
               %h5
-                %a{ :src => "/venues"} 
+                %a{ :src => "/venues"}
                   %span( class="slabtext" )= numerify @n_venues
                   %span.slabtext Venues
             %li
               %h5
-                %a{ :src => "/artists"} 
+                %a{ :src => "/artists"}
                   %span( class="slabtext" )=@n_artists
                   %span.slabtext Artists
 

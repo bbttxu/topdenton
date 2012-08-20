@@ -20,10 +20,10 @@ if ENV['DEPLOY'] == 'PRODUCTION'
    role :db,  "50.56.244.214", :primary => true
 else
    puts "*** Deploying to the \033[1;42m  STAGING  \033[0m server!"
-   role :app, "bbttxu.local"                          # Your HTTP server, Apache/etc
-   role :web, "bbttxu.local"                          # Your HTTP server, Apache/etc
+   role :app, "50.56.234.48"                          # Your HTTP server, Apache/etc
+   role :web, "50.56.234.48"                          # Your HTTP server, Apache/etc
    # TODO adding db role to production, we don't need it, but a capistrano task is looking for it
-   role :db,  "bbttxu.local", :primary => true
+   role :db, "50.56.234.48", :primary => true
 end
 
 # if you want to clean up old releases on each deploy uncomment this:
@@ -131,7 +131,7 @@ namespace :deploy do
   desc "Stop unicorn"
   task :stop, :except => { :no_release => true } do
     run "kill -s QUIT `cat /tmp/unicorn.my_site.pid`"
-  end  
+  end
 
   namespace :rollback do
     desc "Moves the repo back to the previous version of HEAD"
@@ -158,27 +158,27 @@ end
 # namespace :foreman do
 #   desc 'Export the Procfile to Ubuntu upstart scripts'
 #   task :export, :roles => :app do
-# 
+#
 #     run "cd #{release_path} && sudo bundle exec foreman export upstart /etc/init -a #{application} -u #{user} -l #{release_path}/log/foreman"
-# 
+#
 #   end
-# 
+#
 #   desc "Start the application services"
 #   task :start, :roles => :app do
-# 
+#
 #     sudo "start #{application}"
 #   end
-# 
+#
 #   desc "Stop the application services"
-# 
+#
 #   task :stop, :roles => :app do
 #     sudo "stop #{application}"
-# 
+#
 #   end
-# 
+#
 #   desc "Restart the application services"
 #   task :restart, :roles => :app do
-# 
+#
 #     run "sudo start #{application} || sudo restart #{application}"
 #   end
 # end
