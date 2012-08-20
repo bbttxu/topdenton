@@ -20,6 +20,7 @@ html
 body
   background: #333
   @extend .base-font
+  border-top: #FF6600 1em solid
 
 #page
 //  background:
@@ -28,26 +29,35 @@ body
 
 
 #header
+  #title
+    //min:
+    //  height: 80px
+    //bottom: 0px
+    //position: absolute
+    
   h1
-    @extend .bbttxu
+    @extend .cherry-cream-soda
+    line:
+      height: 0.8
+    
     
 #page
   background: white
+  border-top: #FF6600 1em solid
 #navigation
   ul
     vertical-align: middle
-    
   li
-
     min:
       height: 100px
+    
   h5
-    @extend .base-font
+    @extend .cherry-cream-soda
     line:
       height: 0.8
-    a
-      @extend .darkgreen
-
+    bottom: 0px
+    position: absolute
+    
 #footer 
   border-top: #FF6600 1em solid
   h1
