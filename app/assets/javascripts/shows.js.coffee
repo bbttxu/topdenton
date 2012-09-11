@@ -10,3 +10,4 @@ $(document).ready ->
   # $('.meta h6').slabText()
   $('#header h1').slabText()
   $('#navigation h5').slabText()
+  $('div.meta h6').slabText()
