@@ -46,6 +46,12 @@ gem 'haml'
 group :development do
   gem "capistrano"
 end
+group :test, :development do
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'rspec'
+  gem 'spork'
+end
 
 # javascript run-time needed for asset pipeline(?)
 # gem 'execjs'
