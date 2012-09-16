@@ -42,8 +42,8 @@ gem 'clockwork'
 gem 'nokogiri'
 gem 'chronic'
 gem 'haml'
-gem 'redcarpet'
-
+# gem 'redcarpet'
+gem 'thin'
 group :development do
   gem "capistrano"
 end
