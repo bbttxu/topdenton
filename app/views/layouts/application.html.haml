@@ -16,9 +16,9 @@
         .six.columns.mobile-three
           %ul.three-up.block-grid#navigation
             %li
-              %h5
-                %a{ :src => "/shows"}
-                  %span( class="slabtext" )=@n_shows
+              %a{ :src => "/shows"}
+                %h5
+                  %span.slabtext= @n_shows
                   %span.slabtext Shows
             %li
               %h5
@@ -36,7 +36,35 @@
 
     #footer
       .row
-        %h1
-          %a.bbttxu( href="http://twitter.com/bbttxu/")@bbttxu
-          %a( href="https://github.com/bbttxu")writes code
-          %a( href="http://maps.google.com/maps?q=Denton,+TX&hl=en&sll=37.0625,-95.677068&sspn=45.601981,81.298828&oq=denton&hnear=Denton,+Texas&t=m&z=12")in Denton,&nbsp;TX
+        .twelve.columns.mobile-four
+          %h3 Frequently Asked Questions
+          %ul.block-grid.three-up.mobile
+            %li
+              %h4 What is this site about?
+              %p I created this site because I wanted a single, easy-to-use website where I could find out what is going on in this town.
+              %p This site scrapes info off of publicly available websites and consolidates, or "mashes up", that info into one place. I also wanted to make the site interesting to look at, though really, I'm no designer.
+
+            %li
+              %h4 Why is my venue not here?
+              %p There may be a couple reasons
+              %ol
+                %li I don't know about your venue
+                %li Your calendar is not public, or you don't have one
+                %li Or, a combination of the two
+
+            %li
+              %h4 What can I do about that?
+              %p Two things
+              %ol
+                %li Let me know where I can find the information and I'll add the venue in my free time, which is when I work on this site
+                %li Or, download a copy of the code and let me know when you've added the appropriate scripts to scrape the data.
+
+
+
+
+
+        .twelve.columns.mobile-four
+          %h1
+            %a.bbttxu( href="http://twitter.com/bbttxu/")@bbttxu
+            %a( href="https://github.com/bbttxu")writes code
+            %a( href="http://maps.google.com/maps?q=Denton,+TX&hl=en&sll=37.0625,-95.677068&sspn=45.601981,81.298828&oq=denton&hnear=Denton,+Texas&t=m&z=12")in Denton,&nbsp;TX

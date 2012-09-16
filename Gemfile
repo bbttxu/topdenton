@@ -42,6 +42,7 @@ gem 'clockwork'
 gem 'nokogiri'
 gem 'chronic'
 gem 'haml'
+gem 'redcarpet'
 
 group :development do
   gem "capistrano"

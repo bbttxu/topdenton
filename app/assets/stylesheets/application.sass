@@ -4,7 +4,7 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
  */
- 
+
 @import "foundation"
 //@import "scaffolds"
 @import "slabtext"
@@ -34,13 +34,13 @@ body
     //  height: 80px
     //bottom: 0px
     //position: absolute
-    
+
   h1
     @extend .base-font
     line:
       height: 0.8
-    
-    
+
+
 #page
   background: white
   border-top: #FF6600 1em solid
@@ -50,7 +50,7 @@ body
   li
     min:
       height: 100px
-    
+
   h5
     @extend .base-font
     line:
@@ -58,9 +58,15 @@ body
     bottom: 0px
     position: absolute
     text-align: right
-    
-#footer 
+
+#footer
+
   border-top: #FF6600 1em solid
+
+  h3, h4
+    color: #2BA6CB !important
+  p, li
+    color: white !important
   h1
     @extend .cherry-cream-soda
     text-align: center
