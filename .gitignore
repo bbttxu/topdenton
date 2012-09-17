@@ -13,3 +13,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# ignore compiled assets
+/assets/*.css
+/assets/*.js
+/assets/*.png
