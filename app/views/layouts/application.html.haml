@@ -34,35 +34,55 @@
       .row#content
         = yield
 
-    #footer
+    #faq
       .row
-        .twelve.columns.mobile-four
+        .twelve.columns
           %h3 Frequently Asked Questions
-          %ul.block-grid.three-up.mobile
+          %ul.block-grid.four-up.mobile
+
             %li
               %h4 What is this site about?
-              %p I created this site because I wanted a single, easy-to-use website where I could find out what is going on in this town.
-              %p This site scrapes info off of publicly available websites and consolidates, or "mashes up", that info into one place. I also wanted to make the site interesting to look at, though really, I'm no designer.
+              %p
+                I created this site because I wanted a single, easy-to-use website where I could find out what is going on in this town. There are
+                %a( src="#othersites") other sites
+                out there, but they require social media, or have chosen a different aesthetic than what i'd like.
+              %p This site uses data sourced from publicly available websites and consolidates, or "mashes up", that info into one, mobile-accessible, place.
+              %p My aim is to provied a site that is informative, while at the same time interesting to look at, though really, I'm no designer.
 
             %li
               %h4 Why is my venue not here?
-              %p There may be a couple reasons
+              %p There may be a couple reasons:
               %ol
                 %li I don't know about your venue
-                %li Your calendar is not public, or you don't have one
-                %li Or, a combination of the two
+                %li You don't have a calendar
+                %li Your calendar is not public
+                %li Or, a combination of the three
 
             %li
               %h4 What can I do about that?
-              %p Two things
+              %p Two things:
               %ol
                 %li Let me know where I can find the information and I'll add the venue in my free time, which is when I work on this site
                 %li Or, download a copy of the code and let me know when you've added the appropriate scripts to scrape the data.
 
+            %li#othersites
+              %h4 Are there other projects out there?
+              %p
+                There are a few, recently brought to my attention by
+                %a(src="http://wedentondoit.squarespace.com/home/2012/8/31/even-more-secrets-of-denton-county.html") We denton do it
+                (get it?), but as far as I know, this is the only one that is open-source...
+              %ul
+                %li
+                  %a(src="http://www.dentr0n.com/fullindex.php") dentr0n
+                %li
+                  %a(src="http://showli.st/ntx") Showli.st
+                %li
+                  %a(src="http://www.dentonlivemusic.com/") DentonLiveMusic.com
+                %li
+                  %a(src="http://www.mydentonmusic.com/") MyDentonMusic
 
-
-
-
+    #footer
+      .row
         .twelve.columns.mobile-four
           %h1
             %a.bbttxu( href="http://twitter.com/bbttxu/")@bbttxu
