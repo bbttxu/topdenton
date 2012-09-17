@@ -4,6 +4,8 @@ class ShowsController < ApplicationController
   def index
     @shows = Show.upcoming.next_week.group_by{ |u| Time.at(u.starts_at).to_date.to_datetime.to_i }
 
+    expires_in 5.minutes, :public => true
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @shows }
@@ -25,23 +27,23 @@ class ShowsController < ApplicationController
   # # GET /shows/new.json
   # def new
   #   @show = Show.new
-  # 
+  #
   #   respond_to do |format|
   #     format.html # new.html.erb
   #     format.json { render json: @show }
   #   end
   # end
-  # 
+  #
   # # GET /shows/1/edit
   # def edit
   #   @show = Show.find(params[:id])
   # end
-  # 
+  #
   # # POST /shows
   # # POST /shows.json
   # def create
   #   @show = Show.new(params[:show])
-  # 
+  #
   #   respond_to do |format|
   #     if @show.save
   #       format.html { redirect_to @show, notice: 'Show was successfully created.' }
@@ -52,12 +54,12 @@ class ShowsController < ApplicationController
   #     end
   #   end
   # end
-  # 
+  #
   # # PUT /shows/1
   # # PUT /shows/1.json
   # def update
   #   @show = Show.find(params[:id])
-  # 
+  #
   #   respond_to do |format|
   #     if @show.update_attributes(params[:show])
   #       format.html { redirect_to @show, notice: 'Show was successfully updated.' }
@@ -68,13 +70,13 @@ class ShowsController < ApplicationController
   #     end
   #   end
   # end
-  # 
+  #
   # # DELETE /shows/1
   # # DELETE /shows/1.json
   # def destroy
   #   @show = Show.find(params[:id])
   #   @show.destroy
-  # 
+  #
   #   respond_to do |format|
   #     format.html { redirect_to shows_url }
   #     format.json { head :ok }

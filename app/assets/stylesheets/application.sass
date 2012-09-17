@@ -6,6 +6,10 @@
  */
 
 @import "foundation"
+
+@import "navigation"
+@import "footer"
+
 //@import "scaffolds"
 @import "slabtext"
 
@@ -19,7 +23,7 @@ html
 
 body
   background: #333
-  @extend .base-font
+  // @extend .base-font
   border-top: #FF6600 1em solid
 
 #page
@@ -44,29 +48,4 @@ body
 #page
   background: white
   border-top: #FF6600 1em solid
-#navigation
-  ul
-    vertical-align: middle
-  li
-    min:
-      height: 100px
 
-  h5
-    @extend .base-font
-    line:
-      height: 0.8
-    bottom: 0px
-    position: absolute
-    text-align: right
-
-#footer
-
-  border-top: #FF6600 1em solid
-
-  h3, h4
-    color: #2BA6CB !important
-  p, li
-    color: white !important
-  h1
-    @extend .cherry-cream-soda
-    text-align: center
