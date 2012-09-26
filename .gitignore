@@ -18,3 +18,5 @@
 /assets/*.css
 /assets/*.js
 /assets/*.png
+
+/.DS_Store
