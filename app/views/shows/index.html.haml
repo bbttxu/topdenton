@@ -17,7 +17,7 @@
             - band_names = show.artists.collect{|band| band.name.gsub(/\s/, " ")}
             %li.show.mobile-four.panel{ :class => "#{(index % 2 == 1 ? :odd : :even )}" }
               .meta.row
-                .nine.columns
+                .twelve.columns
                   %h6
                     %span.slabtext
                       - hype = []
