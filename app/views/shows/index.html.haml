@@ -2,10 +2,13 @@
   - @shows.keys.each do |date|
     %hr
     .row.shows
-      .three.columns.divider.mobile-four
+      .three.columns.divider.mobile-one
         %h5
-          %span.slabtext= Time.at(date + 7 * 60* 60).strftime( "%A, %B %d" )
-      .nine.columns.shows.mobile-four
+          %span.day.slabtext= format_show_day date
+          %span.month.slabtext= format_show_month date
+          %span.date.slabtext= format_show_date date
+
+      .nine.columns.shows.mobile-three
         - ul_class = "one-up"
         - ul_class = "three-up" if @shows[date].count >= 3
         - ul_class = "two-up" if @shows[date].count % 2 == 0

@@ -16,9 +16,28 @@
     h4, h5
       @extend .base-font
       text-align: center
+      line:
+        height: 0.85
+
 
       @media (min-width: 480px)
         text-align: left
+
+      span.slabtext
+        @media (max-width: 767px)
+          // display: block
+          span
+            // color: blue
+            display: none
+          span
+            clear: both
+  
+    span.day
+      color: #000
+    span.month
+      color: #333
+    span.date
+      color: #999
 
   ul
     li

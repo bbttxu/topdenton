@@ -14,4 +14,30 @@ module ShowsHelper
     "#{time}#{meridian.initial}"
   end
   
+
+  def format_show_day(timestamp)
+  	the_time = Time.at(timestamp + 7 * 60* 60)
+  	long_day = the_time.strftime( "%A" )
+  	short_day = the_time.strftime( "%a" )
+  	awesome_day = long_day.gsub(short_day, "")
+
+  	"#{short_day}<span>#{awesome_day}</span>".html_safe
+  end
+
+  def format_show_month(timestamp)
+  	the_time = Time.at(timestamp + 7 * 60* 60)
+  	long_month = the_time.strftime( "%B" )
+  	short_month = the_time.strftime( "%b" )
+  	awesome_month = long_month.gsub(short_month, "")
+
+  	"#{short_month}<span>#{awesome_month}</span>".html_safe
+  end
+
+  def format_show_date(timestamp)
+  	the_time = Time.at(timestamp + 7 * 60* 60)
+
+  	"#{the_time.strftime('%d')}".html_safe
+  end
+
 end
+
