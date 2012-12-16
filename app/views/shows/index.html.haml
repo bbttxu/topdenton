@@ -15,16 +15,14 @@
         %ul.shows.block-grid( class = ul_class )
           - @shows[date].each_with_index do |show,index|
             - band_names = show.artists.collect{|band| band.name.gsub(/\s/, " ")}
-            %li.show.mobile-four.panel{ :class => "#{(index % 2 == 1 ? :odd : :even )}" }
+            %li.show.mobile-four{ :class => "#{(index % 2 == 1 ? :odd : :even )}" }
               .meta.row
                 .twelve.columns
                   %h6
                     %span.slabtext
-                      - hype = []
-                      - hype << "#{do_time show.starts_at}"
-                      - hype << "@#{show.venue.name}"
-                      - hype << "#{pricify show.price}"
-                      = hype.reject{|x|x == ""}.join(" | ")
+                      %span.time= do_time show.starts_at if show.starts_at
+                      %span.venue= "@#{show.venue.name}" if show.venue.name
+                      %span.price= "#{pricify show.price}"
               .artists
                 - source = ( show.source == nil ? "/shows/#{show.id}" : show.source ) 
                 %a{ :href => source}

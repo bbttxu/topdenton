@@ -7,4 +7,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.slabtext
-//= require_tree .
+//= require jquery.isotope
+//= require artists 
+//= require gigs 
+//= require shows 
+//= require venues 

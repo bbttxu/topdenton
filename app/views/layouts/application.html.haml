@@ -10,24 +10,55 @@
 
   %body
     #page
+      #navigation
+        / %nav.nav.top-bar
+        /   %ul
+        /     %li.name
+        /       %h1
+        /         %a() BBTTXU
+        /     %li.toggle-topbar
+        /       %a( href="#" )
+
+        /   %section
+
+        /     %ul.left
+        /       = li_active_link_to 'Denton, TX', "/"
+        /     %ul.right
+        /       %li
+        /         %a{ :src => "/shows"}
+        /           / %h5
+        /           %span.slabtext= @n_shows
+        /           %span.slabtext Shows
+        /       %li
+        /         / %h5
+        /         %a{ :src => "/venues"}
+        /           %span( class="slabtext" )= numerify @n_venues
+        /           %span.slabtext Venues
+        /       %li
+        /         / %h5
+        /         %a{ :src => "/artists"}
+        /           %span( class="slabtext" )=@n_artists
+        /           %span.slabtext Artists
+
+
       .row#header
         .six.columns.mobile-one
           %h1 Denton TX
         .six.columns.mobile-three
-          %ul.three-up.block-grid#navigation
+          %ul.three-up.block-grid#nav
             %li
-              %a{ :src => "/shows"}
-                %h5
+              %h5
+                %a{ :href => "/shows"}
                   %span.slabtext= @n_shows
                   %span.slabtext Shows
             %li
               %h5
-                %a{ :src => "/venues"}
+                %a{ :href => "/venues"}
                   %span( class="slabtext" )= numerify @n_venues
                   %span.slabtext Venues
             %li
               %h5
-                %a{ :src => "/artists"}
+                %a{ :href => "/artists"}
                   %span( class="slabtext" )=@n_artists
                   %span.slabtext Artists
 

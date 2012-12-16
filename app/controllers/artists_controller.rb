@@ -2,7 +2,9 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
   def index
-    @artists = Artist.all
+    @artists = Artist.group_by do |u| 
+      u.name
+    end
 
     respond_to do |format|
       format.html # index.html.erb

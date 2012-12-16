@@ -1,6 +1,6 @@
 // navigation.sass
 
-#navigation
+#nav  
   ul
     vertical-align: middle
   li
@@ -14,3 +14,20 @@
     bottom: 0px
     position: absolute
     text-align: right
+
+
+#navigation
+  @extend .row
+  
+
+
+  .nav
+    @extend .twelve
+    @extend .columns
+    @extend .top-bar
+
+    margin: 0
+
+  a.active
+    li &
+      @extend .active

@@ -9,6 +9,8 @@ gem 'sqlite3'
 
 gem 'json'
 
+gem "active_link_to"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -18,7 +20,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 
   gem 'compass-rails', '~> 1.0.3'
-  gem 'zurb-foundation', '~> 3.0.1'
+  gem 'zurb-foundation', '~> 3.2'
 
 end
 
@@ -42,6 +44,8 @@ gem 'clockwork'
 gem 'nokogiri'
 gem 'chronic'
 gem 'haml'
+gem 'sass'
+gem 'slim'
 # gem 'redcarpet'
 gem 'thin'
 group :development do
