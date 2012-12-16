@@ -12,6 +12,18 @@ class ShowsController < ApplicationController
     end
   end
 
+
+  def today
+    @shows = Show.upcoming.next_week.group_by{ |u| Time.at(u.starts_at).to_date.to_datetime.to_i }
+
+    expires_in 5.minutes, :public => true
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @shows.first }
+    end
+  end
+
   # GET /shows/1
   # GET /shows/1.json
   def show

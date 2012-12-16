@@ -1,6 +1,7 @@
 Denton::Application.routes.draw do
   resources :gigs
 
+  match "shows/today" => 'shows#today'
   resources :shows
 
   resources :venues
