@@ -1,0 +1,50 @@
+/ day.slim
+/ today.slim
+- dates = @shows.keys.sort
+
+- dates.each_with_index do |date,date_index|
+	- date_index = dates.index(date)
+	.twelve.columns
+		.row.shows
+			- if @most_recent_show
+				.three.columns.mobile-one.previous
+					h5
+						a( href="/shows/#{Time.zone.at(@most_recent_show.starts_at).strftime('%F')}/" )
+							span.date= format_show_date @most_recent_show.starts_at
+							== "&nbsp;"
+							span.day= format_show_day @most_recent_show.starts_at
+
+			- else
+				.three.columns.mobile-one.today
+					h5
+						span.date Today
+
+			.columns.six.mobile-two.today
+				h5
+					a( href="/shows/#{Time.zone.at(date).strftime('%F')}" )
+						span.day= format_show_day date
+						== "&nbsp;"
+						span.month= format_show_month date
+						== "&nbsp;"
+						span.date= format_show_date date
+			.three.columns.mobile-one.next
+				- if @next_show
+					h5
+						a( href="/shows/#{Time.zone.at(@next_show.starts_at).strftime('%F')}" )
+							span.date= format_show_date @next_show.starts_at
+							== "&nbsp;"
+							span.day= format_show_day @next_show.starts_at
+
+				- else
+					h5 End of the line
+	.twelve.columns
+		.row
+			.twelve.columns.shows.mobile-four
+				- ul_class = "two-up"
+				- ul_class = "three-up" if @shows[date].count >= 3
+				/ - ul_class = "two-up" if @shows[date].count % 2 == 0
+				ul.shows.block-grid( class="#{ul_class}" )
+			  	- @shows[date].each_with_index do |show,index|
+						= render :partial => "day", :locals => { :show => show }
+			.twelve.columns
+				/ pre= debug @upcoming_shows

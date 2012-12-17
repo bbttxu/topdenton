@@ -7,16 +7,16 @@ end
 
 module ShowsHelper
   def do_time(timestamp)
-    meridian = Time.at(timestamp).strftime("%p")
-    time = Time.at(timestamp).strftime("%I:%M")
-    time = Time.at(timestamp).strftime("%I") if Time.at(timestamp).strftime("%M") == "00"
+    meridian = Time.zone.at(timestamp).strftime("%p")
+    time = Time.zone.at(timestamp).strftime("%I:%M")
+    time = Time.zone.at(timestamp).strftime("%I") if Time.zone.at(timestamp).strftime("%M") == "00"
 
     "#{time}#{meridian.initial}"
   end
   
 
   def format_show_day(timestamp)
-  	the_time = Time.at(timestamp + 7 * 60* 60)
+  	the_time = Time.zone.at(timestamp)
   	long_day = the_time.strftime( "%A" )
   	short_day = the_time.strftime( "%a" )
   	awesome_day = long_day.gsub(short_day, "")
@@ -25,7 +25,7 @@ module ShowsHelper
   end
 
   def format_show_month(timestamp)
-  	the_time = Time.at(timestamp + 7 * 60* 60)
+  	the_time = Time.zone.at(timestamp + 7 * 60* 60)
   	long_month = the_time.strftime( "%B" )
   	short_month = the_time.strftime( "%b" )
   	awesome_month = long_month.gsub(short_month, "")
@@ -34,7 +34,7 @@ module ShowsHelper
   end
 
   def format_show_date(timestamp)
-  	the_time = Time.at(timestamp + 7 * 60* 60)
+  	the_time = Time.zone.at(timestamp + 7 * 60* 60)
 
   	"#{the_time.strftime('%d')}".html_safe
   end

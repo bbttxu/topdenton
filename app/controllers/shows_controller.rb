@@ -2,7 +2,7 @@ class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.json
   def index
-    @shows = Show.upcoming.next_week.group_by{ |u| Time.at(u.starts_at).to_date.to_datetime.to_i }
+    @shows = Show.upcoming.next_week.group_by{ |u| Time.zone.at(u.starts_at).to_date.to_datetime.to_i }
 
     expires_in 5.minutes, :public => true
 
@@ -14,15 +14,27 @@ class ShowsController < ApplicationController
 
 
   def today
-    @shows = Show.upcoming.next_week.group_by{ |u| Time.at(u.starts_at).to_date.to_datetime.to_i }
+    redirect_to "/shows/#{Time.now.strftime('%F')}"
+  end
 
-    expires_in 5.minutes, :public => true
+  def day
+    now = Time.zone.parse( params[:date] )
+    tomorrow = now + 24 * 60 * 60
+    @shows = Show.after(now.to_i).before(tomorrow.to_i).group_by{ |u| Time.zone.at(u.starts_at).to_date.to_datetime.to_i }
+
+    @next_show = Show.after(tomorrow.to_i).order("starts_at ASC").first
+    @most_recent_show = Show.before(now.to_i).upcoming.reverse.first
+
+    # @upcoming_shows = @shows.keys
+    # @shows = @shows.first
+    # expires_in 5.seconds, :public => true
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @shows.first }
+      format.json { render json: @shows }
     end
   end
+
 
   # GET /shows/1
   # GET /shows/1.json

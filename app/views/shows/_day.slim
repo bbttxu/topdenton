@@ -1,0 +1,27 @@
+/ _day.slim
+
+/ h2= show.artists.collect{|x|x.name}.join(",")
+- band_names = show.artists.collect{|band| band.name.gsub(/\s/, " ")}
+
+li.show.mobile-four
+  .meta.row
+    .twelve.columns
+      h6
+        span.slabtext
+          span.time= do_time show.starts_at if show.starts_at
+          == "&nbsp;"
+          span.venue= "@#{show.venue.name}" if show.venue.name
+          == "&nbsp;"
+          span.price= "#{pricify show.price}"
+  .artists
+    - source = ( show.source == nil ? "/shows/#{show.id}" : show.source ) 
+    a
+      h3
+        - split_on_important_stuff(band_names.flatten).each do |text|
+          span.slabtext= text
+
+
+
+/ pre= debug show
+
+

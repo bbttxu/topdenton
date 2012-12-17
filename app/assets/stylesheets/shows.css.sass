@@ -10,6 +10,34 @@
 
 
 .shows
+
+  .nothing
+    h5
+      a
+        span
+          display: none
+          @media (min-width: 480px)
+            display: inline
+
+  div.today, div.previous, div.next
+    h5
+      a
+        span 
+          span
+            display: none
+            @media (min-width: 480px)
+              display: inline
+
+
+  .today
+    background: #111
+    text-align: center
+  .previous, .next
+    background: #333
+    text-align: center
+  .previous
+    content:
+      after: " >>"
   .divider
     @extend .solid
     @extend .lightblue
@@ -39,13 +67,16 @@
   
   span.venue
     color: #2BA6CB
-  span.day
-    color: #fff
-  span.month
-    color: #ccc
-  span.date, span.price, span.time
-    color: #666
+  span.date
+    color: #2BA6CB
 
+  span.month
+    color: #666
+  span.day
+    color: #ccc
+
+  span.price, span.time
+    color: white
   ul
     li
       width: 100%
@@ -71,11 +102,12 @@ ul.shows
 li.show
   float: left !important
   div.meta
+
     h6
       @extend .base-font
       font-weight: 200
       // TODO
-      //color: #f77 !important
+      background: #222 !important
       margin:
         bottom: 0px
 
