@@ -12,7 +12,7 @@
 
 			.columns.six.mobile-two.today
 				h5
-					a( href="/shows/#{Time.at(date).strftime('%F')}" )
+					a( href="/shows/#{Time.zone.at(dates[date_index]).strftime('%F')}" )
 						span.day= format_show_day date
 						span.month= format_show_month date
 						span.date= format_show_date date

@@ -14,13 +14,13 @@
             %h3
               -split_on_important_stuff([band.name]).each do |chunk|
                 %span.slabtext= chunk
-  
+
 
   .four.columns
     %p.doors_at
       %span.slabtext
-        %span.starts_at= "#{Time.at(@show.starts_at).strftime( date_format )}"
-        %span.doors_at= "#{Time.at(@show.starts_at).strftime( time_format )}"
+        %span.starts_at= "#{Time.zone.at(@show.starts_at).strftime( date_format )}"
+        %span.doors_at= "#{Time.zone.at(@show.starts_at).strftime( time_format )}"
 
     %p
       %span.price= @show.price

@@ -22,6 +22,7 @@ class ShowsController < ApplicationController
     tomorrow = now + 24 * 60 * 60
     @shows = Show.after(now.to_i).before(tomorrow.to_i).group_by{ |u| Time.zone.at(u.starts_at).to_date.to_datetime.to_i }
 
+    @show = @shows.first.first # awkward
     @next_show = Show.after(tomorrow.to_i).order("starts_at ASC").first
     @most_recent_show = Show.before(now.to_i).upcoming.reverse.first
 

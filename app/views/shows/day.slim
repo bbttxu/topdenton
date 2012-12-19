@@ -21,12 +21,13 @@
 
 			.columns.six.mobile-two.today
 				h5
-					a( href="/shows/#{Time.zone.at(date).strftime('%F')}" )
-						span.day= format_show_day date
+					a( href="/shows/#{Time.zone.at( date + 6 * 60 * 60).strftime('%F')}" )
+
+						span.day= format_show_day date + 6 * 60 * 60
 						== "&nbsp;"
-						span.month= format_show_month date
+						span.month= format_show_month date + 6 * 60 * 60
 						== "&nbsp;"
-						span.date= format_show_date date
+						span.date= format_show_date date + 6 * 60 * 60
 			.three.columns.mobile-one.next
 				- if @next_show
 					h5
