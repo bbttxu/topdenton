@@ -63,3 +63,5 @@ end
 # gem 'johnson'
 
 gem 'linguistics'
+
+gem 'newrelic_rpm'
