@@ -65,3 +65,5 @@ end
 gem 'linguistics'
 
 gem 'newrelic_rpm'
+
+gem 'turbolinks'

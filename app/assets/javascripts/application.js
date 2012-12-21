@@ -8,6 +8,7 @@
 //= require jquery_ujs
 //= require jquery.slabtext
 //= require jquery.isotope
+//= require turbolinks
 //= require artists 
 //= require gigs 
 //= require shows 

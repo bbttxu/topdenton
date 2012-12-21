@@ -4,13 +4,29 @@
 
 $ = jQuery
 
-$(document).ready ->
+handle_typography = ->
+	$('ul.shows li').each (index, element) ->
+		$(element).find('div.artists h3').slabText()
+		$(element).find('div.meta h6').slabText()
 
-	$('.shows .divider h5').slabText()
-	# $('.meta h6').slabText()
-	$('#header h1').slabText()
-	$('#nav h5').slabText()
-	$('div.meta h6').slabText()
 
-	$('ul.shows').isotope()
-	# wall = new Masonry( document.getElementById('ul.shows') )
+doet = null
+handle_typography_and_layout = ->
+	clearTimeout(doet)
+	doet = setTimeout ->
+		handle_typography()
+		$('ul.shows').isotope()
+		console.log "fired!"
+	, 100
+
+
+# function() {
+#     clearTimeout(doit);
+#     doit = setTimeout(function() {
+#         resizedw();
+#     }, 100);
+
+$(document).ready(handle_typography_and_layout)
+$(document).on('page:load', handle_typography_and_layout)
+
+$(window).resize( handle_typography_and_layout )

@@ -4,4 +4,3 @@
 
 $ = jQuery
 $(document).ready ->
-  $('div.artists h3').slabText()
