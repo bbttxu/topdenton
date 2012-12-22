@@ -7,10 +7,10 @@ module ArtistsHelper
       # don't want to split too small a chunk
       if chunk.length <= 10
         new_chunks << chunk
-      elsif chunk.match " and "
-        chunk.split(" and ").each_with_index do |chunk,i|
+      elsif chunk.match " And "
+        chunk.split(" And ").each_with_index do |chunk,i|
           new_chunks[i] = "#{chunk}".strip if i == 0
-          new_chunks[i] = "and #{chunk}".strip unless i == 0
+          new_chunks[i] = "And #{chunk}".strip unless i == 0
         end
       else
         new_chunks << chunk
@@ -43,7 +43,7 @@ module ArtistsHelper
 
   def split_on_important_stuff(stuff)
     # stuff
-    split_of_the_life_of split_on_and split_on_ampersand split_on_semicolon   stuff
+    split_of_the_life_of split_on_and split_on_ampersand split_on_semicolon  split_on_featuring stuff
     # split_on_and split_on_ampersand
     
   end

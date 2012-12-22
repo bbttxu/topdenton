@@ -22,9 +22,7 @@
 
             %ul.right
               %li
-                %a{ :src => "/shows"}
-                  %span.slabtext= @n_shows
-                  %span.slabtext Shows
+                = link_to "#{@n_shows} Upcoming Shows", '/shows/today'
       .row#content
         = yield
 

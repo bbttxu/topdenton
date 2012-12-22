@@ -6,10 +6,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
 //= require jquery.slabtext
 //= require jquery.isotope
 //= require jquery.touchSwipe
+//= require app
 //= require artists 
 //= require gigs 
 //= require shows 
