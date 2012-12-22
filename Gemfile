@@ -14,7 +14,7 @@ gem "active_link_to"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass'
+  gem 'sass', '> 3.2'
   gem 'sass-rails',   '~> 3.1.5'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
@@ -43,8 +43,7 @@ gem 'resque'
 gem 'clockwork'
 gem 'nokogiri'
 gem 'chronic'
-gem 'haml'
-gem 'sass'
+gem 'haml', '~>3.1.7'
 gem 'slim'
 # gem 'redcarpet'
 gem 'thin'
@@ -52,7 +51,7 @@ group :development do
   gem "capistrano"
 end
 group :test, :development do
-  gem 'cucumber-rails'
+  # gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'rspec'
   gem 'spork'
@@ -67,3 +66,8 @@ gem 'linguistics'
 gem 'newrelic_rpm'
 
 gem 'turbolinks'
+
+gem 'autotest'
+gem 'autotest-rails'
+# gem 'autotest-growl'
+# gem 'autotest-fsevent'
