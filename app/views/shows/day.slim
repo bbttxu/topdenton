@@ -43,9 +43,9 @@
 			- div_classes = ["columns six push-three"]
 			- div_classes = ["columns eight push-two"] if @shows[date].count >= 2
 
-			- ul_class = "one-up"
+			- ul_class = "one-up mobile-one-up"
 			/ - ul_class = "three-up" if @shows[date].count >= 3
-			- ul_class = "two-up" if @shows[date].count >= 2
+			- ul_class = "two-up mobile-two-up" if @shows[date].count >= 2
 			.shows.mobile-four( class="#{div_classes.join(' ')}")
 				ul.shows.block-grid( class="#{ul_class}" )
 			  	- @shows[date].each_with_index do |show,index|

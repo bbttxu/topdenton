@@ -4,28 +4,18 @@
 
 $ = jQuery
 
-handle_typography = ->
+handle_typography_and_layout = ->
 	$('ul.shows li').each (index, element) ->
 		$(element).find('div.artists h3').slabText()
 		$(element).find('div.meta h6').slabText()
-
-
-doet = null
-handle_typography_and_layout = ->
-	clearTimeout(doet)
-	doet = setTimeout ->
-		handle_typography()
-		$('ul.shows').isotope()
-	, 100
-
-
-# function() {
-#     clearTimeout(doit);
-#     doit = setTimeout(function() {
-#         resizedw();
-#     }, 100);
+	$('ul.shows').isotope()
 
 $(document).ready(handle_typography_and_layout)
 $(document).on('page:load', handle_typography_and_layout)
 
-$(window).resize( handle_typography_and_layout )
+doet = null
+$(window).resize ->
+	doet = setTimeout ->
+		handle_typography_and_layout
+	, 100
+
