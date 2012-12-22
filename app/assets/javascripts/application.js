@@ -6,9 +6,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
 //= require jquery.slabtext
 //= require jquery.isotope
-//= require turbolinks
+//= require jquery.touchSwipe
 //= require artists 
 //= require gigs 
 //= require shows 
