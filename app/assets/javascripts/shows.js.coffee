@@ -16,7 +16,6 @@ handle_typography_and_layout = ->
 	doet = setTimeout ->
 		handle_typography()
 		$('ul.shows').isotope()
-		# console.log "fired!"
 	, 100
 
 
