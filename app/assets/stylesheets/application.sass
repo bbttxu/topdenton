@@ -23,17 +23,14 @@
 html
 
 body
-  // background: #91AEBF
-  background: #222
-  background:
-    image: image-url('South_Side_of_Denton_Square.jpeg')
-    position: top center
-  // @extend .base-font
-  // border-top: #FF6600 1em solid
+	// background: #91AEBF
+	background: #222
+	background:
+		image: image-url('denton.jpeg')
+		position: top center
+	// @extend .base-font
+	// border-top: #FF6600 1em solid
 
-  @media (min-width: $rowWidth)
-    padding:
-      top: 4em
 #page
 //  background:
 //    image: image-url('/images/Chalkboard.jpg') !important
@@ -42,24 +39,27 @@ body
 
 #header
 
-  // background: #91AEBF
-  #title
-    //min:
-    //  height: 80px
-    //bottom: 0px
-    //position: absolute
+	// background: #91AEBF
+	#title
+		//min:
+		//  height: 80px
+		//bottom: 0px
+		//position: absolute
 
-  h1
-    @extend .base-font
-    line:
-      height: 0.8
+	h1
+		@extend .base-font
+		line:
+			height: 0.8
 
 
 #page
-  // background: white
-  // border-top: #FF6600 1em solid
+	// background: white
+	// border-top: #FF6600 1em solid
 #content
-  background: $mainColor
-  border: 20px solid white
-  @media (min-width: $rowWidth)
+	background: $mainColor
+	border: 20px solid white
+	@media (min-width: $rowWidth)
+		margin:
+			top: 3em !important
+	@media (min-width: $rowWidth)
 

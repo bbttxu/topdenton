@@ -1,11 +1,19 @@
 /* footer.sass
 
 #footer
+	@extend .three
+	@extend .offset-by-nine
+	@extend .columns
+	@extend .mobile-four
+	// border-top: #FF6600 1em solid
 
-  // border-top: #FF6600 1em solid
 
-  h1
-    @extend .cherry-cream-soda
-    text-align: center
-    line-height: 1em
-    font-size: 2em
+	background: white
+
+	h1
+		@extend .cherry-cream-soda
+		text-align: center
+		@media (min-width: $rowWidth)
+			text-align: left
+		line-height: 1em
+		font-size: 2em

@@ -9,26 +9,25 @@
 
   %body
     #page
-      #navigation
-        %nav.nav.top-bar
-          %ul
-            %li.name
-              %h1
-                = li_active_link_to 'Denton, TX', "/"
-            %li.toggle-topbar
-              %a( href="#" )
+      #navigation-wrapper
+        #navigation
+          %nav.nav.top-bar
+            %ul
+              %li.name
+                %h1
+                  = li_active_link_to 'Denton, TX', "/"
+              %li.toggle-topbar
+                %a( href="#" )
 
-          %section
+            %section
 
-            %ul.right
-              %li
-                = link_to "#{@n_shows} Upcoming Shows", '/shows/today'
+              %ul.right
+                %li
+                  = link_to "#{@n_shows} Upcoming Shows", '/shows/today'
       .row#content
         = yield
 
-    #footer
-      .row
-        .twelve.columns.mobile-four
+        #footer
           %h1
             %a.bbttxu( href="http://twitter.com/bbttxu/")@bbttxu
             %a( href="https://github.com/bbttxu")writes code
