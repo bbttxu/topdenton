@@ -29,8 +29,6 @@
 
         #footer
           %h1
-            %a.bbttxu( href="http://twitter.com/bbttxu/")@bbttxu
-            %a( href="https://github.com/bbttxu")writes code
-            %a( href="http://maps.google.com/maps?q=Denton,+TX&hl=en&sll=37.0625,-95.677068&sspn=45.601981,81.298828&oq=denton&hnear=Denton,+Texas&t=m&z=12")in Denton,&nbsp;TX
+            = link_to(raw("@bbttxu writes code in Denton,&nbsp;TX"), "http://bbttxu.com/")
 
 = javascript_include_tag "application"
