@@ -21,3 +21,8 @@
 
 /.DS_Store
 /*.rdb
+
+# compiled assets
+public/assets/*
+
+.sass-cache
