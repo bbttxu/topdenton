@@ -6,11 +6,11 @@ set :scm, :git
 
 set :repository, "git@github.com:bbttxu/denton.git"  # Your clone URL
 set :branch, "master"
-set :user, "adam"  # The server's user for deploys
+set :user, "deploy"  # The server's user for deploys
 set :deploy_via, :remote_cache # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-set :deploy_to, "/home/adam/#{application}"
-
+set :deploy_to, "/home/deploy/#{application}"
+set :use_sudo, false
 
 if ENV['DEPLOY'] == 'PRODUCTION'
    puts "*** Deploying to the \033[1;41m  PRODUCTION  \033[0m servers!"
@@ -20,10 +20,10 @@ if ENV['DEPLOY'] == 'PRODUCTION'
    role :db,  "50.56.244.214", :primary => true
 else
    puts "*** Deploying to the \033[1;42m  STAGING  \033[0m server!"
-   role :app, "50.56.234.48"                          # Your HTTP server, Apache/etc
-   role :web, "50.56.234.48"                          # Your HTTP server, Apache/etc
+   role :app, "10.0.0.38"                          # Your HTTP server, Apache/etc
+   role :web, "10.0.0.38"                          # Your HTTP server, Apache/etc
    # TODO adding db role to production, we don't need it, but a capistrano task is looking for it
-   role :db, "50.56.234.48", :primary => true
+   role :db, "10.0.0.38", :primary => true
 end
 
 # if you want to clean up old releases on each deploy uncomment this:

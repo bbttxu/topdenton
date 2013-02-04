@@ -71,3 +71,6 @@ gem 'autotest'
 gem 'autotest-rails'
 # gem 'autotest-growl'
 # gem 'autotest-fsevent'
+
+gem 'execjs'                                                  
+gem 'therubyracer'                                            
