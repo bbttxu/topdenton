@@ -4,8 +4,6 @@ class ShowsController < ApplicationController
   def index
     @shows = Show.upcoming.next_week.group_by{ |u| Time.zone.at(u.starts_at).to_date.to_datetime.to_i }
 
-    expires_in 5.minutes, :public => true
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @shows }
@@ -18,6 +16,9 @@ class ShowsController < ApplicationController
   end
 
   def day
+
+    expires_in 5.minutes, :public => true
+
     now = Time.zone.parse( params[:date] )
     tomorrow = now + 24 * 60 * 60
     @shows = Show.after(now.to_i).before(tomorrow.to_i).group_by{ |u| Time.zone.at(u.starts_at).to_date.to_datetime.to_i }
