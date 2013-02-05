@@ -14,10 +14,10 @@ set :use_sudo, false
 
 if ENV['DEPLOY'] == 'PRODUCTION'
    puts "*** Deploying to the \033[1;41m  PRODUCTION  \033[0m servers!"
-   role :app, "50.56.244.214"                          # Your HTTP server, Apache/etc
-   role :web, "50.56.244.214"                          # Your HTTP server, Apache/etc
+   role :app, "50.56.247.244"                          # Your HTTP server, Apache/etc
+   role :web, "50.56.247.244"                          # Your HTTP server, Apache/etc
    # TODO adding db role to production, we don't need it, but a capistrano task is looking for it
-   role :db,  "50.56.244.214", :primary => true
+   role :db,  "50.56.247.244", :primary => true
 else
    puts "*** Deploying to the \033[1;42m  STAGING  \033[0m server!"
    role :app, "10.0.0.38"                          # Your HTTP server, Apache/etc
@@ -52,8 +52,8 @@ default_environment["RAILS_ENV"] = 'production'
 
 default_run_options[:shell] = 'bash'
 
-# after "deploy:update", "foreman:export"    # Export foreman scripts
-# after "deploy:update", "foreman:restart"   # Restart application scripts
+after "deploy:update", "foreman:export"    # Export foreman scripts
+after "deploy:update", "foreman:restart"   # Restart application scripts
 
 namespace :deploy do
   desc "Deploy your application"
