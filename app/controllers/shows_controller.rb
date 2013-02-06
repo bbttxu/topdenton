@@ -19,6 +19,9 @@ class ShowsController < ApplicationController
 
     expires_in 5.minutes, :public => true
 
+    redirect_to '/shows/today', :status => 302 and return if params[:date] == nil
+
+
     now = Time.zone.parse( params[:date] )
     tomorrow = now + 24 * 60 * 60
     @shows = Show.after(now.to_i).before(tomorrow.to_i).group_by{ |u| Time.zone.at(u.starts_at).to_date.to_datetime.to_i }
