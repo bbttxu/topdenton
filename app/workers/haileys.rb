@@ -6,21 +6,21 @@ require 'chronic'
 
 
 
-class Haileys  
+class Haileys
   @queue = :haileys
-  
+
   def self.perform()
-  	puts "updating Hailey's"
+    puts "updating Hailey's"
 
     haileys = Venue.find_or_create_by_name "Hailey's Club"
     haileys.phone = ""
     haileys.address = ""
     haileys.save
-    
-    
+
+
     html = Nokogiri::HTML( open( 'http://haileysclub.com/contact/' ) )
     shows = Show.delete_all :venue_id => haileys.id
- 
+
     shows_url = "http://haileysclub.com/calendar/"
     fetched_doc = Nokogiri::HTML( open( shows_url ) )
     doc = fetched_doc.to_html
@@ -51,7 +51,7 @@ class Haileys
       date = month + " " + date_of_month
       time = show.css('ul.event-info li:first').text
       doors_at = time
-      
+
       doors_at = Chronic.parse(date.to_s + ", " + time.to_s).to_i
 
       source = shows_url.to_s
@@ -84,7 +84,7 @@ class Haileys
         show.gigs << gig
       end
     end
-    
-    
-  end  
+
+
+  end
 end

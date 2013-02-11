@@ -1,3 +1,4 @@
+# FIXME
 class GigsController < ApplicationController
   # GET /gigs
   # GET /gigs.json
@@ -25,23 +26,23 @@ class GigsController < ApplicationController
   # # GET /gigs/new.json
   # def new
   #   @gig = Gig.new
-  # 
+  #
   #   respond_to do |format|
   #     format.html # new.html.erb
   #     format.json { render json: @gig }
   #   end
   # end
-  # 
+  #
   # # GET /gigs/1/edit
   # def edit
   #   @gig = Gig.find(params[:id])
   # end
-  # 
+  #
   # # POST /gigs
   # # POST /gigs.json
   # def create
   #   @gig = Gig.new(params[:gig])
-  # 
+  #
   #   respond_to do |format|
   #     if @gig.save
   #       format.html { redirect_to @gig, notice: 'Gig was successfully created.' }
@@ -52,12 +53,12 @@ class GigsController < ApplicationController
   #     end
   #   end
   # end
-  # 
+  #
   # # PUT /gigs/1
   # # PUT /gigs/1.json
   # def update
   #   @gig = Gig.find(params[:id])
-  # 
+  #
   #   respond_to do |format|
   #     if @gig.update_attributes(params[:gig])
   #       format.html { redirect_to @gig, notice: 'Gig was successfully updated.' }
@@ -68,13 +69,13 @@ class GigsController < ApplicationController
   #     end
   #   end
   # end
-  # 
+  #
   # # DELETE /gigs/1
   # # DELETE /gigs/1.json
   # def destroy
   #   @gig = Gig.find(params[:id])
   #   @gig.destroy
-  # 
+  #
   #   respond_to do |format|
   #     format.html { redirect_to gigs_url }
   #     format.json { head :ok }

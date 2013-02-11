@@ -1,3 +1,4 @@
+# FIXME
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :grab_model_counts

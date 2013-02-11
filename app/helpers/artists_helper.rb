@@ -1,3 +1,4 @@
+# FIXME
 module ArtistsHelper
 
     def split_on_and( chunks )
@@ -45,14 +46,14 @@ module ArtistsHelper
     # stuff
     split_of_the_life_of split_on_and split_on_ampersand split_on_semicolon  split_on_featuring stuff
     # split_on_and split_on_ampersand
-    
+
   end
-  
+
   def split_of_the_life_of( names )
     new_chunks = []
-    
+
     names.each do |name|
-      if name.match("Of The Life Of") 
+      if name.match("Of The Life Of")
         crap = []
         crap << name.split("Of The Life Of").each_with_index do |chunk,i|
           new_chunks[i] = "#{chunk} Of The Life Of".strip if i == 0
@@ -68,9 +69,9 @@ module ArtistsHelper
 
   def split_on_semicolon( names )
     new_chunks = []
-    
+
     names.each do |name|
-      if name.match(": ") 
+      if name.match(": ")
         crap = []
         crap << name.split(": ").each_with_index do |chunk,i|
           new_chunks[i] = "#{chunk}:".strip if i == 0
@@ -85,9 +86,9 @@ module ArtistsHelper
 
   def split_on_featuring( names )
     new_chunks = []
-    
+
     names.each do |name|
-      if name.match(" Featuring ") 
+      if name.match(" Featuring ")
         crap = []
         crap << name.split(" Featuring ").each_with_index do |chunk,i|
           new_chunks[i] = "#{chunk}:".strip if i == 0
