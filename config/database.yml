@@ -5,16 +5,20 @@
 #   gem 'sqlite3'
 
 
-defaults: &defaults
-  adapter: mysql
-  username: root
-  password: root
-  host: 127.0.0.1
-  port: 8889
+# defaults: &defaults
+#   adapter: mysql
+#   username: root
+#   password: root
+#   host: 127.0.0.1
+#   port: 8889
 
 development:
-  <<: *defaults
-  database: denton_development
+  # <<: *defaults
+  # database: denton_development
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

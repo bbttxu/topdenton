@@ -22,15 +22,15 @@ class Rgrs
         html.css("#calendar article.show").each do |gig|
             date = gig.css("header").text.split("-")[0].split(",").collect{|x|x.strip}.slice(1,2).join(", ")
             time = gig.css("ul.details li")[1].text.split(" ")[0]
-
             price = ''
             source = ''
             admittance = ''
 
             doors_at = gig.css("ul.details li")[1].text.split(' ')[0]
 
-            puts Chronic.parse(date).to_i
-            show = Show.find_or_create_by_starts_at_and_venue_id_and_doors_at Chronic.parse(date).to_i, rgrs.id
+            full_date = Chronic.parse("#{date}, #{time}").to_i
+            puts full_date
+            show = Show.find_or_create_by_starts_at_and_venue_id_and_doors_at full_date, rgrs.id
 
             show.save
             puts show.id
