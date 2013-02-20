@@ -1,19 +1,31 @@
-/* footer.sass
+// footer.sass
 
 #footer
-	@extend .three
-	@extend .offset-by-nine
+	@extend .six
+	@extend .offset-by-six
 	@extend .columns
 	@extend .mobile-four
+
+	padding:
+		top: 1em !important
+
 
 	background: white
 
 	h1
-		font:
-			family: 'Anton', sans-serif
-			weight: 400		
+		@extend .cherry-cream-soda
+
 		text-align: center
 		@media (min-width: $rowWidth)
 			text-align: left
 		line-height: 1em
 		font-size: 2em
+		margin:
+			bottom: 0px
+
+		a
+			color: #333
+	p
+		color: #333
+		font:
+			size: 1.1em

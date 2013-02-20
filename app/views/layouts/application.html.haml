@@ -15,7 +15,7 @@
             %ul
               %li.name
                 %h1
-                  = li_active_link_to 'Denton, TX', "/"
+                  = active_link_to 'Denton, TX', "/"
               %li.toggle-topbar
                 %a( href="#" )
 
@@ -28,7 +28,11 @@
         = yield
 
         #footer
+          %p
+            This
+            = link_to 'open-source music showlist', "https://github.com/bbttxu/denton"
+            aggregates shows for Denton, TX using public data &mdash; with tangents in design and&nbsp;typography
           %h1
-            = link_to(raw("@bbttxu writes code in Denton,&nbsp;TX"), "http://bbttxu.com/")
+            = link_to(raw("@bbttxu writes code in&nbsp;Denton,&nbsp;TX"), "http://bbttxu.com/")
 
 = javascript_include_tag "application"

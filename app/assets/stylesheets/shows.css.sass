@@ -1,11 +1,11 @@
-/*
-  shows stylesheet
-    _________.__
-   /   _____/|  |__   ______  _  ________
-   \_____  \ |  |  \ /  _ \ \/ \/ /  ___/
-   /        \|   Y  (  <_> )     /\___ \
-  /_______  /|___|  /\____/ \/\_//____  >
-          \/      \/                  \/
+//
+// shows stylesheet
+//   _________.__
+//  /   _____/|  |__   ______  _  ________
+//  \_____  \ |  |  \ /  _ \ \/ \/ /  ___/
+//  /        \|   Y  (  <_> )     /\___ \
+// /_______  /|___|  /\____/ \/\_//____  >
+//         \/      \/                  \/
 
 
 
@@ -19,17 +19,21 @@
       a
         span
           display: none
-          @media (min-width: 480px)
+          @media (min-width: 640px)
             display: inline
 
   div.today, div.previous, div.next
     h5
       a
-        span 
+        span
           span
             display: none
-            @media (min-width: 480px)
+            @media (min-width: 800px)
               display: inline
+
+
+  .today, .previous, .next
+    padding: 0
 
 
   .today
@@ -38,6 +42,8 @@
   .previous, .next
     background: #333
     text-align: center
+
+
   .divider
     @extend .solid
     @extend .lightblue
@@ -64,7 +70,7 @@
             display: none
           span
             clear: both
-  
+
   span.venue
     color: #2BA6CB
   span.date
