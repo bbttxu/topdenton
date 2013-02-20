@@ -44,7 +44,7 @@ module ArtistsHelper
 
   def split_on_important_stuff(stuff)
     # stuff
-    split_of_the_life_of split_on_and split_on_ampersand split_on_semicolon  split_on_featuring stuff
+    split_of_the_life_of split_on_and split_on_ampersand split_on_semicolon  split_on_featuring split_on_with stuff
     # split_on_and split_on_ampersand
 
   end
@@ -93,6 +93,23 @@ module ArtistsHelper
         crap << name.split(" Featuring ").each_with_index do |chunk,i|
           new_chunks[i] = "#{chunk}:".strip if i == 0
           new_chunks[i] = "Featuring #{chunk}".strip unless i == 0
+        end
+      else
+        new_chunks << name
+      end
+    end
+    new_chunks.flatten
+  end
+
+  def split_on_with( names )
+    new_chunks = []
+
+    names.each do |name|
+      if name.match(" With ")
+        crap = []
+        crap << name.split(" With ").each_with_index do |chunk,i|
+          new_chunks[i] = "#{chunk}:".strip if i == 0
+          new_chunks[i] = "With #{chunk}".strip unless i == 0
         end
       else
         new_chunks << name
