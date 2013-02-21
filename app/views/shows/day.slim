@@ -7,7 +7,9 @@
 	.twelve.columns
 		.row.shows
 			- if @most_recent_show
-				.three.columns.mobile-one.previous
+				- css_class = ["previous"]
+				- css_class << "today" if Time.zone.at( @most_recent_show.starts_at + 0 * 60 * 60).today?
+				.three.columns.mobile-one[class="#{css_class.join(' ')}"]
 					h5
 						a( href="/shows/#{Time.zone.at(@most_recent_show.starts_at).strftime('%F')}" )
 							span.date= format_show_date @most_recent_show.starts_at
@@ -18,8 +20,10 @@
 				.three.columns.mobile-one.today
 					h5
 						span.date Today
-
-			.columns.six.mobile-two.today
+			- css_class = ["this_day"]
+			- css_class << Time.zone.at( date + 6 * 60 * 60)
+			- css_class << "today" if Time.zone.at( date + 6 * 60 * 60).today?
+			.columns.six.mobile-two[class="#{css_class.join(' ')}" ]
 				h5
 					a( href="/shows/#{Time.zone.at( date + 6 * 60 * 60).strftime('%F')}" )
 

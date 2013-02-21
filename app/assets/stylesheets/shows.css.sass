@@ -22,7 +22,14 @@
           @media (min-width: 640px)
             display: inline
 
-  div.today, div.previous, div.next
+  .today h5 span.date
+    color: lightgreen
+
+
+  .this_day, .today, .previous, .next
+    padding: 0
+    text-align: center
+
     h5
       a
         span
@@ -31,17 +38,10 @@
             @media (min-width: 800px)
               display: inline
 
-
-  .today, .previous, .next
-    padding: 0
-
-
-  .today
+  .this_day, .today
     background: #111
-    text-align: center
   .previous, .next
     background: #333
-    text-align: center
 
 
   .divider
