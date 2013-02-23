@@ -31,6 +31,7 @@ class Rgrs
             full_date = Chronic.parse("#{date}, #{time}").to_i
             puts full_date
             show = Show.find_or_create_by_starts_at_and_venue_id_and_doors_at full_date, rgrs.id
+            show.time_is_unknown = false
 
             show.save
             puts show.id

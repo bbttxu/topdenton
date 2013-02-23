@@ -6,6 +6,7 @@ require File.expand_path('../workers/dans.rb',  __FILE__)
 require File.expand_path('../workers/haileys.rb',  __FILE__)
 require File.expand_path('../workers/rubbergloves.rb',  __FILE__)
 require File.expand_path('../workers/andys.rb',  __FILE__)
+require File.expand_path('../workers/rockinrodeo.rb',  __FILE__)
 
 require 'clockwork'
 include Clockwork
@@ -17,4 +18,5 @@ every( 15.minutes, 'update.venues') {
   Resque.enqueue(Haileys)
   Resque.enqueue(Rgrs)
   Resque.enqueue(Andys)
+  Resque.enqueue(Rockinrodeo)
 }

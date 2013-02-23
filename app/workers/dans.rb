@@ -48,6 +48,8 @@ class Dans
             show.price = price
             show.source = source
             show.admittance = admittance
+            show.time_is_unknown = false
+
             show.save
 
             puts "show at #{dans.name}, #{show.starts_at}"

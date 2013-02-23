@@ -57,6 +57,7 @@ class Haileys
       source = shows_url.to_s
 
       show = Show.find_or_create_by_starts_at_and_venue_id_and_doors_at doors_at, haileys.id
+      show.time_is_unknown = false
       show.save
       puts show
 

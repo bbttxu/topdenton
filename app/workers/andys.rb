@@ -38,6 +38,8 @@ class Andys
       show = Show.find_or_create_by_source source[0]
       show.venue_id = andys.id
       show.starts_at = starts_at
+      show.time_is_unknown = false
+
       show.save
       puts show.id
 
