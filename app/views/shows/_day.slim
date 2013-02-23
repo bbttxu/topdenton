@@ -3,7 +3,7 @@
 / h2= show.artists.collect{|x|x.name}.join(",")
 - band_names = show.artists.collect{|band| band.name.gsub(/\s/, " ")}
 
-li.show.mobile-four
+li.show
   .meta.row
     .twelve.columns
       h6
@@ -14,7 +14,7 @@ li.show.mobile-four
           == "&nbsp;"
           span.price= "#{pricify show.price}"
   .artists
-    - source = ( show.source == nil ? "/shows/#{show.id}" : show.source ) 
+    - source = ( show.source == nil ? "/shows/#{show.id}" : show.source )
     a
       h3
         - split_on_important_stuff(band_names.flatten).each do |text|

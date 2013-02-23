@@ -90,6 +90,12 @@
         bottom: 0px
 
 ul.shows
+  @extend .block-grid
+  @extend .two-up
+  @extend .mobile-two-up
+
+
+
   li.divider
     @extend .solid
     // TODO
@@ -138,3 +144,7 @@ ul.lineup
   li
     @extend .base-font
 
+
+.block-grid.mobile-two-up > li, ul.shows > li
+  @media (max-width: 479px)
+    width: 100% !important
