@@ -6,7 +6,7 @@ gem 'rails', '3.1.3'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'mysql2'
+# gem 'mysql2'
 
 gem 'json'
 
@@ -74,5 +74,5 @@ gem 'autotest-rails'
 # gem 'autotest-growl'
 # gem 'autotest-fsevent'
 
-gem 'execjs'                                                  
-gem 'therubyracer'                                            
+gem 'execjs'
+gem 'therubyracer'
