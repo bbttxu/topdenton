@@ -23,7 +23,9 @@
 
               %ul.right
                 %li
-                  = link_to "#{@n_shows} Upcoming Shows", '/shows/today'
+                  = link_to "#{@n_shows} Shows", '/shows/today'
+                / %li
+                /   = link_to "#{@n_venues} Venues", '/venues'
       .row#content
         = yield
 
@@ -34,5 +36,15 @@
             aggregates shows for Denton, TX using public data &mdash; with tangents in design and&nbsp;typography
           %h1
             = link_to(raw("@bbttxu writes code in&nbsp;Denton,&nbsp;TX"), "http://bbttxu.com/")
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-37120893-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
 
 = javascript_include_tag "application"
