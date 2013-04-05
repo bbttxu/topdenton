@@ -14,22 +14,26 @@ class Dans
         dans.address = "103 Industrial Street, Denton, TX 76201-4223"
         dans.save
 
+
         html = Nokogiri::HTML( open( 'http://danssilverleaf.com/' ) )
 
         shows = Show.delete_all :venue_id => dans.id
 
+
+        # puts html.css("div.show")
+
         html.css("div.show").each do | show |
             bands = show.at_css('h2').text
-
+            puts bands
             time = show.at_css('h2').text
+            puts show
 
             infos = time.split " | "
-            # debug infos
+            debug infos
             date = show.at_css('h6').text.split(', ')[1]
             time = show.css('div.details p:first').text.gsub(/\s+/, "")
             time_array = time.split("|")
             show_info = {}
-            # puts time
             time_array.each do |x|
                 x.strip!
                 y = x.split ":", 2
@@ -49,6 +53,7 @@ class Dans
             show.source = source
             show.admittance = admittance
             show.time_is_unknown = false
+
 
             show.save
 

@@ -16,11 +16,11 @@ gem "active_link_to"
 # in production environments by default.
 group :assets do
   gem 'sass', '> 3.2'
-  gem 'sass-rails',   '~> 3.1.5'
-  gem 'coffee-rails', '~> 3.1.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 
-  gem 'compass-rails', '~> 1.0.3'
+  gem 'compass-rails'
   gem 'zurb-foundation', '~> 3.2'
 
 end
@@ -44,7 +44,7 @@ gem 'resque'
 gem 'clockwork'
 gem 'nokogiri'
 gem 'chronic'
-gem 'haml', '~>3.1.7'
+gem 'haml'
 gem 'slim'
 # gem 'redcarpet'
 gem 'thin'
