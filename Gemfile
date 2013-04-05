@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.3'
+gem 'rails', '~> 3.1'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -76,3 +76,5 @@ gem 'autotest-rails'
 
 gem 'execjs'
 gem 'therubyracer'
+
+gem "ZenTest", "4.8.3"
