@@ -7,9 +7,10 @@ module ApplicationHelper
   end
 
   def pricify(dollars = nil)
-    return "$?" if dollars == nil
-    return "Free" if dollars == 0
-    return "$#{dollars}" if dollars < 1
+    return "???" if dollars == nil
+    dollars
+    # return "Free" if dollars == 0
+    # return "$#{dollars}" if dollars < 1
   end
 
   def li_active_link_to(text, url)

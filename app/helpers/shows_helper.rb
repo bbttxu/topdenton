@@ -7,10 +7,9 @@ end
 
 module ShowsHelper
   def do_time(timestamp)
-    meridian = Time.zone.at(timestamp).strftime("%p")
-    time = Time.zone.at(timestamp).strftime("%I:%M")
-    time = Time.zone.at(timestamp).strftime("%I") if Time.zone.at(timestamp).strftime("%M") == "00"
-
+    meridian = timestamp.strftime("%p")
+    time = timestamp.strftime("%I:%M")
+    time = timestamp.strftime("%I") if Time.zone.at(timestamp).strftime("%M") == "00"
     "#{time}#{meridian.initial}"
   end
 

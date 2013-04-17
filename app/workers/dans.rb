@@ -18,7 +18,7 @@ class Dans
     dans.address = "103 Industrial Street, Denton, TX 76201-4223"
     dans.save
 
-    # shows = Show.delete_all :venue_id => dans.id
+    shows = Show.delete_all :venue_id => dans.id
 
     html = Nokogiri::HTML( open( 'http://danssilverleaf.com/' ) )
     html.css("div.show").each do |div|
@@ -41,29 +41,24 @@ class Dans
       puts Chronic.parse("#{date.to_s} #{show_info['Show']}".gsub(/\s+/, ' ') )
       show.doors_at = Chronic.parse("#{date.to_s} #{show_info['Show']}".gsub(/\s+/, ' ') )
       show.starts_at = Chronic.parse("#{date.to_s} #{show_info['Show']}".gsub(/\s+/, ' ') )
-      # show.starts_at = Chronic.parse(date.to_s + " " + show_info['Show'].to_s)
-
+      show.venue_id = dans.id
+      show.save
       puts show.to_yaml
-
-      # show.show_time = Chronic.parse(date.to_s + " " + show_info['Show'].to_s) || nil
-      # show.admittance = show_info['Admittance'] || nil
-
-      # price = show_info['Price'] || ""
-      # show_time = show_info['Show'] || ""
-      # doors_at = show_info['Doors'] || ""
-      # admittance = show_info['Admittance'] || ""
-
-      # show = Show.find_or_create_by_starts_at_and_venue_id_and_doors_at Chronic.parse(date.to_s + " " + show_time.to_s).to_i, dans.id
-      # show.price = price
-      # show.admittance = admittance
 
       bands = div.at_css('h2').text
       bands.split('/').each_with_index do |band_name, i|
         band_name = band_name.downcase.split(/\s/).collect{ | x | x.capitalize}.join(" ").strip
         artist = Artist.find_or_create_by_name band_name
-        artist.save
-        # puts artist.name
+        artist.save if artist.new_record?
+        puts artist.to_yaml
+
+        gig = Gig.new
+        gig.show_id = show.id
+        gig.artist_id = artist.id
+        gig.save
+        puts gig.to_yaml
       end
+      show.save
     end
 
     # html.css("div.show").each do | show |

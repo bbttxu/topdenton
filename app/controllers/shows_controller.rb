@@ -23,9 +23,9 @@ class ShowsController < ApplicationController
     redirect_to '/shows/today', :status => 302 and return if params[:date] == nil
 
 
-    now = Time.zone.parse( params[:date] )
+    now = Time.zone.parse( "#{params[:date]} 2:00am" )
     tomorrow = now + 24 * 60 * 60
-    @shows = Show.after(now.to_i).before(tomorrow.to_i).group_by{ |u| Time.zone.at(u.starts_at).to_date.to_datetime.to_i }
+    @shows = Show.after(now).before(tomorrow).group_by{ |u| Time.zone.at(u.starts_at).to_date.to_datetime.to_i }
 
     @show = @shows.first.first unless @shows.first == nil
     return if @shows.first == nil
