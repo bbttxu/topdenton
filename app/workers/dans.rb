@@ -8,6 +8,7 @@ require 'yaml'
 
 class Dans
   @queue = :dans
+
   def self.perform()
 
     puts "updating Dans"
