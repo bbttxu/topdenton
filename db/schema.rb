@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(:version => 20130223023110) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "gigs", :force => true do |t|
@@ -24,19 +24,19 @@ ActiveRecord::Schema.define(:version => 20130223023110) do
     t.datetime "plays_at"
     t.integer  "artist_id"
     t.integer  "show_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "shows", :force => true do |t|
     t.datetime "doors_at"
-    t.integer  "price"
+    t.string   "price"
     t.string   "source"
     t.datetime "starts_at"
     t.string   "admittance"
     t.integer  "venue_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.boolean  "time_is_unknown"
   end
 
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(:version => 20130223023110) do
     t.string   "name"
     t.string   "phone"
     t.string   "address"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

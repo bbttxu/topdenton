@@ -77,4 +77,5 @@ gem 'autotest-rails'
 gem 'execjs'
 gem 'therubyracer'
 
-gem "ZenTest", "4.8.3"
+gem "ZenTest"
+

@@ -13,4 +13,8 @@ class Show < ActiveRecord::Base
   scope :before, lambda { |date| where("starts_at < ?", date ) }
 
   scope :by_day, lambda { group_by{ |u| Time.zone.at(u.starts_at).to_date } }
+
+  # def to_s
+  #   "#{self.id}"
+  # end
 end
