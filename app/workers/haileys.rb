@@ -13,8 +13,8 @@ class Haileys
     puts "updating Hailey's"
 
     haileys = Venue.find_or_create_by_name "Hailey's Club"
-    haileys.phone = ""
-    haileys.address = ""
+    haileys.phone = "(940) 323-1159"
+    haileys.address = "122 Mulberry Street, Denton, TX"
     haileys.save
 
 
@@ -49,17 +49,22 @@ class Haileys
       month = Date::MONTHNAMES[month.to_i]
       date_of_month = parts[1]
       date = month + " " + date_of_month
-      time = show.css('ul.event-info li:first').text
+      time = show.css('ul.event-info li:first').text.gsub("Doors at", "")
       doors_at = time
 
-      doors_at = Chronic.parse(date.to_s + ", " + time.to_s).to_i
+      doors_at = Chronic.parse(date.to_s + ", " + time.to_s)
 
-      source = shows_url.to_s
 
-      show = Show.find_or_create_by_starts_at_and_venue_id_and_doors_at doors_at, haileys.id
+      show = Show.new
+      # show.price = show_info['Price'] || nil
+      show.source = shows_url.to_s
       show.time_is_unknown = false
+      # puts Chronic.parse("#{date.to_s} #{show_info['Show']}".gsub(/\s+/, ' ') )
+      show.doors_at = doors_at
+      show.starts_at = doors_at.localtime
+      show.venue_id = haileys.id
+      puts show.to_yaml
       show.save
-      puts show
 
       position = 0
       bands.each do | band |
@@ -79,11 +84,13 @@ class Haileys
         gig.show_id = show.id
         gig.position = position
         gig.save
-        puts gig.id
+        # puts gig.id
         # puts "New Gig #{gig.id} with #{gig.artist.name} @ #{gig.venue.name}"
 
         show.gigs << gig
       end
+      show.save
+      puts show
     end
 
 

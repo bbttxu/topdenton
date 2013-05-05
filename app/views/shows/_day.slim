@@ -1,14 +1,14 @@
 / _day.slim
 
 / h2= show.artists.collect{|x|x.name}.join(",")
-- band_names = show.artists.collect{|band| band.name.gsub(/\s/, " ")}
+- band_names = show.gigs.collect{|gig| gig.artist.name.gsub(/\s/, " ")}
 
 li.show
   .meta.row
     .twelve.columns
       h6
         span.slabtext
-          span.time= do_time show.starts_at if show.starts_at and not show.time_is_unknown
+          span.time= show.starts_at if show.starts_at and not show.time_is_unknown
           span.time.blink= "??:??" if show.time_is_unknown
           == "&nbsp;"
           span.venue= "@#{show.venue.name}" if show.venue.name

@@ -26,16 +26,8 @@
                   = link_to "#{@n_shows} Shows", '/shows/today'
                 / %li
                 /   = link_to "#{@n_venues} Venues", '/venues'
-      .row#content
+      .row
         = yield
-
-        #footer
-          %p
-            This
-            = link_to 'open-source music showlist', "https://github.com/bbttxu/denton"
-            aggregates shows for Denton, TX using public data &mdash; with tangents in design and&nbsp;typography
-          %h1
-            = link_to(raw("@bbttxu writes code in&nbsp;Denton,&nbsp;TX"), "http://bbttxu.com/")
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-37120893-1']);

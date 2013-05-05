@@ -79,3 +79,5 @@ gem 'therubyracer'
 
 gem "ZenTest"
 
+gem 'mongo_mapper'
+gem 'bson_ext'

@@ -40,12 +40,13 @@ class Dans
       show.time_is_unknown = false
       puts Chronic.parse("#{date.to_s} #{show_info['Show']}".gsub(/\s+/, ' ') )
       show.doors_at = Chronic.parse("#{date.to_s} #{show_info['Show']}".gsub(/\s+/, ' ') )
-      show.starts_at = Chronic.parse("#{date.to_s} #{show_info['Show']}".gsub(/\s+/, ' ') )
+      show.starts_at = Chronic.parse("#{date.to_s} #{show_info['Show']}".gsub(/\s+/, ' ') ).localtime
       show.venue_id = dans.id
       show.save
       puts show.to_yaml
 
       bands = div.at_css('h2').text
+      position = 1
       bands.split('/').each_with_index do |band_name, i|
         band_name = band_name.downcase.split(/\s/).collect{ | x | x.capitalize}.join(" ").strip
         artist = Artist.find_or_create_by_name band_name
@@ -55,8 +56,10 @@ class Dans
         gig = Gig.new
         gig.show_id = show.id
         gig.artist_id = artist.id
+        gig.position = position
         gig.save
         puts gig.to_yaml
+        position += 1
       end
       show.save
     end

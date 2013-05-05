@@ -1,6 +1,13 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+# require 'rails/all'
+# http://mongomapper.com/documentation/getting-started/rails.html
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "active_resource/railtie"
+require "rails/test_unit/railtie"
+# Uncomment for asset pipelining in Rails 3.1
+require "sprockets/railtie"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line

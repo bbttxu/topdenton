@@ -25,14 +25,18 @@ class ShowsController < ApplicationController
 
     now = Time.zone.parse( "#{params[:date]} 2:00am" )
     tomorrow = now + 24 * 60 * 60
-    @shows = Show.after(now).before(tomorrow).group_by{ |u| Time.zone.at(u.starts_at).to_date.to_datetime.to_i }
+    @now = now
+    @shows = Show.after(now).before(tomorrow)
 
-    @show = @shows.first.first unless @shows.first == nil
+    # @show = @shows.first unless @shows.first == nil
     return if @shows.first == nil
-    @next_show = Show.after(tomorrow.to_i).order("starts_at ASC").first
-    @most_recent_show = Show.before(now.to_i).upcoming.reverse.first
+    # @next_show = Show.after(tomorrow.to_i).order("starts_at ASC").first
+    # @most_recent_show = Show.before(now.to_i).upcoming.reverse.first
 
-    # @upcoming_shows = @shows.keys
+
+    @gig_dates = Show.all.group_by{|x|x.starts_at}
+    @gig_dates = Show.all.group_by{|x|Time.zone.parse("#{x.starts_at} 2:00am")}# @upcoming_shows = @shows.keys
+    # @gig_dates.collect
     # @shows = @shows.first
     # expires_in 5.seconds, :public => true
 

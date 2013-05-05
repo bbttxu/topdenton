@@ -65,12 +65,39 @@ li.name h1 a
 	// border-top: #FF6600 1em solid
 #content
 	background: $mainColor
-	border: 20px solid white
+	border: 1em solid white
 	@media (min-width: $rowWidth)
-		margin:
-			top: 3em !important
-	@media (min-width: $rowWidth)
+		border: 20px solid white
 
 .blink
 	text:
 		decoration: blink
+
+
+#calendar,#content
+	@media (min-width: $rowWidth)
+		margin:
+			top: 3em !important
+
+#calendar
+	text-align: center
+	// height: 30em
+	overflow: auto
+
+span.year, span.month, span.date, span.day
+	padding:
+		left: 0.3ex
+	// text-align: center
+span.year, span.month
+	// display: inline-block
+	// width: 100%
+
+span.year
+	h5.slabtextdone &, &
+		color: lightgreen !important
+
+span.month
+	color: lightblue
+
+span.day
+	color: gray

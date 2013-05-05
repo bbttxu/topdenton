@@ -1,58 +1,96 @@
-/ day.slim
-/ today.slim
-- dates = @shows.keys.sort
-
-- dates.each_with_index do |date,date_index|
-  - date_index = dates.index(date)
-  .twelve.columns
-    .row.shows
-      - if @most_recent_show
-        - css_class = ["previous"]
-        - css_class << "today" if Time.zone.at( @most_recent_show.starts_at + 0 * 60 * 60).today?
-        .three.columns.mobile-one[class="#{css_class.join(' ')}"]
+.two.mobile-one.columns.push-three-mobile.push-ten#calendar
+  ul
+    - if @gig_dates
+      - prev_year = Time.now().strftime("%y")
+      - prev_month = "-1"
+      - prev_day = "-1"
+      - @gig_dates.each do |date,data|
+        - formatted = date.strftime("%F")
+        li
           h5
-            a( href="/shows/#{Time.zone.at(@most_recent_show.starts_at).strftime('%F')}" )
-              span.date= format_show_date @most_recent_show.starts_at
-              == "&nbsp;"
-              span.day= format_show_day @most_recent_show.starts_at
+            a(href="/shows/#{formatted}")
+              - year = date.strftime("%y")
+              - if prev_year != year
+                span.year= year
 
-      - else
-        .three.columns.mobile-one.today
-          h5
-            span.date Today
-      - css_class = ["this_day"]
-      - css_class << Time.zone.at( date + 6 * 60 * 60)
-      - css_class << "today" if Time.zone.at( date + 6 * 60 * 60).today?
-      .columns.six.mobile-two[class="#{css_class.join(' ')}" ]
-        h5
-          a( href="/shows/#{Time.zone.at( date + 6 * 60 * 60).strftime('%F')}" )
+              - month = date.strftime("%b")
+              - if prev_month != month
+                span.month= month
+              span.date= date.strftime("%d")
+              span.day= date.strftime("%a") if prev_month == month or prev_year == year
+              - prev_year = year
+              - prev_month = month
 
-            span.day= format_show_day date + 6 * 60 * 60
-            == "&nbsp;"
-            span.month= format_show_month date + 6 * 60 * 60
-            == "&nbsp;"
-            span.date= format_show_date date + 6 * 60 * 60
-      .three.columns.mobile-one.next
-        - if @next_show
-          h5
-            a( href="/shows/#{Time.zone.at(@next_show.starts_at).strftime('%F')}" )
-              span.date= format_show_date @next_show.starts_at
-              == "&nbsp;"
-              span.day= format_show_day @next_show.starts_at
+.ten.mobile-three.columns.pull-two.pull-one-mobile#content
+  .row
+    - div_classes = ["columns six push-three"]
+    - div_classes = ["columns eight push-two"] if @shows.count >= 2
 
-        - else
-          h5 End of the line
-  .twelve.columns
-    .row
-      - div_classes = ["columns six push-three"]
-      - div_classes = ["columns eight push-two"] if @shows[date].count >= 2
+    - ul_class = "one-up mobile-two-up"
+    / - ul_class = "three-up" if @shows[date].count >= 3
+    - ul_class = "two-up mobile-two-up" if @shows.count >= 2
+    .shows.mobile-four( class="#{div_classes.join(' ')}")
+      ul.shows.block-grid( class="#{ul_class}" )
+        - @shows.each_with_index do |show,index|
+          = render :partial => "day", :locals => { :show => show }
+    = render 'shared/footer'
 
-      - ul_class = "one-up mobile-two-up"
-      / - ul_class = "three-up" if @shows[date].count >= 3
-      - ul_class = "two-up mobile-two-up" if @shows[date].count >= 2
-      .shows.mobile-four( class="#{div_classes.join(' ')}")
-        ul.shows.block-grid( class="#{ul_class}" )
-          - @shows[date].each_with_index do |show,index|
-            = render :partial => "day", :locals => { :show => show }
-      .twelve.columns
-        / pre= debug @upcoming_shows
+
+/ / day.slim
+/ / today.slim
+/ - dates = @shows
+
+/ - dates.each_with_index do |date,date_index|
+/   - date_index = dates.index(date)
+/   .twelve.columns
+/     .row.shows
+/       - if @most_recent_show
+/         - css_class = ["previous"]
+/         - css_class << "today" if Time.zone.at( @most_recent_show.starts_at + 0 * 60 * 60).today?
+/         .three.columns.mobile-one[class="#{css_class.join(' ')}"]
+/           h5
+/             a( href="/shows/#{Time.zone.at(@most_recent_show.starts_at).strftime('%F')}" )
+/               span.date= format_show_date @most_recent_show.starts_at
+/               == "&nbsp;"
+/               span.day= format_show_day @most_recent_show.starts_at
+
+/       - else
+/         .three.columns.mobile-one.today
+/           h5
+/             span.date Today
+/       - css_class = ["this_day"]
+/       - css_class << Time.zone.at( date + 6 * 60 * 60)
+/       - css_class << "today" if Time.zone.at( date + 6 * 60 * 60).today?
+/       .columns.six.mobile-two[class="#{css_class.join(' ')}" ]
+/         h5
+/           a( href="/shows/#{Time.zone.at( date + 6 * 60 * 60).strftime('%F')}" )
+
+/             span.day= format_show_day date + 6 * 60 * 60
+/             == "&nbsp;"
+/             span.month= format_show_month date + 6 * 60 * 60
+/             == "&nbsp;"
+/             span.date= format_show_date date + 6 * 60 * 60
+/       .three.columns.mobile-one.next
+/         - if @next_show
+/           h5
+/             a( href="/shows/#{Time.zone.at(@next_show.starts_at).strftime('%F')}" )
+/               span.date= format_show_date @next_show.starts_at
+/               == "&nbsp;"
+/               span.day= format_show_day @next_show.starts_at
+
+/         - else
+/           h5 End of the line
+/   .twelve.columns
+/     .row
+/       - div_classes = ["columns six push-three"]
+/       - div_classes = ["columns eight push-two"] if @shows[date].count >= 2
+
+/       - ul_class = "one-up mobile-two-up"
+/       / - ul_class = "three-up" if @shows[date].count >= 3
+/       - ul_class = "two-up mobile-two-up" if @shows[date].count >= 2
+/       .shows.mobile-four( class="#{div_classes.join(' ')}")
+/         ul.shows.block-grid( class="#{ul_class}" )
+/           - @shows[date].each_with_index do |show,index|
+/             = render :partial => "day", :locals => { :show => show }
+/       .twelve.columns
+/         / pre= debug @upcoming_shows
