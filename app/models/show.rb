@@ -38,4 +38,6 @@ class Show
   scope :before, lambda { |date| where(:starts_at.lte => date.localtime ) }
   scope :upcoming, lambda { where(:starts_at.gte => Time.zone.now ) }
 
+  scope :ordered, order("starts_at")
+
 end

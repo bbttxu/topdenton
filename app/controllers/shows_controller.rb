@@ -35,7 +35,7 @@ class ShowsController < ApplicationController
 
 
     @gig_dates = Show.all.group_by{|x|x.starts_at}
-    @gig_dates = Show.all.group_by{|x|Time.zone.parse("#{x.starts_at} 2:00am")}# @upcoming_shows = @shows.keys
+    @gig_dates = Show.ordered.group_by{|x|Time.zone.parse("#{x.starts_at.to_date} 2:00am")}# @upcoming_shows = @shows.keys
     # @gig_dates.collect
     # @shows = @shows.first
     # expires_in 5.seconds, :public => true
