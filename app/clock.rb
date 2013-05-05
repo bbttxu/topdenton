@@ -15,9 +15,9 @@ require 'resque'
 
 every( 15.minutes, 'update.venues') {
   puts 'update venues'
-  Resque.enqueue(Dans)
-  Resque.enqueue(Haileys)
-  # Resque.enqueue(Rgrs)
+  # Resque.enqueue(Dans)
+  # Resque.enqueue(Haileys)
+  Resque.enqueue(Rgrs)
   # Resque.enqueue(Andys)
   # Resque.enqueue(Rockinrodeo)
   # Resque.enqueue(Abbey)

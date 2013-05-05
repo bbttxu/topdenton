@@ -11,8 +11,8 @@ class Rgrs
 
     def self.perform
         rgrs = Venue.find_or_create_by_name "Rubber Gloves"
-        rgrs.phone = ""
-        rgrs.address = ""
+        rgrs.phone = "(940) 387-7781"
+        rgrs.address = "411 East Sycamore, Denton, TX 76205"
         rgrs.save
         puts rgrs.name
 
@@ -28,13 +28,19 @@ class Rgrs
 
             doors_at = gig.css("ul.details li")[1].text.split(' ')[0]
 
-            full_date = Chronic.parse("#{date}, #{time}").to_i
+            full_date = Chronic.parse("#{date}, #{time}")
             puts full_date
-            show = Show.find_or_create_by_starts_at_and_venue_id_and_doors_at full_date, rgrs.id
+            # show = Show.find_or_create_by_starts_at_and_venue_id_and_doors_at full_date, rgrs.id
+            show = Show.new
+            show.starts_at = full_date
+            show.doors_at = full_date
+            show.source = "http://rubberglovesdentontx.com/calendar/"
             show.time_is_unknown = false
-
+            show.venue_id = rgrs.id
             show.save
-            puts show.id
+            puts show.venue_id
+            # puts show.to_yaml
+            # puts show.id
 
             position = 1
             gig.css("div.show-text header").text.split(",").collect{|x|x.gsub(/\s+/, ' ')}.each do |band_name|
@@ -43,8 +49,9 @@ class Rgrs
                 full_name = full_name.join( " " )
                 puts full_name
                 band_key = band_name.strip.downcase.gsub(/\s/,'-').gsub(/[!]/, '').gsub('.','')
-
+                puts full_name
                 artist = Artist.find_or_create_by_name full_name
+                puts artist.to_yaml
                 artist.save
                 puts artist.name
                 puts artist.id
