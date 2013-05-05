@@ -26,7 +26,7 @@ class Show
   # key :name, String, :required => true
   key :price, String, :required => true, :default => "?"
   key :source, String, :required => true
-  key :doors_at, Time, :required => true
+  key :doors_at, Time
   key :starts_at, Time, :required => true
   # key :ends_at, DateTime, :required => true
   key :time_is_unknown, Boolean, :required => true

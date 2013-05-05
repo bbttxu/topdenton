@@ -10,23 +10,19 @@ class Andys
     puts "updating andys"
 
     andys = Venue.find_or_create_by_name "Andys"
-    andys.phone = ""
-    andys.address = ""
+    andys.phone = "122 N Locust, Denton, TX"
+    andys.address = "122 N Locust, Denton, TX"
     andys.save
     shows = Show.delete_all :venue_id => andys.id
 
     html = Nokogiri::HTML( open("http://www.reverbnation.com/venue/andysbar"))
 
-    # puts html
 
     html.css('#shows_container li').each do | show_html |
       starts_at =  show_html.css('.details_time').text
-      # puts starts_at.split
       asdf = starts_at.gsub(",","").gsub(/\s/, " ").split(" ")
       event = "#{asdf[1]} #{asdf[2]} #{asdf[5]}"
-      # puts event
-      starts_at = Chronic.parse(event).to_i
-      # puts starts_at
+      starts_at = Chronic.parse(event)
 
       source = []
       show_html.css('meta').each do |meta|
@@ -39,11 +35,9 @@ class Andys
       show.venue_id = andys.id
       show.starts_at = starts_at
       show.time_is_unknown = false
-
+      show.venue_id = andys.id
       show.save
-      puts show.id
-
-
+      puts show.to_yaml
       band_name = show_html.css('h4.show_artist').text.strip
       cleansed_band_name = band_name.downcase
       full_name = cleansed_band_name.split(' ').collect{ | x | x.capitalize}
