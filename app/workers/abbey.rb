@@ -10,8 +10,8 @@ class Abbey
     puts "updating Abbey Underground"
 
     abbey = Venue.find_or_create_by_name "Abbey Underground"
-    abbey.phone = ""
-    abbey.address = ""
+    abbey.phone = "(940) 566-5483"
+    abbey.address = "101 W Hickory St  Denton, TX 76201"
     abbey.save
     shows = Show.delete_all :venue_id => abbey.id
 
@@ -25,7 +25,7 @@ class Abbey
       asdf = starts_at.gsub(",","").gsub(/\s/, " ").split(" ")
       event = "#{asdf[1]} #{asdf[2]} #{asdf[5]}"
       # puts event
-      starts_at = Chronic.parse(event).to_i
+      starts_at = Chronic.parse(event)
       # puts starts_at
 
       source = []
@@ -39,7 +39,7 @@ class Abbey
       show.venue_id = abbey.id
       show.starts_at = starts_at
       show.time_is_unknown = false
-
+      show.venue_id = abbey.id
       show.save
       puts show.id
 

@@ -16,8 +16,8 @@ class Rockinrodeo
 
     def self.perform
         rockinrodeo = Venue.find_or_create_by_name "Rockinrodeo"
-        rockinrodeo.phone = ""
-        rockinrodeo.address = ""
+        rockinrodeo.phone = "xxx-xxx-xxxx"
+        rockinrodeo.address = "1009 Avenue C"
         rockinrodeo.save
         puts rockinrodeo.name
 
@@ -32,7 +32,7 @@ class Rockinrodeo
 
             source = 'http://www.rockinrodeodenton.com/events/'
 
-            show = Show.find_or_create_by_starts_at_and_venue_id_and_doors_at date.to_i, rockinrodeo.id
+            show = Show.find_or_create_by_starts_at_and_venue_id_and_doors_at date, rockinrodeo.id
             show.time_is_unknown = true
             show.save
             puts show
