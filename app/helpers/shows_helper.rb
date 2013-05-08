@@ -1,4 +1,4 @@
-
+# provide a convenience method to get the intial character of a string (and the explanatory comment is longer than the code itself)
 class String
   def initial
     self[0,1]

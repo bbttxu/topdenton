@@ -1,13 +1,4 @@
-# # FIXME
-# class Gig < ActiveRecord::Base
-#   belongs_to :artist
-#   belongs_to :show
-
-#   # def self.to_s
-#   #   self.artist.name
-#   # end
-# end
-
+# A gig is played by an artist at a show, it might have a time at some point
 class Gig
   include MongoMapper::Document
   plugin MongoMapper::Plugins::IdentityMap
@@ -16,8 +7,4 @@ class Gig
 
   belongs_to :artist
   belongs_to :show
-
-  # def self.to_s
-  #   self.artist.name
-  # end
 end

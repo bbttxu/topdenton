@@ -1,9 +1,4 @@
-# FIXME
-# class Venue < ActiveRecord::Base
-#   has_many :shows
-
-# end
-
+# A venue is a location
 class Venue
   include MongoMapper::Document
   plugin MongoMapper::Plugins::IdentityMap

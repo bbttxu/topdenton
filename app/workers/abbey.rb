@@ -4,6 +4,7 @@ require 'open-uri'
 require 'nokogiri'
 require 'chronic'
 
+# worker to scrape data from the following venue
 class Abbey
   @queue = :Abbey
   def self.perform()
@@ -17,16 +18,11 @@ class Abbey
 
     html = Nokogiri::HTML( open("http://www.reverbnation.com/venue/1003284"))
 
-    # puts html
-
     html.css('#shows_container li').each do | show_html |
       starts_at =  show_html.css('.details_time').text
-      # puts starts_at.split
       asdf = starts_at.gsub(",","").gsub(/\s/, " ").split(" ")
       event = "#{asdf[1]} #{asdf[2]} #{asdf[5]}"
-      # puts event
       starts_at = Chronic.parse(event)
-      # puts starts_at
 
       source = []
       show_html.css('meta').each do |meta|
@@ -41,7 +37,6 @@ class Abbey
       show.time_is_unknown = false
       show.venue_id = abbey.id
       show.save
-      puts show.id
 
 
       band_name = show_html.css('h4.show_artist').text.strip
@@ -51,14 +46,12 @@ class Abbey
 
       artist = Artist.find_or_create_by_name full_name
       artist.save
-      puts artist.id
 
       i = 1
 
       gig = Gig.find_or_create_by_show_id_and_artist_id( show.id, artist.id )
       gig.position = i
       gig.save
-      puts gig.id
 
       show.gigs << gig
 
@@ -69,14 +62,11 @@ class Abbey
 
         artist = Artist.find_or_create_by_name new_band_name
         artist.save
-        puts artist.id
         i += 1
 
         gig = Gig.find_or_create_by_show_id_and_artist_id( show.id, artist.id )
         gig.position = i
         gig.save
-        puts gig.id
-
       end
     end
   end

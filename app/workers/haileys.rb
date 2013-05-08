@@ -4,8 +4,7 @@ require 'open-uri'
 require 'nokogiri'
 require 'chronic'
 
-
-
+# worker to scrape data from the following venue
 class Haileys
   @queue = :haileys
 
@@ -39,8 +38,6 @@ class Haileys
         time.gsub!('Doors at','').gsub!(',','')
       end
 
-      # infos = time.split "|"
-      # debug infos
       date = show.at_css('span.date-display-single')
       date = date ? date.text.split('-')[1] : '12.12'
       date.gsub!('.','/')
@@ -54,12 +51,10 @@ class Haileys
 
       doors_at = Chronic.parse(date.to_s + ", " + time.to_s)
 
-
       show = Show.new
-      # show.price = show_info['Price'] || nil
       show.source = shows_url.to_s
       show.time_is_unknown = false
-      # puts Chronic.parse("#{date.to_s} #{show_info['Show']}".gsub(/\s+/, ' ') )
+
       show.doors_at = doors_at
       show.starts_at = doors_at.localtime
       show.venue_id = haileys.id
@@ -84,9 +79,6 @@ class Haileys
         gig.show_id = show.id
         gig.position = position
         gig.save
-        # puts gig.id
-        # puts "New Gig #{gig.id} with #{gig.artist.name} @ #{gig.venue.name}"
-
         show.gigs << gig
       end
       show.save
