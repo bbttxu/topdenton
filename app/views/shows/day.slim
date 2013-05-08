@@ -6,7 +6,9 @@
       - prev_day = "-1"
       - @gig_dates.each do |date,data|
         - formatted = date.strftime("%F")
-        li
+        - css_class = ""
+        - css_class = "active" if is_active_link?("/shows/#{formatted}")
+        li( class=css_class )
           h5
             a(href="/shows/#{formatted}")
               - year = date.strftime("%y")
@@ -20,6 +22,7 @@
               span.day= date.strftime("%a") if prev_month == month or prev_year == year
               - prev_year = year
               - prev_month = month
+
 
 .ten.mobile-three.columns.pull-two.pull-one-mobile#content
   .row
