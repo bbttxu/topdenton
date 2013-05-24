@@ -12,7 +12,9 @@ test:
 
 # set these environment variables on your prod server
 production:
-  <<: *defaults
+  host: 198.199.90.247
+  port: 27017
+
   database: denton
   # username: <%= ENV['MONGO_USERNAME'] %>
   # password: <%= ENV['MONGO_PASSWORD'] %>
