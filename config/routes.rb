@@ -2,7 +2,7 @@ Denton::Application.routes.draw do
   resources :gigs
 
   match "shows/today" => 'shows#today'
-  match "shows/(:date)" => "shows#day", 
+  match "shows/(:date)" => "shows#day",
       :constraints => { :date => /\d{4}-\d{2}-\d{2}/ }
   resources :shows
 
@@ -59,7 +59,7 @@ Denton::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'shows#today'
+  root :to => 'shows#index'
 
   # See how all your routes lay out with "rake routes"
 

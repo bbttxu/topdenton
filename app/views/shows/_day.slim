@@ -17,8 +17,8 @@ li.show
   .artists
     - source = ( show.source == nil ? "/shows/#{show.id}" : show.source )
     a
-      h3
-        - split_on_important_stuff(band_names.flatten).each do |text|
-          span.slabtext= text
+      h3== band_names.flatten.join("<br/>")
+        / - split_on_important_stuff(band_names.flatten).each do |text|
+        /   span.slabtext= text
 
 

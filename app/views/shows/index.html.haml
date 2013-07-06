@@ -1,32 +1,12 @@
-.twelve.columns
-  - @shows.keys.each do |date|
-    %hr
-    .row.shows
-      .three.columns.divider.mobile-one
-        %h5
-          %span.day.slabtext= format_show_day date
-          %span.month.slabtext= format_show_month date
-          %span.date.slabtext= format_show_date date
-
-      .nine.columns.shows.mobile-three
-        - ul_class = "one-up"
-        - ul_class = "three-up" if @shows[date].count >= 3
-        - ul_class = "two-up" if @shows[date].count % 2 == 0
-        %ul.shows.block-grid( class = ul_class )
-          - @shows[date].each_with_index do |show,index|
-            - band_names = show.artists.collect{|band| band.name.gsub(/\s/, " ")}
-            %li.show.mobile-four{ :class => "#{(index % 2 == 1 ? :odd : :even )}" }
-              .meta.row
-                .twelve.columns
-                  %h6
-                    %span.slabtext
-                      %span.time= do_time show.starts_at if show.starts_at
-                      %span.venue= "@#{show.venue.name}" if show.venue.name
-                      %span.price= "#{pricify show.price}"
-              .artists
-                - source = ( show.source == nil ? "/shows/#{show.id}" : show.source ) 
-                %a{ :href => source}
-                  %h3
-                    - split_on_important_stuff(band_names.flatten).each do |text|
-                      %span.slabtext= text
-                      
+/ .panel
+/   - @shows.keys.each do |date|
+/     %pre= date.to_date
+/   %pre= @calendar.to_yaml
+.twelve.columns#calendar
+  %ul.block-grid.seven-up
+    - @calendar.each do |date, count|
+      %li{ :class=> "#{date.strftime('%a day-%d month-%b year-%Y').downcase} count-#{count}" }
+        - if count == 0
+        - else
+          - link_text = date > (Date.today + 2.weeks) ? date.strftime("%b %d") : date.strftime("%a %d")
+          = link_to link_text, "/shows/#{date}"
