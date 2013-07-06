@@ -5,7 +5,7 @@ require 'nokogiri'
 require 'chronic'
 
 # worker to scrape data from the following venue
-class Abbey
+class Abbey < Scraper
   @queue = :Abbey
   def self.perform()
     puts "updating Abbey Underground"

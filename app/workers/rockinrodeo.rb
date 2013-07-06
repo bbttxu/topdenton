@@ -4,7 +4,7 @@ require 'nokogiri'
 require 'chronic'
 
 # worker to scrape data from the following venue
-class Rockinrodeo
+class Rockinrodeo < Scraper
   @queue = :rgrs
 
   url = 'http://www.rockinrodeodenton.com/events/'

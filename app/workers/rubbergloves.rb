@@ -5,7 +5,7 @@ require 'nokogiri'
 require 'chronic'
 
 # worker to scrape data from the following venue
-class Rgrs
+class Rgrs < Scraper
   @queue = :rgrs
 
   def self.perform

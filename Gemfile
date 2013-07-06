@@ -41,6 +41,7 @@ gem 'foreman'
 # gem 'ruby-debug'
 
 gem 'resque'
+gem 'resque-loner'
 gem 'clockwork'
 gem 'nokogiri'
 gem 'chronic'

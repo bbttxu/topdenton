@@ -6,7 +6,7 @@ require 'chronic'
 # require 'ri_cal'
 # require 'httparty'
 
-# class Banter
+# class Banter < Scraper
 #   @queue = :banter
 #   def self.perform()
 #     puts "updating banter"

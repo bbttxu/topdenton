@@ -6,7 +6,7 @@ require 'chronic'
 require 'yaml'
 
 # worker to scrape data from the following venue
-class Dans
+class Dans < Scraper
   @queue = :dans
 
   def self.perform()

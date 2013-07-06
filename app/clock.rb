@@ -2,6 +2,7 @@
 
 $stdout.sync = true
 
+require File.expand_path('../workers/scraper.rb',  __FILE__)
 require File.expand_path('../workers/dans.rb',  __FILE__)
 require File.expand_path('../workers/haileys.rb',  __FILE__)
 require File.expand_path('../workers/rubbergloves.rb',  __FILE__)
