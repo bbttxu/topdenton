@@ -8,7 +8,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
-//! require jquery.slabtext
+//= require jquery.slabtext
 //= require jquery.isotope
 //! require jquery.touchSwipe
 //= require app
@@ -16,3 +16,5 @@
 //= require gigs
 //= require shows
 //= require venues
+
+$(function(){ $(document).foundation(); });

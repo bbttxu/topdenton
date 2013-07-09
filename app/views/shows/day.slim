@@ -9,8 +9,9 @@
 /     - ul_class = "two-up mobile-two-up" if @shows.count >= 2
 /     .shows.mobile-four( class="#{div_classes.join(' ')}")
 /       ul.shows.block-grid( class="#{ul_class}" )
-h3.date= @shows.first.starts_at.strftime('%A %m/%d')
-ul.shows
+h3.date= @shows.first.starts_at.strftime('%A, %B %d')
+
+.shows.row
   - @shows.each_with_index do |show,index|
     = render :partial => "day", :locals => { :show => show }
 /     = render 'shared/footer'

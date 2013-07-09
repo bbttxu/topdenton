@@ -1,4 +1,4 @@
 $ = jQuery
-$ ->  
-	$(document).foundationTopBar()
-	$(document).foundationTabs();
+$ ->
+	# $(document).foundationTopBar()
+	# $(document).foundationTabs();

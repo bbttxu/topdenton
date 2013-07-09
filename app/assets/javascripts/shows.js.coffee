@@ -14,25 +14,25 @@ $ = jQuery
 call slabText on appropriate elements
 run isotope reload()
 ###
-# do_window_resize = null
-# handle_typography_and_layout = ->
+do_window_resize = null
+handle_typography_and_layout = ->
 
-# 	# $('#calendar ul li a').slabText()
+	# $('#calendar ul li a').slabText()
 
-# 	$('ul.shows').each (index, element) ->
-# 		$element = $(element)
-# 		$element.find('li.show').each (i, show_li) ->
-# 			# $(show_li).find('div.artists h3').slabText()
-# 			# $(show_li).find('div.meta h6').slabText()
-# 		$element.isotope()
+	$('div.shows').each (index, element) ->
+		$element = $(element)
+		$element.find('div.show').each (i, show_li) ->
+			$(show_li).find('div.artists h3').slabText()
+			# $(show_li).find('div.meta h6').slabText()
+		$element.isotope()
 
-# $(document).ready(handle_typography_and_layout)
-# $(document).on('page:load', handle_typography_and_layout)
+$(document).ready(handle_typography_and_layout)
+$(document).on('page:load', handle_typography_and_layout)
 
-# $(window).resize ->
-# 	do_window_resize = setTimeout ->
-# 		handle_typography_and_layout
-# 	, 100
+$(window).resize ->
+	do_window_resize = setTimeout ->
+		handle_typography_and_layout
+	, 200
 
 
 ###

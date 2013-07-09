@@ -10,33 +10,33 @@
   %body
     #page
       #navigation-wrapper
-        #navigation
+        #navigation.contain-to-grid
           %nav.nav.top-bar
-            %ul
+            %ul.title-area
               %li.name
                 %h1
                   = active_link_to 'Denton, TX', "/"
               / %li.toggle-topbar
               /   %a( href="#" )
 
-            %section
+            %section.top-bar-section
 
               %ul.right
                 %li
                   = link_to "Today", '/shows/today'
                 %li
                   = link_to "Calendar", '/'
-      .row#page
-        .one.columns#prev
+      .row
+        .small-2.columns#prev
           %h3
             - if @prev_show
               = link_to raw("&laquo;"), "/shows/#{@prev_show.starts_at.to_date.strftime('%Y-%m-%d')}"
             - else
               = link_to raw("&laquo;"), "/"
 
-        .ten.mobile-four.columns#content
+        .small-8.columns#content
           = yield
-        .one.columns#next
+        .small-2.columns#next
           %h3
             - if @next_show
               = link_to(raw("&raquo;"), "/shows/#{@next_show.starts_at.to_date.strftime('%Y-%m-%d')}").html_safe

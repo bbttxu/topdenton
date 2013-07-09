@@ -3,7 +3,7 @@
 / h2= show.artists.collect{|x|x.name}.join(",")
 - band_names = show.gigs.collect{|gig| gig.artist.name.gsub(/\s/, " ")}
 
-li.show
+div.show.large-6.columns
   .meta.row
     .twelve.columns
       h6
@@ -14,11 +14,12 @@ li.show
           span.venue= "@#{show.venue.name}" if show.venue.name
           == "&nbsp;"
           span.price= "#{pricify show.price}"
-  .artists
-    - source = ( show.source == nil ? "/shows/#{show.id}" : show.source )
-    a
-      h3== band_names.flatten.join("<br/>")
-        / - split_on_important_stuff(band_names.flatten).each do |text|
-        /   span.slabtext= text
+  .artists.row
+    .twelve.columns
+      - source = ( show.source == nil ? "/shows/#{show.id}" : show.source )
+      a
+        h3== band_names.flatten.join(", ")
+          / - split_on_important_stuff(band_names.flatten).each do |text|
+          /   span.slabtext= text
 
 
