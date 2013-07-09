@@ -55,14 +55,16 @@ group :development do
   gem "cane"
 end
 
+group :test do
+  gem "webmock", "< 1.12"
+  gem "vcr"
+end
+
 group :test, :development do
   # gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'rspec'
   gem 'spork'
-
-  gem "webmock", "< 1.12"
-  gem "vcr"
 
   gem 'guard-bundler'
   gem 'guard-minitest', github: 'guard/guard-minitest'
