@@ -16,32 +16,32 @@
               %li.name
                 %h1
                   = active_link_to 'Denton, TX', "/"
-              %li.toggle-topbar
-                %a( href="#" )
+              / %li.toggle-topbar
+              /   %a( href="#" )
 
             %section
 
               %ul.right
                 %li
-                  = link_to "#{@n_shows} Shows", '/shows/today'
-                / %li
-                /   = link_to "#{@n_venues} Venues", '/venues'
-      .row
+                  = link_to "Today", '/shows/today'
+                %li
+                  = link_to "Calendar", '/'
+      .row#page
         .one.columns#prev
           %h3
             - if @prev_show
-              = link_to "Prev", "/shows/#{@prev_show.starts_at.to_date.strftime('%Y-%m-%d')}"
+              = link_to raw("&laquo;"), "/shows/#{@prev_show.starts_at.to_date.strftime('%Y-%m-%d')}"
             - else
-              = link_to "Cal", "/"
+              = link_to raw("&laquo;"), "/"
 
         .ten.mobile-four.columns#content
           = yield
         .one.columns#next
           %h3
             - if @next_show
-              = link_to "Next", "/shows/#{@next_show.starts_at.to_date.strftime('%Y-%m-%d')}"
+              = link_to(raw("&raquo;"), "/shows/#{@next_show.starts_at.to_date.strftime('%Y-%m-%d')}").html_safe
             - else
-              = link_to "Cal", "/"
+              = link_to raw("&raquo;"), "/"
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-37120893-1']);

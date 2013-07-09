@@ -2,7 +2,7 @@
 /   - @shows.keys.each do |date|
 /     %pre= date.to_date
 /   %pre= @calendar.to_yaml
-%ul.block-grid.seven-up
+%ul.block-grid.seven-up#calendar
   - @calendar.each do |date, count|
     %li{ :class=> "#{date.strftime('%a day-%d month-%b year-%Y').downcase} count-#{count}" }
       - if count == 0
