@@ -12,7 +12,7 @@
 //= require jquery.isotope
 //= require jquery.touchSwipe
 //= require app
-//= require artists 
-//= require gigs 
-//= require shows 
-//= require venues 
+//= require artists
+//= require gigs
+//= require shows
+//= require venues

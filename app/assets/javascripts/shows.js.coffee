@@ -22,7 +22,7 @@ handle_typography_and_layout = ->
 	$('ul.shows').each (index, element) ->
 		$element = $(element)
 		$element.find('li.show').each (i, show_li) ->
-			# $(show_li).find('div.artists h3').slabText()
+			$(show_li).find('div.artists h3').slabText()
 			# $(show_li).find('div.meta h6').slabText()
 		$element.isotope()
 

@@ -26,3 +26,4 @@
 public/assets/*
 
 .sass-cache
+/test/cassettes/*
