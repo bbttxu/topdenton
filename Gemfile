@@ -49,15 +49,32 @@ gem 'haml'
 gem 'slim'
 # gem 'redcarpet'
 gem 'thin'
+
 group :development do
   gem "capistrano"
   gem "cane"
 end
+
 group :test, :development do
   # gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'rspec'
   gem 'spork'
+
+  gem "webmock", "< 1.12"
+  gem "vcr"
+
+  gem 'guard-bundler'
+  gem 'guard-minitest', github: 'guard/guard-minitest'
+  gem 'guard-livereload'
+
+  gem 'minitest-reporters'
+  gem 'terminal-notifier'
+  gem 'terminal-notifier-guard'
+
+  gem "railroady"
+  gem "rails-erd"
+
 end
 
 # javascript run-time needed for asset pipeline(?)
