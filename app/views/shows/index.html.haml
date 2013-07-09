@@ -2,11 +2,10 @@
 /   - @shows.keys.each do |date|
 /     %pre= date.to_date
 /   %pre= @calendar.to_yaml
-.twelve.columns#calendar
-  %ul.block-grid.seven-up
-    - @calendar.each do |date, count|
-      %li{ :class=> "#{date.strftime('%a day-%d month-%b year-%Y').downcase} count-#{count}" }
-        - if count == 0
-        - else
-          - link_text = date > (Date.today + 2.weeks) ? date.strftime("%b %d") : date.strftime("%a %d")
-          = link_to link_text, "/shows/#{date}"
+%ul.block-grid.seven-up
+  - @calendar.each do |date, count|
+    %li{ :class=> "#{date.strftime('%a day-%d month-%b year-%Y').downcase} count-#{count}" }
+      - if count == 0
+      - else
+        - link_text = date > (Date.today + 2.weeks) ? date.strftime("%b %d") : date.strftime("%a %d")
+        = link_to link_text, "/shows/#{date}"
