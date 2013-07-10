@@ -21,7 +21,7 @@ class ShowsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @calendar.to_json }
+      format.json { render json: @shows }
     end
   end
 
@@ -48,9 +48,21 @@ class ShowsController < ApplicationController
 
     @gig_dates = Show.ordered.group_by{|x|Time.zone.parse("#{x.starts_at.to_date} 2:00am")}
 
+    @all_data = []
+    @shows.each do |x|
+      new_hash = x.to_mongo
+      new_hash['venue_info'] = x.venue
+      new_hash['gigs'] = x.gigs
+      new_hash['gigs'].each do |gig|
+        gig['artist_info'] = gig.artist
+
+      end
+      @all_data << new_hash
+    end
+
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @shows }
+      format.json { render json: @all_data }
     end
   end
 
