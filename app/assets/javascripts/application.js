@@ -6,6 +6,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require underscore
+//= require backbone
+//= require backbone_rails_sync
+//= require backbone_datalink
+//= require backbone/denton
 //= require foundation
 //= require turbolinks
 //= require jquery.slabtext

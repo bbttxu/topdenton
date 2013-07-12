@@ -102,3 +102,5 @@ gem "ZenTest"
 
 gem 'mongo_mapper'
 gem 'bson_ext'
+
+gem "rails-backbone"

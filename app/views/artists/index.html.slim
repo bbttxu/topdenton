@@ -1,3 +1,13 @@
-ul
-  - @artists.each do |artist|
-    li= link_to artist.name, artist
+#artists
+
+noscript
+  ul
+    - @artists.each do |artist|
+      li= link_to artist.name, artist
+
+javascript:
+  $(function() {
+    // Blog is the app name
+    window.router = new Denton.Routers.ArtistsRouter({artists: #{@artists.to_json.html_safe}});
+    Backbone.history.start();
+  });
