@@ -1,15 +1,15 @@
 require 'test_helper'
 
 class ArtistsControllerTest < ActionController::TestCase
-  # setup do
-  #   @artist = artists(:one)
-  # end
+  setup do
+    @artist = artists(:one)
+  end
 
-  # test "should get index" do
-  #   get :index
-  #   assert_response :success
-  #   assert_not_nil assigns(:artists)
-  # end
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:artists)
+  end
 
   # test "should get new" do
   #   get :new
@@ -24,10 +24,10 @@ class ArtistsControllerTest < ActionController::TestCase
   #   assert_redirected_to artist_path(assigns(:artist))
   # end
 
-  # test "should show artist" do
-  #   get :show, id: @artist.to_param
-  #   assert_response :success
-  # end
+  test "should show artist" do
+    get :show, id: @artist.to_param
+    assert_response :success
+  end
 
   # test "should get edit" do
   #   get :edit, id: @artist.to_param

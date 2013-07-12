@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class ArtistTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @artist = FactoryGirl.build :artist
+  end
+
+  test "should have name" do
+    assert ! @artist.name.empty?
+  end
 end

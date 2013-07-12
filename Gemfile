@@ -58,6 +58,7 @@ end
 group :test do
   gem "webmock", "< 1.12"
   gem "vcr"
+  gem "factory_girl_rails"
 end
 
 group :test, :development do

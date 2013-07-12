@@ -6,4 +6,6 @@ class Artist
   key :name, String
 
   many :gigs
+
+  scope :alphabetical, sort("name")
 end
