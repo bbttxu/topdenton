@@ -1,14 +1,3 @@
 %p( id="notice")= notice
 
-%p= @artist.name
-
-%ul
-  - @artist.shows.each do |show|
-    %li
-      = link_to "[ #{show.venue.name}, #{show.starts_at}]", "/venues/#{show.venue.id}"
-    %li
-      = link_to '[ info ]', "/shows/#{show.id}"
-    %li
-      = link_to '[ source ]', show.source
-
-    %pre= # debug show
+%h3= @artist.name

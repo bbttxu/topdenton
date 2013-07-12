@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ArtistsControllerTest < ActionController::TestCase
   setup do
-    @artist = artists(:one)
+    @artist = FactoryGirl.create :artist
   end
 
   test "should get index" do
@@ -25,7 +25,7 @@ class ArtistsControllerTest < ActionController::TestCase
   # end
 
   test "should show artist" do
-    get :show, id: @artist.to_param
+    get :show, id: @artist
     assert_response :success
   end
 

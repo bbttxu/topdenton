@@ -6,7 +6,7 @@ class ArtistsController < ApplicationController
     # @artists = Artist.group_by do |u|
     #   u.name
     # end
-    @artists = Artist.alphabetical.all
+    @artists = Artist.alphabetical
 
     respond_to do |format|
       format.html # index.html.erb
