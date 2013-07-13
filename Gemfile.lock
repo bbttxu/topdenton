@@ -155,6 +155,7 @@ GEM
       activemodel (~> 3.0)
       activesupport (~> 3.0)
       plucky (~> 0.5.2)
+    mongo_mapper-accepts_nested_attributes (0.0.2)
     mono_logger (1.1.0)
     multi_json (1.7.7)
     net-scp (1.1.2)
@@ -320,6 +321,7 @@ DEPENDENCIES
   linguistics
   minitest-reporters
   mongo_mapper
+  mongo_mapper-accepts_nested_attributes
   newrelic_rpm
   nokogiri
   railroady

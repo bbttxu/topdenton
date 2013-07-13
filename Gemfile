@@ -104,3 +104,4 @@ gem 'mongo_mapper'
 gem 'bson_ext'
 
 gem "rails-backbone"
+gem "mongo_mapper-accepts_nested_attributes", :require => "mongo_mapper/accepts_nested_attributes"

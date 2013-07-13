@@ -16,23 +16,23 @@ run isotope reload()
 ###
 do_window_resize = null
 handle_typography_and_layout = ->
+  $('#artists-listing li h3').slabText()
+  $('#artists-listing').isotope()
 
-	# $('#calendar ul li a').slabText()
-
-	$('div.shows').each (index, element) ->
-		$element = $(element)
-		$element.find('div.show').each (i, show_li) ->
-			$(show_li).find('div.artists h3').slabText()
-			# $(show_li).find('div.meta h6').slabText()
-		$element.isotope()
+  $('div.shows').each (index, element) ->
+    $element = $(element)
+    $element.find('div.show').each (i, show_li) ->
+      $(show_li).find('div.artists h3').slabText()
+      # $(show_li).find('div.meta h6').slabText()
+    $element.isotope()
 
 $(document).ready(handle_typography_and_layout)
 $(document).on('page:load', handle_typography_and_layout)
 
 $(window).resize ->
-	do_window_resize = setTimeout ->
-		handle_typography_and_layout
-	, 200
+  do_window_resize = setTimeout ->
+    handle_typography_and_layout
+  , 200
 
 
 ###
@@ -46,17 +46,17 @@ ___________                   .__    ___ ___         .__       .__     __
 
 # do_equal_heights = null
 # handle_equal_heights = ->
-# 	calendar = $('#calendar')
-# 	content = $('#content')
-# 	calendar.outerHeight( content.outerHeight() )
+#   calendar = $('#calendar')
+#   content = $('#content')
+#   calendar.outerHeight( content.outerHeight() )
 
 # $(document).ready(handle_equal_heights)
 # $(document).on('page:load', handle_equal_heights)
 
 # $(window).resize ->
-# 	do_equal_heights = setTimeout ->
-# 		handle_equal_heights
-# 	, 100
+#   do_equal_heights = setTimeout ->
+#     handle_equal_heights
+#   , 100
 
 
 ###
@@ -65,17 +65,17 @@ beta
 ###
 
 # handle_swipe_event = (event, direction, distance, duration, fingerCount) ->
-# 	if direction == "right"
-# 		path = $('.next a')[0].pathname
-# 		Turbolinks.visit(path)
-# 	if direction == "left"
-# 		path = $('.previous a')[0].pathname
-# 		Turbolinks.visit(path)
-# 	false
+#   if direction == "right"
+#     path = $('.next a')[0].pathname
+#     Turbolinks.visit(path)
+#   if direction == "left"
+#     path = $('.previous a')[0].pathname
+#     Turbolinks.visit(path)
+#   false
 
 # options =
-# 	swipeLeft: handle_swipe_event,
-# 	swipeRight: handle_swipe_event
+#   swipeLeft: handle_swipe_event,
+#   swipeRight: handle_swipe_event
 
 # $('#content').swipe(options)
 

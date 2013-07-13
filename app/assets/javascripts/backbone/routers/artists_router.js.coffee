@@ -23,7 +23,6 @@ class Denton.Routers.ArtistsRouter extends Backbone.Router
 
     @view = new Denton.Views.Artists.ShowView(model: artist)
     $("#artists").html(@view.render().el)
-
   # edit: (id) ->
   #   artist = @artists.get(id)
 
