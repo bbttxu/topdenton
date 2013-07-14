@@ -72,7 +72,6 @@ group :test, :development do
   gem 'guard-bundler'
   gem 'guard-minitest', github: 'guard/guard-minitest'
   gem 'guard-rspec'
-  gem 'guard-rails'
   gem 'guard-livereload'
 
   gem 'minitest-reporters'
@@ -109,3 +108,6 @@ gem 'bson_ext'
 
 gem "rails-backbone"
 gem "mongo_mapper-accepts_nested_attributes", :require => "mongo_mapper/accepts_nested_attributes"
+
+gem "httparty"
+gem "icalendar"

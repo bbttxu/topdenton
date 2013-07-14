@@ -119,8 +119,6 @@ GEM
       em-websocket (>= 0.5.0)
       guard (>= 1.8.0)
       multi_json (~> 1.7)
-    guard-rails (0.4.6)
-      guard (>= 0.2.2)
     guard-rspec (3.0.2)
       guard (>= 1.8)
       rspec (~> 2.13)
@@ -130,7 +128,11 @@ GEM
     highline (1.6.19)
     hike (1.2.3)
     http_parser.rb (0.5.3)
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
     i18n (0.6.1)
+    icalendar (1.4.1)
     journey (1.0.4)
     jquery-rails (3.0.2)
       railties (>= 3.0, < 5.0)
@@ -166,6 +168,7 @@ GEM
     mongo_mapper-accepts_nested_attributes (0.0.2)
     mono_logger (1.1.0)
     multi_json (1.7.7)
+    multi_xml (0.5.4)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -324,9 +327,10 @@ DEPENDENCIES
   guard-bundler
   guard-livereload
   guard-minitest!
-  guard-rails
   guard-rspec
   haml
+  httparty
+  icalendar
   jquery-rails
   json
   linguistics

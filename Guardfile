@@ -50,11 +50,6 @@ guard 'minitest', :all_after_pass => true, :all_on_start => true do # --drb , , 
   watch(%r|^app/helpers/(.*)\.rb|) { |m| "test/unit/helpers/#{m[1]}_test.rb" }
 end
 
-guard 'rails' do
-  watch('Gemfile.lock')
-  watch(%r{^(config|lib)/.*})
-end
-
 
 
 

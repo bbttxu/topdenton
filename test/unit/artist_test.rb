@@ -8,4 +8,5 @@ class ArtistTest < ActiveSupport::TestCase
   test "should have name" do
     assert ! @artist.name.empty?
   end
+
 end
