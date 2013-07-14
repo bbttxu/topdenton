@@ -18,6 +18,8 @@ class ArtistsController < ApplicationController
   # GET /artists/1.json
   def show
     @artist = Artist.find(params[:id])
+    @data = @artist.to_mongo
+    @data[:shows] = @artist.gigs
 
     respond_to do |format|
       format.html # show.html.erb

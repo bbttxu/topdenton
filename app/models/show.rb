@@ -11,7 +11,7 @@ class Show
 
   belongs_to :venue, :require => true
   many :gigs
-  # many :artitsts, :through => :gigs
+  many :artitsts, :through => :gigs
 
   scope :after, lambda { |date| where(:starts_at.gte => date.localtime ) }
   scope :before, lambda { |date| where(:starts_at.lte => date.localtime ) }

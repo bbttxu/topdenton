@@ -46,6 +46,9 @@ GEM
       ZenTest (>= 4.4.1)
     autotest-rails (4.1.2)
       ZenTest (~> 4.5)
+    better_errors (0.9.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     bson (1.9.1)
     bson_ext (1.9.1)
       bson (~> 1.9.1)
@@ -116,6 +119,11 @@ GEM
       em-websocket (>= 0.5.0)
       guard (>= 1.8.0)
       multi_json (~> 1.7)
+    guard-rails (0.4.6)
+      guard (>= 0.2.2)
+    guard-rspec (3.0.2)
+      guard (>= 1.8)
+      rspec (~> 2.13)
     haml (4.0.3)
       tilt
     hashie (2.0.5)
@@ -301,6 +309,7 @@ DEPENDENCIES
   active_link_to
   autotest
   autotest-rails
+  better_errors
   bson_ext
   cane
   capistrano
@@ -315,6 +324,8 @@ DEPENDENCIES
   guard-bundler
   guard-livereload
   guard-minitest!
+  guard-rails
+  guard-rspec
   haml
   jquery-rails
   json

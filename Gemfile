@@ -53,6 +53,8 @@ gem 'thin'
 group :development do
   gem "capistrano"
   gem "cane"
+  gem 'better_errors'
+
 end
 
 group :test do
@@ -69,6 +71,8 @@ group :test, :development do
 
   gem 'guard-bundler'
   gem 'guard-minitest', github: 'guard/guard-minitest'
+  gem 'guard-rspec'
+  gem 'guard-rails'
   gem 'guard-livereload'
 
   gem 'minitest-reporters'

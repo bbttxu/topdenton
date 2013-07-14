@@ -6,10 +6,10 @@ class Denton.Models.Artist extends Backbone.Model
     name: "no name given"
 
   initialize: ->
-    @shows = new Denton.Collections.ShowsCollection()
-    gigs_attributes: ->
-      @shows.map (p) ->
-        {show_id: p.get("id")}
+    # @shows = new Denton.Collections.ShowsCollection()
+    # gigs_attributes: ->
+    #   @shows.map (p) ->
+    #     {show_id: p.get("id")}
 
 class Denton.Collections.ArtistsCollection extends Backbone.Collection
   model: Denton.Models.Artist
