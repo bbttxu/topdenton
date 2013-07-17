@@ -6,11 +6,11 @@ require 'chronic'
 
 # worker to scrape data from the following venue
 class Abbey < Scraper
-  @queue = :Abbey
+  @queue = :abbey
   def self.perform()
     puts "updating Abbey Underground"
 
-    abbey = Venue.find_or_create_by_name "Abbey Underground"
+    abbey = Venue.find_or_create_by name: "Abbey Underground"
     abbey.phone = "(940) 566-5483"
     abbey.address = "101 W Hickory St  Denton, TX 76201"
     abbey.save
@@ -31,7 +31,7 @@ class Abbey < Scraper
 
       puts source[0]
 
-      show = Show.find_or_create_by_source source[0]
+      show = Show.find_or_create_by source: source[0]
       show.venue_id = abbey.id
       show.starts_at = starts_at
       show.time_is_unknown = false
@@ -44,12 +44,12 @@ class Abbey < Scraper
       full_name = cleansed_band_name.split(' ').collect{ | x | x.capitalize}
       full_name = full_name.join( " " )
 
-      artist = Artist.find_or_create_by_name full_name
+      artist = Artist.find_or_create_by name: full_name
       artist.save
 
       i = 1
 
-      gig = Gig.find_or_create_by_show_id_and_artist_id( show.id, artist.id )
+      gig = Gig.find_or_create_by show_id: show.id, artist_id: artist.id
       gig.position = i
       gig.save
 
@@ -60,11 +60,11 @@ class Abbey < Scraper
 
         new_band_name = other_band.text.split(' ').collect{ | x | x.capitalize}.join(" ")
 
-        artist = Artist.find_or_create_by_name new_band_name
+        artist = Artist.find_or_create_by name: new_band_name
         artist.save
         i += 1
 
-        gig = Gig.find_or_create_by_show_id_and_artist_id( show.id, artist.id )
+        gig = Gig.find_or_create_by show_id: show.id, artist_id: artist.id
         gig.position = i
         gig.save
       end
