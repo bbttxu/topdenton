@@ -9,11 +9,11 @@ class Rgrs < Scraper
   @queue = :rgrs
 
   def self.perform
-    rgrs = Venue.find_or_create_by_name "Rubber Gloves"
+    rgrs = Venue.find_or_create_by name: "Rubber Gloves"
     rgrs.phone = "(940) 387-7781"
     rgrs.address = "411 East Sycamore, Denton, TX 76205"
     rgrs.save
-    puts rgrs.name
+    # puts rgrs.name
 
     html = Nokogiri::HTML( open( 'http://rubberglovesdentontx.com/calendar/' ) )
 
@@ -42,8 +42,8 @@ class Rgrs < Scraper
         full_name = cleansed_band_name.split(' ').collect{ | x | x.capitalize}
         full_name = full_name.join( " " )
         band_key = band_name.strip.downcase.gsub(/\s/,'-').gsub(/[!]/, '').gsub('.','')
-        puts full_name
-        artist = Artist.find_or_create_by_name full_name
+        # # puts full_name
+        artist = Artist.find_or_create_by name: full_name
         artist.save
 
         gig = Gig.new

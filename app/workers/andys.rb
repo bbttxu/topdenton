@@ -1,4 +1,4 @@
-_#!/usr/bin/env ruby -wKU
+#!/usr/bin/env ruby -wKU
 require 'rubygems'
 require 'open-uri'
 require 'nokogiri'
@@ -8,7 +8,7 @@ require 'chronic'
 class Andys < Scraper
   @queue = :andys
   def self.perform()
-    puts "updating andys"
+    #puts "updating andys"
 
     andys = Venue.find_or_create_by name: "Andys"
     andys.phone = "122 N Locust, Denton, TX"

@@ -29,7 +29,7 @@ class Abbey < Scraper
         source << meta['content'] if meta['itemprop'] == 'url'
       end
 
-      puts source[0]
+      # puts source[0]
 
       show = Show.find_or_create_by source: source[0]
       show.venue_id = abbey.id
@@ -56,7 +56,7 @@ class Abbey < Scraper
       show.gigs << gig
 
       show_html.css('.details_other_bands .other_band').each do | other_band |
-        puts other_band.text
+        # puts other_band.text
 
         new_band_name = other_band.text.split(' ').collect{ | x | x.capitalize}.join(" ")
 
