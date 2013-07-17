@@ -8,7 +8,7 @@ Denton::Application.routes.draw do
   match "shows" => 'shows#index'
   match "shows/today" => 'shows#today'
   match "shows/(:date)" => "shows#day", :constraints => { :date => /\d{4}-\d{2}-\d{2}/ }
-  # resources :artists
+  resources :artists
   # resources :shows
 
 
