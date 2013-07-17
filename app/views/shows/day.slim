@@ -14,4 +14,4 @@ h3.date= @shows.first['starts_at'].strftime('%A, %B %d')
 .shows.row
   - @shows.each_with_index do |show,index|
     = render :partial => "day", :locals => { :show => show }
-    = render 'shared/footer'
+  = render 'shared/footer'
