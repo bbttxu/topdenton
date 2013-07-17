@@ -1,20 +1,20 @@
-defaults: &defaults
-  host: 127.0.0.1
-  port: 27017
+# defaults: &defaults
+#   host: 127.0.0.1
+#   port: 27017
 
-development:
-  <<: *defaults
-  database: denton_development
+# development:
+#   <<: *defaults
+#   database: denton_development
 
-test:
-  <<: *defaults
-  database: denton_test
+# test:
+#   <<: *defaults
+#   database: denton_test
 
-# set these environment variables on your prod server
-production:
-  host: 198.199.90.247
-  port: 27017
+# # set these environment variables on your prod server
+# production:
+#   host: 198.199.90.247
+#   port: 27017
 
-  database: denton
-  # username: <%= ENV['MONGO_USERNAME'] %>
-  # password: <%= ENV['MONGO_PASSWORD'] %>
+#   database: denton
+#   # username: <%= ENV['MONGO_USERNAME'] %>
+#   # password: <%= ENV['MONGO_PASSWORD'] %>

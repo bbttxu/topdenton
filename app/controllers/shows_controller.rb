@@ -50,7 +50,7 @@ class ShowsController < ApplicationController
 
     @all_data = []
     @shows.each do |x|
-      new_hash = x.to_mongo
+      new_hash = x
       new_hash['venue_info'] = x.venue
       new_hash['gigs'] = x.gigs
       new_hash['gigs'].each do |gig|

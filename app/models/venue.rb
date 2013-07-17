@@ -1,11 +1,13 @@
 # A venue is a location
 class Venue
-  include MongoMapper::Document
-  plugin MongoMapper::Plugins::IdentityMap
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :name, String, :required => true
-  key :phone, String, :required => true
-  key :address, String, :required => true
+  field :name, :type => String
+  field :phone, :type => String
+  field :address, :type => String
 
-  many :shows
+  validates_presence_of :name, :phone, :address
+
+  has_many :shows
 end

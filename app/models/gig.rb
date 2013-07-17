@@ -1,9 +1,9 @@
 # A gig is played by an artist at a show, it might have a time at some point
 class Gig
-  include MongoMapper::Document
-  plugin MongoMapper::Plugins::IdentityMap
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :position, :default => 0
+  field :position, :type => Integer, :default => 0
 
   belongs_to :artist
   belongs_to :show

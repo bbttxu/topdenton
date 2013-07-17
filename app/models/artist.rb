@@ -1,12 +1,11 @@
 # An artist or band
 class Artist
-  include MongoMapper::Document
-  plugin MongoMapper::Plugins::IdentityMap
-  # plugin MongoMapper::AcceptsNestedAttributes
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :name, String
+  field :name, :type => String
 
-  many :gigs
+  has_many :gigs
   # many :shows, :through => :gigs
 
   def as_json(options = nil)
@@ -15,5 +14,6 @@ class Artist
 
   # accepts_nested_attributes_for :gigs
 
-  scope :alphabetical, sort("name")
+  scope :alphabetical, order_by(:name => :desc)
+  # scope :recent, order_by(:created_at => :desc).limit(100)
 end

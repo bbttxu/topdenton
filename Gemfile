@@ -103,7 +103,8 @@ gem 'therubyracer'
 
 gem "ZenTest"
 
-gem 'mongo_mapper'
+# gem 'mongo_mapper'
+gem 'mongoid'
 gem 'bson_ext'
 
 gem "rails-backbone"
@@ -111,3 +112,5 @@ gem "mongo_mapper-accepts_nested_attributes", :require => "mongo_mapper/accepts_
 
 gem "httparty"
 gem "icalendar"
+
+gem "binding_of_caller", :group => :development

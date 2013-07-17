@@ -13,7 +13,7 @@ class Dans < Scraper
 
     puts "updating Dans"
 
-    dans = Venue.find_or_create_by_name "Dan's Silverleaf"
+    dans = Venue.find_or_create_by name: "Dan's Silverleaf"
     dans.phone = "9403202000"
     dans.address = "103 Industrial Street, Denton, TX 76201-4223"
     dans.save
@@ -49,7 +49,7 @@ class Dans < Scraper
       position = 1
       bands.split('/').each_with_index do |band_name, i|
         band_name = band_name.downcase.split(/\s/).collect{ | x | x.capitalize}.join(" ").strip
-        artist = Artist.find_or_create_by_name band_name
+        artist = Artist.find_or_create_by name: band_name
         artist.save if artist.new_record?
 
 

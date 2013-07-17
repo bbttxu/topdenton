@@ -18,7 +18,7 @@ class ArtistsController < ApplicationController
   # GET /artists/1.json
   def show
     @artist = Artist.find(params[:id])
-    @data = @artist.to_mongo
+    @data = @artist
     @data[:shows] = @artist.gigs
 
     respond_to do |format|
