@@ -11,7 +11,7 @@ class Haileys < Scraper
   def self.perform()
     puts "updating Hailey's"
 
-    haileys = Venue.find_or_create_by_name "Hailey's Club"
+    haileys = Venue.find_or_create_by name:  "Hailey's Club"
     haileys.phone = "(940) 323-1159"
     haileys.address = "122 Mulberry Street, Denton, TX"
     haileys.save
@@ -70,7 +70,7 @@ class Haileys < Scraper
         full_name = cleansed_band_name.split(' ').collect{ | x | x.capitalize}
         full_name = full_name.join( " " )
         puts full_name
-        artist = Artist.find_or_create_by_name full_name
+        artist = Artist.find_or_create_by name: full_name
         artist.save
         puts artist
 
