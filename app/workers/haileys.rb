@@ -58,7 +58,6 @@ class Haileys < Scraper
       show.doors_at = doors_at
       show.starts_at = doors_at.localtime
       show.venue_id = haileys.id
-      puts show.to_yaml
       show.save
 
       position = 0
@@ -69,10 +68,9 @@ class Haileys < Scraper
         position += 1
         full_name = cleansed_band_name.split(' ').collect{ | x | x.capitalize}
         full_name = full_name.join( " " )
-        puts full_name
+
         artist = Artist.find_or_create_by name: full_name
         artist.save
-        puts artist
 
         gig = Gig.new
         gig.artist_id = artist.id
@@ -82,7 +80,6 @@ class Haileys < Scraper
         show.gigs << gig
       end
       show.save
-      puts show
     end
 
 
