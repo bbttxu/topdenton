@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -wKU
+_#!/usr/bin/env ruby -wKU
 require 'rubygems'
 require 'open-uri'
 require 'nokogiri'
@@ -10,7 +10,7 @@ class Andys < Scraper
   def self.perform()
     puts "updating andys"
 
-    andys = Venue.find_or_create_by_name "Andys"
+    andys = Venue.find_or_create_by name: "Andys"
     andys.phone = "122 N Locust, Denton, TX"
     andys.address = "122 N Locust, Denton, TX"
     andys.save
@@ -30,7 +30,7 @@ class Andys < Scraper
         source << meta['content'] if meta['itemprop'] == 'url'
       end
 
-      show = Show.find_or_create_by_source source[0]
+      show = Show.find_or_create_by source: source[0]
       show.venue_id = andys.id
       show.starts_at = starts_at
       show.time_is_unknown = false
@@ -42,13 +42,13 @@ class Andys < Scraper
       full_name = cleansed_band_name.split(' ').collect{ | x | x.capitalize}
       full_name = full_name.join( " " )
 
-      artist = Artist.find_or_create_by_name full_name
+      artist = Artist.find_or_create_by name: full_name
       artist.save
 
 
       i = 1
 
-      gig = Gig.find_or_create_by_show_id_and_artist_id( show.id, artist.id )
+      gig = Gig.find_or_create_by show_id: show.id, artist_id: artist.id
       gig.position = i
       gig.save
 
@@ -58,12 +58,12 @@ class Andys < Scraper
 
         new_band_name = other_band.text.split(' ').collect{ | x | x.capitalize}.join(" ")
 
-        artist = Artist.find_or_create_by_name new_band_name
+        artist = Artist.find_or_create_by name: new_band_name
         artist.save
 
         i += 1
 
-        gig = Gig.find_or_create_by_show_id_and_artist_id( show.id, artist.id )
+        gig = Gig.find_or_create_by show_id: show.id, artist_id: artist.id
         gig.position = i
         gig.save
       end
