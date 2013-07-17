@@ -1,21 +1,22 @@
 # a show is an event with one or more artists which takes place at a venue
 class Show
-  include MongoMapper::Document
-  plugin MongoMapper::Plugins::IdentityMap
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :price, String, :required => true, :default => "?"
-  key :source, String, :required => true
-  key :doors_at, Time
-  key :starts_at, Time, :required => true
-  key :time_is_unknown, Boolean, :required => true
+  field :price, :type => String, :default => "?"
+  field :source, :type => String
+  field :doors_at, :type => Time
+  field :starts_at, :type => Time
+  field :time_is_unknown, :type => Boolean
 
-  belongs_to :venue, :require => true
-  many :gigs
-  many :artists, :through => :gigs
+  belongs_to :venue
+  has_many :gigs
+  has_many :artists #, :through => :gigs
 
   scope :after, lambda { |date| where(:starts_at.gte => date.localtime ) }
   scope :before, lambda { |date| where(:starts_at.lte => date.localtime ) }
-  scope :upcoming, lambda { where(:starts_at.gte => Time.zone.now ) }
-  scope :ordered, order("starts_at")
+  scope :upcoming, lambda { where( :starts_at.gte => Time.zone.now ) }
+  scope :ordered, order_by( :starts_at => :asc )
 
+  validates_presence_of :price, :source, :starts_at, :time_is_unknown
 end
