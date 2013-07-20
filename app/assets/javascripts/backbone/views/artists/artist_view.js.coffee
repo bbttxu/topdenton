@@ -16,5 +16,5 @@ class Denton.Views.Artists.ArtistView extends Backbone.View
 
   render: ->
     $(@el).html(@template(@model.toJSON() ))
-    $('#artists-listing li h3').slabText()
+    # $('#artists-listing li h3').slabText()
     return this

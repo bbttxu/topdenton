@@ -20,6 +20,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
     @data = @artist
     @data[:shows] = @artist.gigs
+    @data[:id] = @data[:_id]
 
     respond_to do |format|
       format.html # show.html.erb
