@@ -9,7 +9,7 @@ require File.expand_path('../workers/rubbergloves.rb',  __FILE__)
 require File.expand_path('../workers/andys.rb',  __FILE__)
 require File.expand_path('../workers/rockinrodeo.rb',  __FILE__)
 require File.expand_path('../workers/abbey.rb',  __FILE__)
-require File.expand_path('../workers/untcalendar.rb',  __FILE__)
+# require File.expand_path('../workers/untcalendar.rb',  __FILE__)
 
 require 'clockwork'
 include Clockwork
