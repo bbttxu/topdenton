@@ -8,7 +8,6 @@
 
 @import "typography"
 
-
 @import "navigation"
 @import "faq"
 @import "footer"
@@ -22,91 +21,109 @@
 @import "calendar"
 
 #next, #prev
-	h3
-		@extend .base-font
-		font-size: 5em
+  h3
+    @extend .base-font
+    font-size: 5em
 #next
-	h3
-		text-align: right
+  h3
+    text-align: right
 
 html
 
 body
-	// background: #91AEBF
-	background: #222
-	// background:
-	// 	image: image-url('denton.jpeg')
-	// 	position: top center
-	// @extend .base-font
-	// border-top: #FF6600 1em solid
+  // background: #91AEBF
+  background: #222
+  // background:
+  //  image: image-url('denton.jpeg')
+  //  position: top center
+  // @extend .base-font
+  // border-top: #FF6600 1em solid
+
+body.day
+  background: #ddd
+
+  #navigation-wrapper
+    color: #222 !important
+    background: #eee !important
+
+  #navigation nav
+    a
+      color: #222 !important
+    background: #eee !important
+
+  section.top-bar-section ul li a
+    color: #222 !important
+    background: #eee !important
+
+
 
 
 li.name h1 a
-	@extend .cherry-cream-soda
-	font:
-		weight: 400 !important
+  @extend .cherry-cream-soda
+  font:
+    weight: 400 !important
 
 
 #header
 
-	// background: #91AEBF
-	#title
-		//min:
-		//  height: 80px
-		//bottom: 0px
-		//position: absolute
+  // background: #91AEBF
+  #title
+    //min:
+    //  height: 80px
+    //bottom: 0px
+    //position: absolute
 
-	h1
-		@extend .base-font
-		line:
-			height: 0.8
+  h1
+    @extend .base-font
+    line:
+      height: 0.8
 
 // #content
-// 	// background: $mainColor
-// 	// border: 1em solid white
-// 	@media (min-width: $rowWidth)
-// 		// border: 20px solid white
+//  // background: $mainColor
+//  // border: 1em solid white
+//  @media (min-width: $rowWidth)
+//    // border: 20px solid white
 
 .blink
-	text:
-		decoration: blink
+  text:
+    decoration: blink
 
 
 // #page
-// 	@media (min-width: $rowWidth)
-// 		margin:
-// 			top: 3em !important
+//  @media (min-width: $rowWidth)
+//    margin:
+//      top: 3em !important
 
 #calendar
-	text-align: center
-	// height: 30em
-	overflow: auto
-	padding:
-		left: 0px
+  text-align: center
+  // height: 30em
+  overflow: auto
+  padding:
+    left: 0px
 
-	li.active
-		h5
-			padding:
-				top: 0.5em
-				bottom: 0.5em
-			background: white
+  li.active
+    h5
+      padding:
+        top: 0.5em
+        bottom: 0.5em
+      background: white
 
 
 
 span.year, span.month, span.date, span.day
-	padding:
-		left: 0.3ex
-	// text-align: center
+  padding:
+    left: 0.3ex
+  // text-align: center
 span.year, span.month
-	// display: inline-block
-	// width: 100%
+  // display: inline-block
+  // width: 100%
 
 span.year
-	h5.slabtextdone &, &
-		color: lightgreen !important
+  h5.slabtextdone &, &
+    color: lightgreen !important
 
 span.month
-	color: lightblue
+  color: lightblue
 
 span.day
-	color: gray
+  color: gray

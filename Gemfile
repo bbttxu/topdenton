@@ -110,7 +110,11 @@ gem 'bson_ext'
 gem "rails-backbone"
 gem "mongo_mapper-accepts_nested_attributes", :require => "mongo_mapper/accepts_nested_attributes"
 
-gem "httparty"
+gem "httparty", "0.8.3"
 gem "icalendar"
 
 gem "binding_of_caller", :group => :development
+
+gem "cachebar", github: "bbttxu/cachebar"
+
+gem "figaro"

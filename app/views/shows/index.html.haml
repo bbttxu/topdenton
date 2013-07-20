@@ -6,6 +6,9 @@
   - @calendar.each do |date, count|
     %li{ :class=> "#{date.strftime('%a day-%d month-%b year-%Y').downcase} count-#{count}" }
       - if count == 0
+        &nbsp;
       - else
-        - link_text = date > (Date.today + 2.weeks) ? date.strftime("%b %d") : date.strftime("%a %d")
-        = link_to link_text, "/shows/#{date}"
+        = link_to "/shows/#{date}" do
+          %span
+            = date > (Date.today + 2.weeks) ? date.strftime("%b") : date.strftime("%a")
+          = date.strftime("%d")

@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/bbttxu/cachebar.git
+  revision: 20b57b7075f68504f9356ba70ea5d6af382702ae
+  specs:
+    cachebar (1.1.0)
+      activesupport
+      httparty (~> 0.8.3)
+      redis
+      redis-namespace
+
+GIT
   remote: git://github.com/guard/guard-minitest.git
   revision: f13d0ec2a59cd11d1b400f2db62445c6092ee112
   specs:
@@ -104,6 +114,9 @@ GEM
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
     ffi (1.9.0)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
@@ -131,9 +144,9 @@ GEM
     highline (1.6.19)
     hike (1.2.3)
     http_parser.rb (0.5.3)
-    httparty (0.11.0)
+    httparty (0.8.3)
       multi_json (~> 1.0)
-      multi_xml (>= 0.5.2)
+      multi_xml
     i18n (0.6.1)
     icalendar (1.4.1)
     journey (1.0.4)
@@ -317,6 +330,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bson_ext
+  cachebar!
   cane
   capistrano
   chronic
@@ -326,13 +340,14 @@ DEPENDENCIES
   database_cleaner
   execjs
   factory_girl_rails
+  figaro
   foreman
   guard-bundler
   guard-livereload
   guard-minitest!
   guard-rspec
   haml
-  httparty
+  httparty (= 0.8.3)
   icalendar
   jquery-rails
   json

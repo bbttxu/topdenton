@@ -25,30 +25,33 @@
 
 
   .count-2
-    a
+    a span
       color: green !important
 
   .count-3
-    a
+    a span
       color: orange !important
 
   .count-4
-    a
+    a span
       color: red !important
 
 
-
+#calendar > li:nth-of-type(7n+1)
+  clear: both !important
 
 .month-jul, .month-sep, .month-nov
   // background:
-  //   color: #bbb
+  a
+    color: $primary-color
   &.sat, &.sun
-    // background:
-    //   color: #ddd
+    a
+      color: lighten($primary-color, 10%)
 
 .month-aug, .month-oct, .month-dec
-  // background:
-  //   color: #ccc
+  a
+    color: grayscale($primary-color)
   &.sat, &.sun
-    // background:
-    //   color: #eee
+    a
+      color: grayscale( lighten($primary-color, 10%))
+
