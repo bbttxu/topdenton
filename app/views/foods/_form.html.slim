@@ -1,0 +1,17 @@
+= simple_form_for(@food) do |f|
+  - if @food.errors.any?
+    #error_explanation
+      h2= "#{pluralize(@food.errors.count, "error")} prohibited this food from being saved:"
+
+      ul
+       -@food.errors.full_messages.each do |msg|
+        li= msg
+
+  = f.input :name
+  = f.input :address
+  = f.input :city
+  = f.input :state
+  = f.input :zipcode
+  = f.input :phone
+  = f.input :tags
+  = f.button :submit

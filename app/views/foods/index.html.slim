@@ -1,0 +1,10 @@
+h1 Nearby Food by category
+
+- Food.tags.each do |tag|
+  div.small-4.columns
+    h3= tag
+    ul.small-block-grid-1
+      - Food.tagged_with(tag).each do |food|
+        li= link_to food.name, food_path(food)
+
+= link_to "add food", new_food_path

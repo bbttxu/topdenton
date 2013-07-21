@@ -118,3 +118,7 @@ gem "binding_of_caller", :group => :development
 gem "cachebar", github: "bbttxu/cachebar"
 
 gem "figaro"
+
+gem "mongoid_taggable"
+
+gem "simple_form"

@@ -1,4 +1,7 @@
 Denton::Application.routes.draw do
+  resources :foods
+
+
   # constraints { :id => /\d{4}-\d{2}-\d{2}/ } do
   # end
 
