@@ -127,5 +127,5 @@ gem "quiet_assets", ">= 1.0.2", :group => :development
 
 gem "omniauth"
 gem "omniauth-twitter"
-# gem "cancan"
-# gem "rolify"
+gem "cancan"
+gem "rolify"

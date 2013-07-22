@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  rolify
 
   field :name, type: String
   field :provider, type: String

@@ -2,6 +2,8 @@ class Food
   include Mongoid::Document
   include Mongoid::Taggable
 
+  resourcify
+
   field :name, type: String
   field :address, type: String
   field :city, type: String

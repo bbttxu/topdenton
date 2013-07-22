@@ -27,13 +27,22 @@
                 %li
                   = link_to "Today", shows_today_path
                 %li
-                  = link_to "Calendar", shows_calendar_path
+                  = link_to "Shows", shows_calendar_path
+                %li
+                  = link_to "Food", foods_path
                 %li
                   - if current_user
                     = link_to "signout #{current_user.name}", signout_path
 
                   - else
                     = link_to "Sign in with Twitter", "/auth/twitter"
+
+      - flash.each do |type, value|
+        .flash{ :class => type.to_s }
+          .row
+            .small-12.columns
+              %p= value
+
       .row
         .small-2.columns#prev
           %h3

@@ -4,8 +4,9 @@ class ApplicationController < ActionController::Base
   before_filter :grab_model_counts, :get_current_conditions
   helper_method :current_user
 
-
-
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
 
   def grab_model_counts
     # TODO move to application!
