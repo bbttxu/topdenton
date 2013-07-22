@@ -122,3 +122,10 @@ gem "figaro"
 gem "mongoid_taggable"
 
 gem "simple_form"
+
+gem "quiet_assets", ">= 1.0.2", :group => :development
+
+gem "omniauth"
+gem "omniauth-twitter"
+# gem "cancan"
+# gem "rolify"

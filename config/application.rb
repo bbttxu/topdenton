@@ -53,5 +53,7 @@ module Denton
     config.assets.version = '1.0'
 
     HTTParty::HTTPCache.perform_caching = true
+
+    Mongoid.raise_not_found_error = false
   end
 end
