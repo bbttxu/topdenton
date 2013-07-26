@@ -86,6 +86,11 @@ test:
 production:
   # Configure available database sessions. (required)
   sessions:
+      uri: 192.241.214.127:27017
+      options:
+        skip_version_check: true
+        safe: true
+
     # Defines the default session. (required)
     default:
       # Defines the name of the default database that Mongoid can connect to.
