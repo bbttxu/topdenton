@@ -76,10 +76,6 @@ test:
 production:
   # Configure available database sessions. (required)
   sessions:
-    uri: 192.241.214.127:27017
-    options:
-      skip_version_check: true
-      safe: true
 
     # Defines the default session. (required)
     default:
@@ -90,23 +86,27 @@ production:
       # of host:port pairs. (required)
       hosts:
         - 192.241.214.127:27017
-      options:
-        # Change whether the session persists in safe mode by default.
-        # (default: false)
-        # safe: false
+    options:
+      database: denton
+      hosts: 192.241.214.127:27017
+      # Change whether the session persists in safe mode by default.
+      # (default: false)
+      # safe: false
 
-        # Change the default consistency model to :eventual or :strong.
-        # :eventual will send reads to secondaries, :strong sends everything
-        # to master. (default: :eventual)
-        # consistency: :eventual
+      # Change the default consistency model to :eventual or :strong.
+      # :eventual will send reads to secondaries, :strong sends everything
+      # to master. (default: :eventual)
+      # consistency: :eventual
 
-        # How many times Moped should attempt to retry an operation after
-        # failure. (default: 30)
-        # max_retries: 30
+      # How many times Moped should attempt to retry an operation after
+      # failure. (default: 30)
+      # max_retries: 30
 
-        # The time in seconds that Moped should wait before retrying an
-        # operation on failure. (default: 1)
-        # retry_interval: 1
+      # The time in seconds that Moped should wait before retrying an
+      # operation on failure. (default: 1)
+      # retry_interval: 1
+      skip_version_check: true
+      safe: true
   # Configure Mongoid specific options. (optional)
   options:
     # Configuration for whether or not to allow access to fields that do
