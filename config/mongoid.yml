@@ -69,27 +69,17 @@ development:
 test:
   sessions:
     default:
-      database: denton_test
-      host:
-      slaves:
-        - host: localhost
-          port: 27018
-        - host: localhost
-          port: 27019        - localhost:27017
-      options:
-        consistency: :strong
-        # In the test environment we lower the retries and retry interval to
-        # low amounts for fast failures.
-        max_retries: 1
-        retry_interval: 0
+      database: bluster
+      hosts:
+        - localhost:27017
 
 production:
   # Configure available database sessions. (required)
   sessions:
-      uri: 192.241.214.127:27017
-      options:
-        skip_version_check: true
-        safe: true
+    uri: 192.241.214.127:27017
+    options:
+      skip_version_check: true
+      safe: true
 
     # Defines the default session. (required)
     default:
