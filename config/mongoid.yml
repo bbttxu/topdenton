@@ -25,4 +25,5 @@ production:
         - 192.241.212.23:27017
         - 192.241.220.139:27017
       options:
+        consistency: :strong
   options:

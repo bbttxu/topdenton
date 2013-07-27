@@ -1,16 +1,22 @@
 require "bundler/capistrano"
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
-set :application, "denton.bbttxu.com"
+set :application, "top_denton"
 set :scm, :git
 
-set :repository, "git@github.com:bbttxu/denton.git"  # Your clone URL
+set :repository, "ssh://198.199.123.28/~/repos/topdenton.git"  # Your clone URL
 set :branch, "master"
 set :user, "deploy"  # The server's user for deploys
 set :deploy_via, :remote_cache # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-set :deploy_to, "/home/deploy/#{application}"
+set :rails_env, "production"
+set :deploy_to, "/home/adam/#{application}"
+set :user, "adam" # Login as?
 set :use_sudo, false
+set :hosts, ["192.241.212.23", "192.241.214.127", "192.241.220.139"]
+
+
+# uyqisbumrkce
 
 if ENV['DEPLOY'] == 'PRODUCTION'
    puts "*** Deploying to the \033[1;41m  PRODUCTION  \033[0m servers!"
@@ -20,10 +26,10 @@ if ENV['DEPLOY'] == 'PRODUCTION'
    role :db,  "50.56.247.244", :primary => true
 else
    puts "*** Deploying to the \033[1;42m  STAGING  \033[0m server!"
-   role :app, "10.0.0.38"                          # Your HTTP server, Apache/etc
-   role :web, "10.0.0.38"                          # Your HTTP server, Apache/etc
+   role :app, "192.241.212.23", "192.241.214.127", "192.241.220.139"                          # Your HTTP server, Apache/etc
+   role :web, "192.241.212.23", "192.241.214.127", "192.241.220.139"                          # Your HTTP server, Apache/etc
    # TODO adding db role to production, we don't need it, but a capistrano task is looking for it
-   role :db, "10.0.0.38", :primary => true
+   # role :db, "192.241.214.127", :primary => true
 end
 
 # if you want to clean up old releases on each deploy uncomment this:
@@ -52,8 +58,8 @@ default_environment["RAILS_ENV"] = 'production'
 
 default_run_options[:shell] = 'bash'
 
-after "deploy:update", "foreman:export"    # Export foreman scripts
-after "deploy:update", "foreman:restart"   # Restart application scripts
+# after "deploy:update", "foreman:export"    # Export foreman scripts
+# after "deploy:update", "foreman:restart"   # Restart application scripts
 
 namespace :deploy do
   desc "Deploy your application"
@@ -122,29 +128,29 @@ namespace :deploy do
   # task :restart, :except => { :no_release => true } do
   #   run "kill -s USR2 `cat /tmp/unicorn.my_site.pid`"
   # end
-  # 
+  #
   # desc "Start unicorn"
   # task :start, :except => { :no_release => true } do
   #   run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D"
   # end
-  # 
+  #
   # desc "Stop unicorn"
   # task :stop, :except => { :no_release => true } do
   #   run "kill -s QUIT `cat /tmp/unicorn.my_site.pid`"
   # end
-  # 
+  #
   # namespace :rollback do
   #   desc "Moves the repo back to the previous version of HEAD"
   #   task :repo, :except => { :no_release => true } do
   #     set :branch, "HEAD@{1}"
   #     deploy.default
   #   end
-  # 
+  #
   #   desc "Rewrite reflog so HEAD@{1} will continue to point to at the next previous release."
   #   task :cleanup, :except => { :no_release => true } do
   #     run "cd #{current_path}; git reflog delete --rewrite HEAD@{1}; git reflog delete --rewrite HEAD@{1}"
   #   end
-  # 
+  #
   #   desc "Rolls back to the previously deployed version."
   #   task :default do
   #     rollback.repo
@@ -155,33 +161,62 @@ end
 
 # Foreman tasks
 
-namespace :foreman do
-  desc 'Export the Procfile to Ubuntu upstart scripts'
-  task :export, :roles => :app do
+# namespace :foreman do
+#   desc 'Export the Procfile to Ubuntu upstart scripts'
+#   task :export, :roles => :app do
 
-    run "cd #{release_path} && sudo bundle exec foreman export upstart /etc/init -a #{application} -u #{user} -l #{release_path}/log/foreman"
+#     run "cd #{release_path} && sudo bundle exec foreman export foreman /etc/init -a #{application} -u #{user} -l #{release_path}/log/foreman"
 
-  end
+#   end
 
-  desc "Start the application services"
-  task :start, :roles => :app do
+#   desc "Start the application services"
+#   task :start, :roles => :app do
 
-    sudo "start #{application}"
-  end
+#     sudo "start #{application}"
+#   end
 
-  desc "Stop the application services"
+#   desc "Stop the application services"
 
-  task :stop, :roles => :app do
-    sudo "stop #{application}"
+#   task :stop, :roles => :app do
+#     sudo "stop #{application}"
 
-  end
+#   end
 
-  desc "Restart the application services"
-  task :restart, :roles => :app do
+#   desc "Restart the application services"
+#   task :restart, :roles => :app do
 
-    run "sudo start #{application} || sudo restart #{application}"
+#     run "sudo start #{application} || sudo restart #{application}"
+#   end
+# end
+# def run_rake(cmd)
+#   run "cd #{current_path}; #{rake} #{cmd}"
+# end
+
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
+
+load 'deploy/assets'
+
+namespace :deploy do
+  namespace :assets do
+    desc 'Run the precompile task locally and rsync with shared'
+    task :precompile, :roles => :web, :except => { :no_release => true } do
+      %x{bundle exec rake assets:precompile}
+      hosts.each do |host|
+        %x{rsync --recursive --times --rsh=ssh --compress --human-readable --progress public/assets #{user}@#{host}:#{shared_path}}
+      end
+      %x{bundle exec rake assets:clean}
+    end
   end
 end
-def run_rake(cmd)
-  run "cd #{current_path}; #{rake} #{cmd}"
+
+namespace(:customs) do
+  task :config, :roles => :app do
+    run <<-CMD
+      ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml
+    CMD
+  end
 end
+
+after "deploy:update_code", "customs:config"
