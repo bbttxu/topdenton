@@ -105,6 +105,7 @@ gem "ZenTest"
 
 # gem 'mongo_mapper'
 gem 'mongoid'
+gem 'mongoid_rateable'
 gem 'bson_ext'
 
 gem "rails-backbone"
@@ -129,3 +130,5 @@ gem "omniauth"
 gem "omniauth-twitter"
 gem "cancan"
 gem "rolify"
+
+gem "mongo_session_store-rails3"
