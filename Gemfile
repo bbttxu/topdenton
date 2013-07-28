@@ -92,7 +92,7 @@ gem 'linguistics'
 
 gem 'newrelic_rpm'
 
-gem 'turbolinks'
+# gem 'turbolinks'
 
 gem 'autotest'
 gem 'autotest-rails'

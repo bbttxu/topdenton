@@ -15,7 +15,6 @@
 //= require backbone_datalink
 //= require backbone/denton
 //= require foundation
-//= require turbolinks
 //= require jquery.slabtext
 //= require jquery.isotope
 //! require jquery.touchSwipe
