@@ -6,6 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require underscore
 //= require backbone
 //! require backbone-relational
@@ -19,6 +20,7 @@
 //! require jquery.touchSwipe
 //= require app
 //= require artists
+//= require foods
 //= require gigs
 //= require shows
 //= require venues

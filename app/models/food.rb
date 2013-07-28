@@ -4,6 +4,8 @@ class Food
 
   resourcify
 
+  has_one :rating
+
   field :name, type: String
   field :address, type: String
   field :city, type: String
@@ -14,4 +16,14 @@ class Food
   field :longitude, type: Float
 
   validates_presence_of :name, :address, :city, :state, :zipcode, :phone
+
+  after_create :ensure_rating_for_food
+  after_update :ensure_rating_for_food
+
+  protected
+  def ensure_rating_for_food
+    self.tags_array.each do |tag|
+      Rating.find_or_create_by(food_id: self.id, tags_array: [tag]).save
+    end
+  end
 end

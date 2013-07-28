@@ -15,6 +15,21 @@ class FoodsController < ApplicationController
 
   # GET /foods/1
   # GET /foods/1.json
+  def tags
+    @ratings = Rating.tagged_with(params[:tag])
+    @rated = @ratings.rated_by(current_user)
+    # @unrated = Rating.unrated_by(current_user).tagged_with(params[:tag])
+
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @food }
+    end
+  end
+
+
+  # GET /foods/1
+  # GET /foods/1.json
   def show
     @food = Food.find(params[:id])
 

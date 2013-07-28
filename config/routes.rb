@@ -1,6 +1,12 @@
 Denton::Application.routes.draw do
   resources :foods
+  match "foods/tags/:tag" => 'foods#tags'
 
+  resources :ratings do
+    collection do
+      post 'reorder'
+    end
+  end
 
   # constraints { :id => /\d{4}-\d{2}-\d{2}/ } do
   # end
