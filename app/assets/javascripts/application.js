@@ -7,6 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
+//= require jquery.ui.touch-punch
 //= require underscore
 //= require backbone
 //! require backbone-relational

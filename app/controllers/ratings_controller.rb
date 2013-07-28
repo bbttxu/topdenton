@@ -1,8 +1,8 @@
 class RatingsController < ApplicationController
 
   def reorder
-    @rated_ids = params[:rated]
-    @unrated_ids = params[:unrated]
+    @rated_ids = params[:rated] || []
+    @unrated_ids = params[:unrated] || []
     n = 1
     @rated_ids.each do |id|
       rating = Rating.find(id.gsub("rating_", ""))

@@ -10,17 +10,9 @@ change_sort_order = ( event, ui )->
   pobj =
     rated: rated
     unrated: unrated
-  console.log rated, unrated, pobj
   $.post("/ratings/reorder", pobj)
-  # $.ajax
-  #   type: "PUT"
-  #   url: "/ratings/"
-  #   contentType: "application/json"
-  #   data: $("ol.rated").sortable("serialize")
-  # # console.log $("ol.rated").sortable("serialize")
-  # # console.log $("ul.unrated").sortable("serialize")
 
-$(document).ready ->
+$(document).ready ()->
   $( "ol.rated, ul.unrated" ).sortable
     connectWith: ".sortable"
     stop: change_sort_order
