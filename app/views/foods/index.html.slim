@@ -1,7 +1,7 @@
-h1 Nearby Food by category
+h2 Top 5 by tag
 
 - Rating.tags.each do |tag|
-  div.small-4.columns
+  div.small-12.large-4.columns
     h3
       => tag
       small= link_to "RATE", "/foods/tags/#{tag}"
@@ -9,10 +9,10 @@ h1 Nearby Food by category
       - Rating.tagged_with(tag).highest_rated(5).reverse.each do |rating|
         - if rating.rated?
           li
-            h3
+            h5
+              => link_to rating.food.name, food_path(rating.food)
               - if current_user and rating.rated_by?(current_user)
                 small= rating.user_mark(current_user)
-              => link_to rating.food.name, food_path(rating.food)
 
 
 - rated_tags = Rating.tags
@@ -20,8 +20,8 @@ h1 Nearby Food by category
 - unrated_tags = all_tags - rated_tags
 - unrated_tags.each do |tag|
   div.small-4.columns
-    h3
+    h5
       => tag
       small= link_to "RATE", "/foods/tags/#{tag}"
 
-= link_to "add food", new_food_path
+= link_to "add food", new_food_path if can? :create, Food
