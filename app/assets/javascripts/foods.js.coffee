@@ -17,3 +17,4 @@ $(document).ready ()->
     connectWith: ".sortable"
     stop: change_sort_order
   .disableSelection()
+  $('div.foods').isotope()
