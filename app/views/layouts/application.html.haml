@@ -43,25 +43,30 @@
             .small-12.columns
               %p= value
 
-      .row
-        - if @prev_show
-          .small-2.columns#prev
-            %h3
-              - if @prev_show
-                = link_to raw("&laquo;"), "/shows/#{@prev_show.starts_at.to_date.strftime('%Y-%m-%d')}"
-              - else
-                = link_to raw("&laquo;"), "/"
 
-        .small-8.columns#content
-          = yield
+      - if @prev_show and @next_show
+        .row
+          - if @prev_show
+            .small-2.columns#prev
+              %h3
+                - if @prev_show
+                  = link_to raw("&laquo;"), "/shows/#{@prev_show.starts_at.to_date.strftime('%Y-%m-%d')}"
+                - else
+                  = link_to raw("&laquo;"), "/"
+            .small-8.columns#content
+              = yield
+          - if @next_show
+            .small-2.columns#next
+              %h3
+                - if @next_show
+                  = link_to(raw("&raquo;"), "/shows/#{@next_show.starts_at.to_date.strftime('%Y-%m-%d')}").html_safe
+                - else
+                  = link_to raw("&raquo;"), "/"
+      - else
+        / .small-12.columns#content
+        = yield
 
-        - if @next_show
-          .small-2.columns#next
-            %h3
-              - if @next_show
-                = link_to(raw("&raquo;"), "/shows/#{@next_show.starts_at.to_date.strftime('%Y-%m-%d')}").html_safe
-              - else
-                = link_to raw("&raquo;"), "/"
+
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-37120893-1']);

@@ -1,8 +1,9 @@
-h2 Top 5 by tag
-
-.foods
+.row
+  .small-12.columns
+    h2 Top 5 by tag
+.row#foods
   - Rating.tags_with_weight.sort_by{|x|[-x[1],x[0]]}.each do |tag|
-    div.small-12.large-4.columns.food
+    .small-6.large-4.columns.food
       h3
         => tag[0]
         small= link_to "RATE #{tag[1].to_i}", "/foods/tags/#{tag[0]}"
@@ -20,9 +21,10 @@ h2 Top 5 by tag
   - all_tags = Food.tags
   - unrated_tags = all_tags - rated_tags
   - unrated_tags.each do |tag|
-    div.small-4.columns
+    .small-4.columns
       h5
         => tag
         small= link_to "RATE #{tag[1].to_i}", "/foods/tags/#{tag}"
 
-= link_to "add food", new_food_path if can? :create, Food
+  .small-4.columns
+    = link_to "add food", new_food_path if can? :create, Food
