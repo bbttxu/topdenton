@@ -205,6 +205,7 @@ namespace :deploy do
     task :precompile, :roles => :web, :except => { :no_release => true } do
       %x{bundle exec rake assets:precompile}
       hosts.each do |host|
+        puts "copying to #{host}"
         %x{rsync --recursive --times --rsh=ssh --compress --human-readable --progress public/assets #{user}@#{host}:#{current_path}}
       end
       %x{bundle exec rake assets:clean}

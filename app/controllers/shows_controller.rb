@@ -2,6 +2,13 @@
 class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.json
+
+  before_filter :do_caching
+
+  def do_caching
+    expires_in 15.minutes, :public => true
+  end
+
   def index
     # @shows = Show.upcoming.next_week
     # @shows.group_by{ |u| Time.zone.at(u.starts_at).to_date.to_datetime.to_i }
