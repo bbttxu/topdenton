@@ -5,7 +5,7 @@
       - @food.tags_array.each do |tag|
         li
           h3
-            => link_to tag, rate_food_path(tag)
+            => can?(:rate, Food) ? link_to(tag, rate_food_path(tag) ) : tag
             - r = Rating.tagged_with(tag).find_by food_id: @food.id
             small= r.rating || "no ratings"
 
