@@ -13,10 +13,11 @@ class FoodsController < ApplicationController
     end
   end
 
-  # GET /foods/1
+  # GET /foods/1/rate
   # GET /foods/1.json
-  def tags
-    @ratings = Rating.tagged_with(params[:tag])
+  # NB id is tag name for a Rating, not an id
+  def rate
+    @ratings = Rating.tagged_with(params[:id])
     @rated = @ratings.rated_by(current_user)
     # @unrated = Rating.unrated_by(current_user).tagged_with(params[:tag])
 

@@ -1,13 +1,13 @@
-p id="notice"=< notice
+.row
+  .columns.small-12
+    h2= @food.name
+    ul
+      - @food.tags_array.each do |tag|
+        li
+          h3
+            => link_to tag, rate_food_path(tag)
+            - r = Rating.tagged_with(tag).find_by food_id: @food.id
+            small= r.rating || "no ratings"
 
-h2= @food.name
-ul
-  - @food.tags_array.each do |tag|
-    li
-      h3
-        => link_to tag, "/foods/tags/#{tag}"
-        - r = Rating.tagged_with(tag).find_by food_id: @food.id
-        small= r.rating || "no ratings"
-
-p= [@food.address, @food.city, "#{@food.state} #{@food.zipcode}", @food.phone ].join ", "
-= link_to 'Edit', edit_food_path(@food) if can? :edit, @food
+    p= [@food.address, @food.city, "#{@food.state} #{@food.zipcode}", @food.phone ].join ", "
+    = link_to 'Edit', edit_food_path(@food) if can? :edit, @food

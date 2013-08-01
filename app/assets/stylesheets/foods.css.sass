@@ -2,6 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#foods
+  @extend .row
+
+  div.food, div.actions
+    @extend .columns
+    @extend .small-6
+    @extend .large-4
+
+
 div.food
   h3
     color: whitesmoke
+
+    body.day &
+      color: black

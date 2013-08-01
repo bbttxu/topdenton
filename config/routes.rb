@@ -1,6 +1,10 @@
 Denton::Application.routes.draw do
-  resources :foods
-  match "foods/tags/:tag" => 'foods#tags'
+  resources :foods do
+    member do
+      get 'rate'
+    end
+  end
+  # match "foods/:tag/rate" => 'foods#rate'
 
   resources :ratings do
     collection do

@@ -18,4 +18,4 @@ $(document).ready ()->
     stop: change_sort_order
   .disableSelection()
 
-  $('#foods').isotope()
+  # $('#foods').isotope()

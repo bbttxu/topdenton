@@ -61,18 +61,19 @@ end
 group :test do
   gem "webmock", "< 1.12"
   gem "vcr"
-  gem "factory_girl_rails"
 end
+
+gem "factory_girl_rails", :group => [ :test, :development ]
 
 group :test, :development do
   # gem 'cucumber-rails'
   gem 'database_cleaner'
-  gem 'rspec'
-  gem 'spork'
+  # gem 'rspec'
+  # gem 'spork'
 
   gem 'guard-bundler'
   gem 'guard-minitest', github: 'guard/guard-minitest'
-  gem 'guard-rspec'
+  # gem 'guard-rspec'
   gem 'guard-livereload'
 
   gem 'minitest-reporters'
@@ -94,15 +95,15 @@ gem 'newrelic_rpm'
 
 # gem 'turbolinks'
 
-gem 'autotest'
-gem 'autotest-rails'
+# gem 'autotest'
+# gem 'autotest-rails'
 # gem 'autotest-growl'
 # gem 'autotest-fsevent'
 
 gem 'execjs'
 gem 'therubyracer'
 
-gem "ZenTest"
+# gem "ZenTest"
 
 # gem 'mongo_mapper'
 gem 'mongoid'
