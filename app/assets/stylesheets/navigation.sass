@@ -1,4 +1,8 @@
 // navigation.sass
+// FIXME the amount of different selectors here is insane
+
+#navigation-wrapper
+  background: black
 
 #nav
   ul
@@ -15,8 +19,6 @@
     position: absolute
     text-align: right
 
-#navigation-wrapper
-  background: black
 
 #navigation
   @extend .row
@@ -31,3 +33,8 @@
   a.active
     li &
       @extend .active
+
+section.top-bar-section
+  li
+    @extend .cherry-cream-soda
+    a

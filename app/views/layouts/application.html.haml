@@ -9,7 +9,7 @@
     = csrf_meta_tags
     %meta( name="viewport" content="width=device-width, initial-scale=1.0" )
 
-  %body{:class => ("day" if Weather.current['sys']['sunrise'] < Time.now.to_i and Time.now.to_i < Weather.current['sys']['sunset'])}
+  %body{:class => day_or_night }
     #page
       #navigation-wrapper
         #navigation.contain-to-grid
@@ -17,25 +17,25 @@
             %ul.title-area
               %li.name
                 %h1
-                  = active_link_to 'Denton, TX', "/"
+                  = active_link_to 'Denton, TX', shows_today_path
               %li.toggle-topbar
                 %a( href="#" ) Menu
 
             %section.top-bar-section
 
               %ul.right
-                %li
-                  = link_to "Today", shows_today_path
+                / %li
+                /   = link_to "Today", shows_today_path
                 %li
                   = link_to "Shows", shows_calendar_path
                 %li
                   = link_to "Food", foods_path
                 %li
                   - if current_user
-                    = link_to "signout #{current_user.name}", signout_path
+                    = link_to "Sign Out #{current_user.name}", signout_path
 
                   - else
-                    = link_to "Sign in with Twitter", "/auth/twitter"
+                    = link_to "Sign In", "/auth/twitter"
 
       - flash.each do |type, value|
         .flash{ :class => type.to_s }

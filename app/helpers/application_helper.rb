@@ -44,4 +44,8 @@ module ApplicationHelper
     end
   end
 
+  def day_or_night( time = Time.now )
+    (Weather.current['sys']['sunrise'] < time.to_i and time.to_i < Weather.current['sys']['sunset']) ? "day" : "night"
+  end
+
 end

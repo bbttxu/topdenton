@@ -55,5 +55,7 @@ module Denton
     HTTParty::HTTPCache.perform_caching = true
 
     Mongoid.raise_not_found_error = false
+
+    config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
   end
 end
