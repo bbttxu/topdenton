@@ -9,7 +9,7 @@
         - if can? :rate, Food
           small= link_to "RATE #{tag[1].to_i}", rate_food_path(tag[0])
       ol.top-rated
-        - Rating.tagged_with(tag[0]).highest_rated(5).reverse.each do |rating|
+        - Rating.tagged_with(tag[0]).top_five.each do |rating|
           - if rating.rated?
             li
               h6

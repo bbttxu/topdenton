@@ -8,6 +8,8 @@ class Rating
 
   before_save :downcase_tags
 
+  scope :top_five, ->(limit=5) { order_by([:rating, :asc]).limit(limit) }
+
   def downcase_tags
     self.tags = self.tags.downcase
   end
