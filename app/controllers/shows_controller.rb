@@ -12,7 +12,7 @@ class ShowsController < ApplicationController
   def index
     # @shows = Show.upcoming.next_week
     # @shows.group_by{ |u| Time.zone.at(u.starts_at).to_date.to_datetime.to_i }
-    @shows = Show.ordered.group_by{|x|Time.zone.parse("#{x.starts_at.to_date} 2:00am")}
+    @shows = Show.upcoming.ordered.group_by{|x|Time.zone.parse("#{x.starts_at.to_date} 2:00am")}
     @dates = @shows.collect{|k,v|k}.sort
     @next_show = Show.upcoming.ordered.first
     @prev_show = Show.upcoming.ordered.last
