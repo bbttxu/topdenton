@@ -53,8 +53,8 @@
                   = link_to raw("&laquo;"), "/shows/#{@prev_show.starts_at.to_date.strftime('%Y-%m-%d')}"
                 - else
                   = link_to raw("&laquo;"), shows_calendar_path
-            .small-8.columns#content
-              = yield
+          .small-8.columns#content
+            = yield
           - if @next_show
             .small-2.columns#next
               %h3
