@@ -118,11 +118,11 @@ namespace :deploy do
       ln -sf #{shared_path}/database.yml #{latest_release}/config/database.yml
     CMD
 
-    if fetch(:normalize_asset_timestamps, true)
-      stamp = Time.now.utc.strftime("%Y%m%d%H%M.%S")
-      asset_paths = fetch(:public_children, %w(images stylesheets javascripts)).map { |p| "#{latest_release}/public/#{p}" }.join(" ")
-      run "find #{asset_paths} -exec touch -t #{stamp} {} ';'; true", :env => { "TZ" => "UTC" }
-    end
+    # if fetch(:normalize_asset_timestamps, true)
+    #   stamp = Time.now.utc.strftime("%Y%m%d%H%M.%S")
+    #   asset_paths = fetch(:public_children, %w(images stylesheets javascripts)).map { |p| "#{latest_release}/public/#{p}" }.join(" ")
+    #   run "find #{asset_paths} -exec touch -t #{stamp} {} ';'; true", :env => { "TZ" => "UTC" }
+    # end
   end
 
   # desc "Zero-downtime restart of Unicorn"
@@ -200,25 +200,25 @@ set :default_environment, {
 # load 'deploy/assets'
 
 namespace :deploy do
-  namespace :assets do
-    desc 'Run the precompile task locally and rsync with shared'
-    task :precompile, :roles => :web, :except => { :no_release => true } do
-      %x{bundle exec rake assets:precompile}
-      hosts.each do |host|
-        puts "copying to #{host}"
-        %x{rsync --recursive --times --rsh=ssh --compress --human-readable --progress public/assets #{user}@#{host}:#{current_path}}
-      end
-      %x{bundle exec rake assets:clean}
+  task :default do
+    update
+    assets.precompile
+    restart
+    # cleanup
+    # etc
+  end
+end
+
+namespace :assets do
+  desc "Precompile assets locally and then rsync to app servers"
+  task :precompile, :only => { :primary => true } do
+    run_locally "bundle exec rake assets:precompile;"
+    servers = find_servers :roles => [:app], :except => { :no_release => true }
+    servers.each do |server|
+      run_locally "rsync -av ./public/assets/ #{user}@#{server}:#{current_path}/public/assets/;"
     end
+    run_locally "rm -rf public/assets"
   end
 end
 
-namespace(:customs) do
-  task :config, :roles => :app do
-    run <<-CMD
-      ln -nfs #{shared_path}/config/application.yml #{current_path}/config/application.yml
-    CMD
-  end
-end
-
-after "deploy:update_code", "customs:config"
+# after "deploy:update_code", "customs:config"

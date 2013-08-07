@@ -57,5 +57,7 @@ module Denton
     Mongoid.raise_not_found_error = false
 
     config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
+
+    config.assets.initialize_on_precompile = false
   end
 end
