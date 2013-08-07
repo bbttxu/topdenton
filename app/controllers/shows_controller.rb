@@ -24,11 +24,13 @@ class ShowsController < ApplicationController
       hash[num] = d.count unless d.nil?
     end
 
+    @next_show = nil
+    @prev_show = nil
 
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @shows }
+      format.json { render json: @calendar }
     end
   end
 

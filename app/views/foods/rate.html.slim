@@ -1,6 +1,6 @@
 / tags.html.slim
 .row
-  .columns.small-12
+  .columns.small-9.large-6
     h6 rated
     ol.rated.sortable
       - @rated.highest_rated.reverse.each_with_index do |rating,index|
@@ -17,6 +17,7 @@
           li( class="rating-#{rating.id}" id="rating_#{rating.id}")
             h3= rating.food.name
 
+  .columns.small-12.large-5
     h2 About Ratings
     p Order your favorite restaurants above and see how they compare with others.
     p If you don't have an opinion about a restaurant, don't rank it—it doesn't count against them in any way.

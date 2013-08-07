@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   def grab_model_counts
     # TODO move to application!
     @n_shows = Show.all.count
+    # @n_foods = Food.all.count
     # @n_artists = Artist.all.count
     # @n_venues = Venue.all.count
   end

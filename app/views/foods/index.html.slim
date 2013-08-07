@@ -7,7 +7,7 @@
       h3
         => tag[0]
         - if can? :rate, Food
-          small= link_to "RATE #{tag[1].to_i}", rate_food_path(tag[0])
+          small= link_to "RATE", rate_food_path(tag[0])
       ol.top-rated
         - Rating.tagged_with(tag[0]).top_five.each do |rating|
           - if rating.rated?
@@ -15,7 +15,7 @@
               h6
                 => link_to rating.food.name, food_path(rating.food)
                 - if current_user and rating.rated_by?(current_user)
-                  span.subheader= rating.user_mark(current_user)
+                  small.subheader= rating.user_mark(current_user)
 
 
   - rated_tags = Rating.tags
@@ -25,7 +25,7 @@
     .food
       h5
         => tag
-        small= link_to "RATE #{tag[1].to_i}", rate_food_path(tag[0])
+        small= link_to "RATE", rate_food_path(tag[0])
 
   .actions
     = link_to "add food", new_food_path if can? :create, Food

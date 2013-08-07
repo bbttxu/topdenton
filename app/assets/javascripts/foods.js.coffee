@@ -4,13 +4,20 @@
 
 $ = jQuery
 
+success = (i,status)->
+  $( ".sortable" ).effect( "highlight" )
+  console.log $(i), status
+
 change_sort_order = ( event, ui )->
+  console.log ui, event
   rated = $("ol.rated").sortable("toArray")
   unrated = $("ul.unrated").sortable("toArray")
   pobj =
     rated: rated
     unrated: unrated
-  $.post("/ratings/reorder", pobj)
+  $.post("/ratings/reorder", pobj, success)
+
+
 
 $(document).ready ()->
   $( "ol.rated, ul.unrated" ).sortable

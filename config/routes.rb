@@ -26,5 +26,5 @@ Denton::Application.routes.draw do
   # resources :shows
 
 
-  root :to => 'shows#index'
+  root :to => 'shows#today'
 end

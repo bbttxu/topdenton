@@ -27,12 +27,12 @@
                 / %li
                 /   = link_to "Today", shows_today_path
                 %li
-                  = link_to "Shows", shows_calendar_path
+                  = link_to "Calendar", shows_calendar_path
                 %li
                   = link_to "Food", foods_path
                 %li
                   - if current_user
-                    = link_to "Sign Out #{current_user.name}", signout_path
+                    = link_to "Sign Out", signout_path
 
                   - else
                     = link_to "Sign In", "/auth/twitter"
@@ -65,6 +65,7 @@
       - else
         / .small-12.columns#content
         = yield
+    = render partial: "layouts/footer"
 
 
     :javascript
