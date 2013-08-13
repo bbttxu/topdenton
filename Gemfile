@@ -71,6 +71,8 @@ group :test, :development do
   # gem 'rspec'
   # gem 'spork'
 
+  gem 'guard-rails'
+
   gem 'guard-bundler'
   gem 'guard-minitest', github: 'guard/guard-minitest'
   # gem 'guard-rspec'
