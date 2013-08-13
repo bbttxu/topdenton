@@ -4,7 +4,7 @@
     h6 rated
     ol.rated.sortable
       - @rated.highest_rated.reverse.each_with_index do |rating,index|
-          li( class="rating-#{rating.id}" id="rating_#{rating.id}")
+          li.food( class="rating-#{rating.id}" id="rating_#{rating.id}")
             h3
               => rating.food.name
               - if current_user and rating.rated_by?(current_user)
@@ -14,7 +14,7 @@
     ul.unrated.sortable
       - @ratings.each do |rating|
         - unless rating.rated_by? current_user
-          li( class="rating-#{rating.id}" id="rating_#{rating.id}")
+          li.food( class="rating-#{rating.id}" id="rating_#{rating.id}")
             h3= rating.food.name
 
   .columns.small-12.large-5
