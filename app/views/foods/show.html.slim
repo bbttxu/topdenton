@@ -10,4 +10,5 @@
             small= r.rating || "no ratings"
 
     p= [@food.address, @food.city, "#{@food.state} #{@food.zipcode}", @food.phone ].join ", "
-    = link_to 'Edit', edit_food_path(@food) if can? :edit, @food
+    = link_to 'Edit', edit_food_path(@food), class: 'button' if can? :edit, @food
+    = link_to 'Delete', food_path(@food), :method => :delete, :confirm => "Sure? A bunny will die", class: 'button alert' if can? :destroy, @food

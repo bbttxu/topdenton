@@ -21,7 +21,6 @@ class FoodsController < ApplicationController
     @rated = @ratings.rated_by(current_user)
     # @unrated = Rating.unrated_by(current_user).tagged_with(params[:tag])
 
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @food }

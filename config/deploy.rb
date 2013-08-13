@@ -6,7 +6,7 @@ set :scm, :git
 
 set :repository, "ssh://198.199.123.28/~/repos/topdenton.git"  # Your clone URL
 set :branch, "master"
-set :user, "deploy"  # The server's user for deploys
+set :user, "adam"  # The server's user for deploys
 set :deploy_via, :remote_cache # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 set :rails_env, "production"
