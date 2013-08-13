@@ -91,6 +91,9 @@ namespace :deploy do
   desc "Update the deployed code."
   task :update_code, :except => { :no_release => true } do
     run "cd #{current_path}; git fetch origin; git reset --hard #{branch}"
+
+    # FIXME the above is not checking out the code properly for whatever reason. it's always one commit behind. fix it!
+    run "cd #{current_path}; git pull origin #{branch}"
     finalize_update
   end
 
