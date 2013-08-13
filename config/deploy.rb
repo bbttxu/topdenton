@@ -197,8 +197,6 @@ set :default_environment, {
   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 }
 
-# load 'deploy/assets'
-
 namespace :deploy do
   task :default do
     update
@@ -220,5 +218,3 @@ namespace :assets do
     run_locally "rm -rf public/assets"
   end
 end
-
-# after "deploy:update_code", "customs:config"

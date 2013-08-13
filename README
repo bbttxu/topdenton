@@ -10,6 +10,16 @@ environmental variables are stored in config/application.yml
 
 Sign up for a twitter api key at https://dev.twitter.com/apps
 
+
+### development
+
+in a terminal, run:
+
+    bundle exec guard
+
+which will automatically run a number of tasks as code changes.
+
+
 ### Running the app
 
 The app comprises three components; web, cron and background jobs. These can all be run with:
@@ -19,12 +29,3 @@ The app comprises three components; web, cron and background jobs. These can all
 If you only need the web component, use:
 
     foreman start web
-
-
-### testing
-
-in a separate terminal run:
-
-    bundle exec guard
-
-which will automatically run a number of tasks as code changes.
