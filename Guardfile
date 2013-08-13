@@ -53,3 +53,9 @@ end
 
 
 
+group :backend do
+  guard 'rails' do
+    watch('Gemfile.lock')
+    watch(%r{^(config|lib)/.*})
+  end
+end
