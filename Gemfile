@@ -2,11 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '~> 3.1'
 gem "cane"
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-# gem 'mysql2'
 
 gem 'json'
 
@@ -29,17 +26,6 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 gem 'foreman'
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
 
 gem 'resque'
 gem 'resque-loner'
@@ -52,6 +38,7 @@ gem 'slim'
 gem 'thin'
 
 group :development do
+  # Deploy with Capistrano
   gem "capistrano"
   gem "cane"
   gem 'better_errors'
@@ -66,16 +53,12 @@ end
 gem "factory_girl_rails", :group => [ :test, :development ]
 
 group :test, :development do
-  # gem 'cucumber-rails'
   gem 'database_cleaner'
-  # gem 'rspec'
-  # gem 'spork'
 
   gem 'guard-rails'
 
   gem 'guard-bundler'
   gem 'guard-minitest', github: 'guard/guard-minitest'
-  # gem 'guard-rspec'
   gem 'guard-livereload'
 
   gem 'minitest-reporters'
@@ -87,27 +70,14 @@ group :test, :development do
 
 end
 
-# javascript run-time needed for asset pipeline(?)
-# gem 'execjs'
-# gem 'johnson'
-
 gem 'linguistics'
 
 gem 'newrelic_rpm'
 
-# gem 'turbolinks'
-
-# gem 'autotest'
-# gem 'autotest-rails'
-# gem 'autotest-growl'
-# gem 'autotest-fsevent'
 
 gem 'execjs'
 gem 'therubyracer'
 
-# gem "ZenTest"
-
-# gem 'mongo_mapper'
 gem 'mongoid'
 gem 'mongoid_rateable'
 gem 'bson_ext'
