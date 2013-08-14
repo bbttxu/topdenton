@@ -78,7 +78,7 @@ gem 'newrelic_rpm'
 gem 'execjs'
 gem 'therubyracer'
 
-gem 'mongoid'
+gem 'mongoid', '= 3.0.9'
 gem 'mongoid_rateable'
 gem 'bson_ext'
 

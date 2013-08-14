@@ -3,6 +3,8 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
   def setup
+    rater_role = FactoryGirl.create :role, name: "rater"
+
     @user = FactoryGirl.build :user
     @new_user = FactoryGirl.create :user
   end
@@ -12,7 +14,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "saved new user should have a role" do
-    assert ! @user.roles.blank?, "saved user does not have any role"
+    assert !@user.roles.blank?, "saved user does not have any role"
   end
 
   test "saved new user should be assigned the rater role" do

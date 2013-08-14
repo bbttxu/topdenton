@@ -21,7 +21,7 @@ class ShowTest < ActiveSupport::TestCase
   end
 
   test "should have time_is_unknown" do
-    @show = FactoryGirl.build :show, time_is_unknown: ""
+    @show = FactoryGirl.build :show, time_is_unknown: nil
     assert ! @show.valid?, "show has no time_is_unknown :("
   end
 end

@@ -175,9 +175,9 @@ GEM
     mongo_mapper-accepts_nested_attributes (0.0.2)
     mongo_session_store-rails3 (4.1.1)
       actionpack (>= 3.1)
-    mongoid (3.1.4)
-      activemodel (~> 3.2)
-      moped (~> 1.4)
+    mongoid (3.0.9)
+      activemodel (~> 3.1)
+      moped (~> 1.1)
       origin (~> 1.0)
       tzinfo (~> 0.3.22)
     mongoid_rateable (0.3.1)
@@ -186,7 +186,7 @@ GEM
       mongoid (>= 3)
       rake
     mono_logger (1.1.0)
-    moped (1.5.0)
+    moped (1.5.1)
     multi_json (1.7.9)
     multi_xml (0.5.4)
     net-scp (1.1.2)
@@ -363,7 +363,7 @@ DEPENDENCIES
   minitest-reporters
   mongo_mapper-accepts_nested_attributes
   mongo_session_store-rails3
-  mongoid
+  mongoid (= 3.0.9)
   mongoid_rateable
   mongoid_taggable
   newrelic_rpm

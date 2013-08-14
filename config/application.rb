@@ -4,7 +4,7 @@ require File.expand_path('../boot', __FILE__)
 # http://mongomapper.com/documentation/getting-started/rails.html
 require "action_controller/railtie"
 require "action_mailer/railtie"
-require "active_resource/railtie"
+# require "active_resource/railtie"
 require "rails/test_unit/railtie"
 # Uncomment for asset pipelining in Rails 3.1
 require "sprockets/railtie"
