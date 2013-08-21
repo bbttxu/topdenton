@@ -17,7 +17,7 @@ class Rgrs < Scraper
 
     html = Nokogiri::HTML( open( 'http://rubberglovesdentontx.com/calendar/' ) )
 
-    shows = Show.delete_all :venue_id => rgrs.id
+    shows = Show.destroy_all :venue_id => rgrs.id
     html.css("#calendar article.show").each do |gig|
       date = gig.css("header").text.split("-")[0].split(",").collect{|x|x.strip}.slice(1,2).join(", ")
       time = gig.css("ul.details li")[1].text.split(" ")[0]

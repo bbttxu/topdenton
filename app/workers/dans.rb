@@ -18,7 +18,7 @@ class Dans < Scraper
     dans.address = "103 Industrial Street, Denton, TX 76201-4223"
     dans.save
 
-    shows = Show.delete_all :venue_id => dans.id
+    shows = Show.destroy_all :venue_id => dans.id
 
     html = Nokogiri::HTML( open( 'http://danssilverleaf.com/' ) )
     html.css("div.show").each do |div|

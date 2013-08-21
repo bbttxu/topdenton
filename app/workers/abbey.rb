@@ -14,7 +14,7 @@ class Abbey < Scraper
     abbey.phone = "(940) 566-5483"
     abbey.address = "101 W Hickory St  Denton, TX 76201"
     abbey.save
-    shows = Show.delete_all :venue_id => abbey.id
+    shows = Show.destroy_all :venue_id => abbey.id
 
     html = Nokogiri::HTML( open("http://www.reverbnation.com/venue/1003284"))
 

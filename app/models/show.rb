@@ -10,7 +10,7 @@ class Show
   field :time_is_unknown, :type => Boolean
 
   belongs_to :venue
-  has_many :gigs
+  has_many :gigs, dependent: :delete
   has_many :artists #, :through => :gigs
 
   scope :after, lambda { |date| where(:starts_at.gte => date.localtime ) }

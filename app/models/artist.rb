@@ -5,7 +5,7 @@ class Artist
 
   field :name, :type => String
 
-  has_many :gigs
+  has_many :gigs, dependent: :delete
   # many :shows, :through => :gigs
 
   def as_json(options = nil)

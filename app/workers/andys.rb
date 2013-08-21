@@ -14,7 +14,7 @@ class Andys < Scraper
     andys.phone = "122 N Locust, Denton, TX"
     andys.address = "122 N Locust, Denton, TX"
     andys.save
-    shows = Show.delete_all :venue_id => andys.id
+    shows = Show.destroy_all :venue_id => andys.id
 
     html = Nokogiri::HTML( open("http://www.reverbnation.com/venue/andysbar"))
 

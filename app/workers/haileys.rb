@@ -18,7 +18,7 @@ class Haileys < Scraper
 
 
     html = Nokogiri::HTML( open( 'http://haileysclub.com/contact/' ) )
-    shows = Show.delete_all :venue_id => haileys.id
+    shows = Show.destroy_all :venue_id => haileys.id
 
     shows_url = "http://haileysclub.com/calendar/"
     fetched_doc = Nokogiri::HTML( open( shows_url ) )
