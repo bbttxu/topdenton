@@ -23,7 +23,7 @@ class Andys < Scraper
       starts_at =  show_html.css('.details_time').text
       asdf = starts_at.gsub(",","").gsub(/\s/, " ").split(" ")
       event = "#{asdf[1]} #{asdf[2]} #{asdf[5]}"
-      starts_at = Chronic.parse(event)
+      starts_at = Time.zone.at( Chronic.parse(event).to_i )
 
       source = []
       show_html.css('meta').each do |meta|
