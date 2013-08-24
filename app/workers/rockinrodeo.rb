@@ -21,6 +21,7 @@ class Rockinrodeo < Scraper
     shows = Show.delete_all :venue_id => rockinrodeo.id
 
     html.css("table.eventtable tbody tr").each do |gig|
+      Chronic.time_class = Time.zone
       date = Chronic.parse( gig.css("td")[0].text.strip )
 
 

@@ -27,6 +27,7 @@ class Rgrs < Scraper
 
       doors_at = gig.css("ul.details li")[1].text.split(' ')[0]
 
+      Chronic.time_class = Time.zone
       full_date = Chronic.parse("#{date}, #{time}")
       show = Show.new
       show.starts_at = full_date

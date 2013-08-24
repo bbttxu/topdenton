@@ -22,6 +22,8 @@ class Abbey < Scraper
       starts_at =  show_html.css('.details_time').text
       asdf = starts_at.gsub(",","").gsub(/\s/, " ").split(" ")
       event = "#{asdf[1]} #{asdf[2]} #{asdf[5]}"
+
+      Chronic.time_class = Time.zone
       starts_at = Chronic.parse(event)
 
       source = []

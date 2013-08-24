@@ -49,6 +49,7 @@ class Haileys < Scraper
       time = show.css('ul.event-info li:first').text.gsub("Doors at", "")
       doors_at = time
 
+      Chronic.time_class = Time.zone
       doors_at = Chronic.parse(date.to_s + ", " + time.to_s)
 
       show = Show.new
