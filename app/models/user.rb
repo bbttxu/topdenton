@@ -21,4 +21,10 @@ class User
       user.name = auth["info"]["name"]
     end
   end
+
+  set_callback(:destroy, :before) do |user|
+    Rating.all.each do |food|
+      food.unrate_and_save(user) if food.rated_by?(user)
+    end
+  end
 end
