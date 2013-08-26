@@ -13,7 +13,7 @@
 
 .row
   .small-12.columns
-    h3.date= @shows.first['starts_at'].strftime('%A, %B %d')
+    h3.date= Time.zone.at( @shows.first['starts_at'] ).strftime('%A, %B %d')
 
 .shows.row
   - @shows.each_with_index do |show,index|

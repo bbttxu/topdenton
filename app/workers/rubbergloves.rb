@@ -21,7 +21,7 @@ class Rgrs < Scraper
     html.css("#calendar article.show").each do |gig|
       date = gig.css("header").text.split("-")[0].split(",").collect{|x|x.strip}.slice(1,2).join(", ")
       time = gig.css("ul.details li")[1].text.split(" ")[0]
-      price = ''
+      price = gig.css("ul.details li")[0].text 
       source = ''
       admittance = ''
 
@@ -35,8 +35,8 @@ class Rgrs < Scraper
       show.source = "http://rubberglovesdentontx.com/calendar/"
       show.time_is_unknown = false
       show.venue_id = rgrs.id
+      show.price= price
       show.save
-
       position = 1
       gig.css("div.show-text header").text.split(",").collect{|x|x.gsub(/\s+/, ' ')}.each do |band_name|
         cleansed_band_name = band_name.gsub(/(.*)(p|P)resents(:?)/, '').downcase
