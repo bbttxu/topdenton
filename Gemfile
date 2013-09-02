@@ -106,3 +106,5 @@ gem "cancan"
 gem "rolify"
 
 gem "mongo_session_store-rails3"
+
+gem 'knockoutjs-rails'

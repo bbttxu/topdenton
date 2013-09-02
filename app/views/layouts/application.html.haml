@@ -24,12 +24,9 @@
             %section.top-bar-section
 
               %ul.right
-                / %li
-                /   = link_to "Today", shows_today_path
-                %li
-                  = link_to "Calendar", shows_calendar_path
-                %li
-                  = link_to "Food", foods_path
+                / %li= link_to "Today", shows_today_path
+                %li= link_to "Calendar", shows_calendar_path
+                / %li= link_to "Food", foods_path
                 %li
                   - if current_user
                     = link_to "Sign Out", signout_path

@@ -14,6 +14,7 @@
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require backbone/denton
+//= require knockout
 //= require foundation
 //= require jquery.slabtext
 //= require jquery.isotope
