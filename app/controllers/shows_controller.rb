@@ -36,7 +36,7 @@ class ShowsController < ApplicationController
 
 
   def today
-    redirect_to "/shows/#{Time.now.strftime('%F')}"
+    redirect_to "/shows/#{Time.zone.now.strftime('%F')}"
   end
 
   def day
