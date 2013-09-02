@@ -41,8 +41,6 @@ class ShowsController < ApplicationController
 
   def day
 
-    expires_in 5.minutes, :public => true
-
     redirect_to '/shows/today', :status => 302 and return if params[:date] == nil
 
     @next_show = Show.after(Time.zone.parse( "#{params[:date]} 2:00am" ) + 24.hours).ordered.first
@@ -55,17 +53,22 @@ class ShowsController < ApplicationController
 
     return if @shows.first == nil
 
-    @gig_dates = Show.ordered.group_by{|x|Time.zone.parse("#{x.starts_at.to_date} 2:00am")}
+    @gig_dates = Show.ordered.group_by{|x|Time.zone.parse("#{x.starts_at.to_date + 2.hours}") }
 
     @all_data = []
     @shows.each do |x|
       new_hash = x
-      new_hash['venue_info'] = x.venue
-      new_hash['gigs'] = x.gigs
-      new_hash['gigs'].each do |gig|
-        gig['artist_info'] = gig.artist
-
+      new_hash['venue'] = x.venue
+      new_hash['artists'] = []
+      x.gigs.each do |gig|
+        puts gig.to_json
+        # artist_info = name: gig.artist.name
+        # artist_info['id'] = gig.artist._id
+        # artist_info['name'] = gig.artist.name
+        new_hash['artists'] << { name: gig.artist.name }
       end
+      puts x.gigs.collect{|x| x.artist.name }.to_yaml
+      new_hash['artists'] = x.gigs.collect{|x| x.artist.name }
       @all_data << new_hash
     end
 
