@@ -21,20 +21,21 @@
 
 
   .count-1
-
+    // a span
+    //   color: adjust-hue($primary-color, 300deg) !important
 
 
   .count-2
     a span
-      color: green !important
+      color: adjust-hue($primary-color, 270deg) !important
 
   .count-3
     a span
-      color: orange !important
+      color: adjust-hue($primary-color, 225deg) !important
 
   .count-4
     a span
-      color: red !important
+      color: invert($primary-color) !important
 
 
 #calendar > li:nth-of-type(7n+1)
@@ -46,12 +47,12 @@
     color: $primary-color
   &.sat, &.sun
     a
-      color: lighten($primary-color, 10%)
+      color: lighten( $primary-color, 10%)
 
 .month-aug, .month-oct, .month-dec
   a
-    color: grayscale($primary-color)
+    color: $secondary-color
   &.sat, &.sun
     a
-      color: grayscale( lighten($primary-color, 10%))
+      color: lighten($secondary-color, 10%)
 
