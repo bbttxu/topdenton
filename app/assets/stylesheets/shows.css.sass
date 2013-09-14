@@ -8,25 +8,6 @@
 //         \/      \/                  \/
 
 
-div.show
-  br
-    clear: both
-span.break
-  color: $primary-color !important
-#content
-  h3
-    @extend .base-font
-    color: whitesmoke
-
-  h3.date
-    text-align: center
-
-
-body.day
-  #content h3, div.show
-    color: black !important
-
-
 ul.shows
   li
     div.meta
@@ -46,11 +27,13 @@ ul.shows
           background:
             color: #222
 
-
-
         margin:
           top: 0.0em
           bottom: 0.0em
+        span.venue
+          color: $primary-color
+          // body.night &
+          //   color: #ccc
 
         span.price, span.time
           color: #111
@@ -60,152 +43,11 @@ ul.shows
 
     div.artists
       h3
-        body.night &
-          color: #ccc
         line-height: 1em
         margin:
           bottom: 0.3em
 
+        body.night &
+          color: #ccc
 
-
-.shows
-  &.six
-    margin:
-      bottom: 3em
-      top: 2em
-  .nothing
-    h5
-      a
-        span
-          display: none
-          @media (min-width: 640px)
-            display: inline
-
-  .today h5 span.date
-    color: lightgreen
-
-
-  .this_day, .today, .previous, .next
-    padding: 0
-    text-align: center
-
-    h5
-      a
-        span
-          span
-            display: none
-            @media (min-width: 800px)
-              display: inline
-
-  .this_day, .today
-    background: #111
-  .previous, .next
-    background: #333
-
-
-  .divider
-    @extend .solid
-    @extend .lightblue
-
-    background:
-      color: $primary-color
-    padding:
-      bottom: 1em
-    h4, h5
-      @extend .base-font
-      text-align: center
-      line:
-        height: 0.75
-
-
-      @media (min-width: 480px)
-        text-align: left
-
-      span.slabtext
-        @media (max-width: 767px)
-          // display: block
-          span
-            // color: blue
-            display: none
-          span
-            clear: both
-
-  span.venue
-    color: $primary-color
-  span.date
-    color: $primary-color
-
-  span.month
-    color: #666
-  span.day
-    color: #ccc
-
-  span.price, span.time
-    color: #111
-  ul
-    li
-      width: 100%
-      margin:
-        bottom: 0px
-
-ul.shows
-  // @extend .small-block-grid-2
-  // @extend .large-block-grid-3
-
-
-
-  li.divider
-    @extend .solid
-    // TODO
-    h4, h5
-      @extend .ubuntu
-      @extend .lightblue
-      span
-        color: #eee !important
-
-      text-align: center
-
-      @media (min-width: 480px)
-        text-align: left
-
-
-li.show, div.show
-  float: left !important
-
-  h1, h2, h3, h4, h5, h6
-    color: whitesmoke !important
-  div.meta
-
-    h6
-      // / font-weight: 200
-      // TODO
-      background: #222 !important
-      margin:
-        bottom: 0px
-
-  div.artists
-    h3
-
-      @extend .base-font
-
-      // margin:
-      //   top: 0px
-
-      // line:
-      //   height: 0.85
-      a
-        @extend .darkgreen
-ul.shows
-  li.divider
-    h5
-      line-height: 1
-
-ul.lineup
-  li
-    @extend .base-font
-
-
-// .small-block-grid-2 > li, ul.shows > li
-//   @media (max-width: 479px)
-//     width: 100% !important
 
