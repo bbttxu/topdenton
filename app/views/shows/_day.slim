@@ -3,23 +3,19 @@
 / h2= show.artists.collect{|x|x.name}.join(",")
 - band_names = show.gigs.collect{|gig| gig.artist.name.gsub(/\s/, " ")}
 
-div.show.large-6.columns
-  .meta.row
-    .twelve.columns
-      h6
-        span.slabtext
-          span.time=do_time(show.starts_at) if show.starts_at and not show.time_is_unknown
-          span.time.blink= "??:??" if show.time_is_unknown
-          == "&nbsp;"
-          span.venue= "@#{show.venue.name}" if show.venue.name
-          == "&nbsp;"
-          span.price= "#{pricify show.price}"
-  .artists.row
-    .twelve.columns
-      - source = ( show.source == nil ? "/shows/#{show.id}" : show.source )
-      a
-        h3== band_names.flatten.join(", ")
-          / - split_on_important_stuff(band_names.flatten).each do |text|
-          /   span.slabtext= text
+li
+  .meta
+    h6
+      span.time=do_time(show.starts_at) if show.starts_at and not show.time_is_unknown
+      span.time.blink= "??:??" if show.time_is_unknown
+      == "&nbsp;"
+      span.subhead.venue= "@#{show.venue.name}" if show.venue.name
+      == "&nbsp;"
+      span.price.right= "#{pricify show.price}"
+  .artists
+    - band_names.flatten.each do |band|
+      h3== band
+        / - split_on_important_stuff(band_names.flatten).each do |text|
+        /   span.slabtext= text
 
 

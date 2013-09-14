@@ -27,7 +27,39 @@ body.day
     color: black !important
 
 
+ul.shows
+  li
+    div.meta
+      $some-color: invert($primary-color)
+      overflow: hidden
+      background:
+        color: $some-color
+      border:
+        bottom: 3px solid $some-color
+      h6
+        background:
+          color: #ddd
+        color: black
 
+        body.night &
+          color: #333
+          background:
+            color: #222
+
+        margin:
+          top: 0.0em
+          bottom: 0.0em
+
+        body.night & span.price, span.time
+          color: whitesmoke
+
+    div.artists
+      h3
+        body.night &
+          color: whitesmoke
+        line-height: 1em
+        margin:
+          bottom: 0.3em
 .shows
   &.six
     margin:
@@ -68,7 +100,7 @@ body.day
     @extend .lightblue
 
     background:
-      color: #2BA6CB
+      color: $primary-color
     padding:
       bottom: 1em
     h4, h5
@@ -91,9 +123,9 @@ body.day
             clear: both
 
   span.venue
-    color: #2BA6CB
+    color: invert($primary-color)
   span.date
-    color: #2BA6CB
+    color: $primary-color
 
   span.month
     color: #666
@@ -101,7 +133,7 @@ body.day
     color: #ccc
 
   span.price, span.time
-    color: whitesmoke
+    color: #111
   ul
     li
       width: 100%
@@ -109,8 +141,8 @@ body.day
         bottom: 0px
 
 ul.shows
-  @extend .small-block-grid-1
-  @extend .large-block-grid-2
+  // @extend .small-block-grid-2
+  // @extend .large-block-grid-3
 
 
 
@@ -148,11 +180,11 @@ li.show, div.show
 
       @extend .base-font
 
-      margin:
-        top: 0px
+      // margin:
+      //   top: 0px
 
-      line:
-        height: 0.85
+      // line:
+      //   height: 0.85
       a
         @extend .darkgreen
 ul.shows

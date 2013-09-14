@@ -12,10 +12,30 @@
 - content_for :title, params[:date].gsub(/\-/, '/')
 
 .row
-  .small-12.columns
-    h3.date= Time.zone.at( @shows.first['starts_at'] ).strftime('%A, %B %d')
+  - if @prev_show or @next_show
+    - if @prev_show
+      .small-2.columns#prev
+        h3
+          - if @prev_show and @prev_show.starts_at > Time.now
+            = link_to raw("&laquo;"), "/shows/#{@prev_show.starts_at.to_date.strftime('%Y-%m-%d')}"
+          - else
+            = link_to raw("&laquo;"), shows_calendar_path
+  .small-8.columns
+    h3.date= link_to Time.zone.at( @shows[0]['starts_at'] ).strftime('%A, %B %d'), ""
+  - if @prev_show or @next_show
+    - if @next_show
+      .small-2.columns#next
+        h3
+          - if @next_show
+            = link_to(raw("&raquo;"), "/shows/#{@next_show.starts_at.to_date.strftime('%Y-%m-%d')}").html_safe
+          - else
+            = link_to raw("&raquo;"), shows_calendar_path
 
-.shows.row
-  - @shows.each_with_index do |show,index|
-    = render :partial => "day", :locals => { :show => show }
-  = render 'shared/footer'
+  - small_grid_class = @shows.count == 1 ? "small-block-grid-1" : "small-block-grid-2"
+  - large_grid_class = @shows.count > 2 ? "large-block-grid-3" : ""
+  .columns.small-12
+    hr
+    ul.shows class=[large_grid_class, small_grid_class].reject{|x|x.nil?}.join(" ")
+      - @shows.each_with_index do |show,index|
+        = render :partial => "day", :locals => { :show => show }
+    = render 'shared/footer'

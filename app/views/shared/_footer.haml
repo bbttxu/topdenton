@@ -1,10 +1,22 @@
 / _footer.haml
-#footer
-  %p.small
-    This
-    = link_to 'open-source music showlist', "https://github.com/bbttxu/denton"
-    aggregates shows for Denton, TX using public data &mdash; with tangents in design and&nbsp;typography
-  %ul
-    %li
-      developer:
-      = link_to( "@bbttxu", "http://bbttxu.com/")
+/ #footer
+%hr
+%ul.small-block-grid-2#footer
+  %li
+    #about
+      %h6 About this site
+      %p.small
+        This
+        = link_to 'open-source music showlist', "https://github.com/bbttxu/denton"
+        aggregates shows for Denton, TX using public data &mdash; with tangents in design and&nbsp;typography
+  %li
+    #contact
+      %h6 Contact us
+      %ul.small-block-grid-1
+        %li
+          twitter:
+          = link_to( "@bbttxu", "http://twitter.com/bbttxu")
+
+        %li
+          github:
+          = link_to( "bbttxu/denton", "http://github.com/bbttxu/denton")
