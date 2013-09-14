@@ -32,8 +32,9 @@
             = link_to raw("&raquo;"), shows_calendar_path
 
   - small_grid_class = @shows.count == 1 ? "small-block-grid-1" : "small-block-grid-2"
-  - large_grid_class = @shows.count > 2 ? "large-block-grid-3" : ""
-  .columns.small-12
+  - large_grid_class = @shows.count > 3 ? "large-block-grid-3" : ""
+  - column_width = @shows.count > 3 ? "small-12" : "large-8 large-centered"
+  .columns class=column_width
     hr
     ul.shows class=[large_grid_class, small_grid_class].reject{|x|x.nil?}.join(" ")
       - @shows.each_with_index do |show,index|
