@@ -46,12 +46,17 @@ ul.shows
           background:
             color: #222
 
+
+
         margin:
           top: 0.0em
           bottom: 0.0em
 
-        body.night & span.price, span.time
-          color: #ccc
+        span.price, span.time
+          color: #111
+
+          body.night &
+            color: #ccc
 
     div.artists
       h3
@@ -60,6 +65,9 @@ ul.shows
         line-height: 1em
         margin:
           bottom: 0.3em
+
+
+
 .shows
   &.six
     margin:
