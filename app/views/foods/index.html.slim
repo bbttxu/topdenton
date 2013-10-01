@@ -1,13 +1,15 @@
-.row
-  .small-12.columns
-    h2 Top 5 by tag
-#foods
+.row#foods
+  .food.title
+    h2 Top Five Foods 
   - Rating.tags_with_weight.sort_by{|x|[-x[1],x[0]]}.each do |tag|
     .food
       h3
         => tag[0]
         - if can? :rate, Food
           small= link_to "RATE", rate_food_path(tag[0])
+        - else 
+          small= link_to "RATE!", rate_food_path(tag[0])
+
       ol.top-rated
         - Rating.tagged_with(tag[0]).top_five.each do |rating|
           - if rating.rated?
@@ -19,13 +21,13 @@
 
 
   - rated_tags = Rating.tags
-  - all_tags = Food.tags
-  - unrated_tags = all_tags - rated_tags
-  - unrated_tags.each do |tag|
-    .food
-      h5
+   - all_tags = Food.tags
+   - unrated_tags = all_tags - rated_tags
+   - unrated_tags.each do |tag|
+     .food
+       h5
         => tag
         small= link_to "RATE", rate_food_path(tag[0])
 
-  .actions
-    = link_to "add food", new_food_path if can? :create, Food
+   .actions
+     = link_to "add food", new_food_path if can? :create, Food

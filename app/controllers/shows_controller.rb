@@ -2,7 +2,7 @@
 class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.json
-
+  skip_before_filter :authenticate_user!, only: [ :index, :show, :day, :today ]
   before_filter :do_caching
 
   def do_caching

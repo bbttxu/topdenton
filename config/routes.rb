@@ -25,6 +25,5 @@ Denton::Application.routes.draw do
   resources :artists
   # resources :shows
 
-
   root :to => 'shows#today'
 end
