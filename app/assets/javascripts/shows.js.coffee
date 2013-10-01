@@ -16,23 +16,25 @@ run isotope reload()
 ###
 do_window_resize = null
 handle_typography_and_layout = ->
-  $('#artists-listing li h3').slabText()
-  $('#artists-listing').isotope()
+  # $('#artists-listing li h3').slabText()
+  # $('#next h3, #prev h3, h3.date').slabText()
+  # $('#artists-listing').isotope()
 
-  $('div.shows').each (index, element) ->
-    $element = $(element)
-    $element.find('div.show').each (i, show_li) ->
-      $(show_li).find('div.artists h3').slabText()
-      # $(show_li).find('div.meta h6').slabText()
-    $element.isotope()
+  # $('ul.shows').each (index, element) ->
+  #   $element = $(element)
+    # $element.find('li').each (i, show_li) ->
+    #   # $(show_li).find('div.artists h3').slabText()
+    #   # $(show_li).find('div.meta h6').slabText()
+    # $element.isotope('reLayout')
+  $('ul.shows').isotope({})
 
 $(document).ready(handle_typography_and_layout)
-$(document).on('page:load', handle_typography_and_layout)
+# $(document).on('page:load', handle_typography_and_layout)
 
 $(window).resize ->
   do_window_resize = setTimeout ->
-    handle_typography_and_layout
-  , 200
+    handle_typography_and_layout()
+  , 100
 
 
 ###

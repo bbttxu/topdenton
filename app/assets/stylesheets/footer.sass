@@ -1,14 +1,20 @@
 // footer.sass
 
-#footer
-	@extend .small-12
-	@extend .large-6
-	@extend .columns
+#footer, #about, #contact
 
-	padding:
-		top: 1em !important
+	#about, #contact
+		// @extend .small-6
+		// @extend .large-6
+		// @extend .columns
 
-	background: whitesmoke
+	// padding:
+	// 	top: 1em !important
+
+	body.night &
+		// background: #222
+		p, li, h6
+			color: whitesmoke
+	// background: whitesmoke
 
 	li
 		list-style: none
@@ -18,3 +24,9 @@
 			size: 0.8em
 		line:
 			height: 1.2em
+
+#contact
+	ul
+		li
+			padding:
+				bottom: 0.25em

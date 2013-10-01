@@ -42,6 +42,7 @@ class ShowsController < ApplicationController
   def day
 
     redirect_to '/shows/today', :status => 302 and return if params[:date] == nil
+    redirect_to '/shows/today', :status => 302, :alert => "That date was in the past!" and return if Time.zone.now - 1.day > Time.zone.parse( params[:date] )
 
     @next_show = Show.after(Time.zone.parse( "#{params[:date]} 2:00am" ) + 24.hours).ordered.first
     @prev_show = Show.before(Time.zone.parse( "#{params[:date]} 2:00am" )).ordered.last
@@ -49,7 +50,7 @@ class ShowsController < ApplicationController
     now = Time.zone.parse( "#{params[:date]} 2:00am" )
     tomorrow = now + 24 * 60 * 60
     @now = now
-    @shows = Show.after(now).before(tomorrow)
+    @shows = Show.after(now).before(tomorrow).ordered
 
     return if @shows.first == nil
 
