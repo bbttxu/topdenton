@@ -34,6 +34,8 @@ GEM
       sprockets (~> 2.2.1)
     active_link_to (1.0.1)
       actionpack
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activemodel (3.2.14)
       activesupport (= 3.2.14)
       builder (~> 3.0.0)
@@ -335,6 +337,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_link_to
+  active_model_serializers
   better_errors
   binding_of_caller
   bson_ext

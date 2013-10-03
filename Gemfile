@@ -108,3 +108,5 @@ gem "rolify"
 gem "mongo_session_store-rails3"
 
 gem 'knockoutjs-rails'
+
+gem 'active_model_serializers'
