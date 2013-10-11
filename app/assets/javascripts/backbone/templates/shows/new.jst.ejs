@@ -1,6 +1,26 @@
 <h1>New show</h1>
 
 <form id="new-show" name="show">
+  <div class="field">
+    <label for="price"> price:</label>
+    <input type="text" name="price" id="price" value="<%= price %>" >
+  </div>
+
+  <div class="field">
+    <label for="source"> source:</label>
+    <input type="text" name="source" id="source" value="<%= source %>" >
+  </div>
+
+  <div class="field">
+    <label for="starts_at"> starts_at:</label>
+    <input type="text" name="starts_at" id="starts_at" value="<%= starts_at %>" >
+  </div>
+
+  <div class="field">
+    <label for="ends_at"> ends_at:</label>
+    <input type="text" name="ends_at" id="ends_at" value="<%= ends_at %>" >
+  </div>
+
   <div class="actions">
     <input type="submit" value="Create Show" />
   </div>

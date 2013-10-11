@@ -11,8 +11,8 @@ class Denton.Views.Artists.IndexView extends Backbone.View
     @options.artists.each(@addOne)
 
   addOne: (artist) =>
-    view = new Denton.Views.Artists.ArtistView({model : artist})
-    @$("ul").append(view.render().el)
+    view = new Denton.Views.Artists.ArtistView({model: artist})
+    @$("ul#calendar-items").append(view.render().el)
 
   render: =>
     $(@el).html(@template(artists: @options.artists.toJSON() ))

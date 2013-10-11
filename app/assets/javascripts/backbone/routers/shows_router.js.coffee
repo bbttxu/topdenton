@@ -1,17 +1,20 @@
-class Denton.Routers.ShowsRouter extends Backbone.Router
+class Denton.Routers.ShowRouter extends Backbone.Router
   initialize: (options) ->
-    @shows = new Denton.Collections.ShowsCollection()
+    @shows = new Denton.Collections.Shows()
     @shows.reset options.shows
 
+    @calendar = new Denton.Collections.CalendarsCollection()
+    @calendar.reset options.dates
+
   routes:
-    "calendar"      : "calendar"
+    "new"      : "newShow"
     "index"    : "index"
     ":id/edit" : "edit"
     ":id"      : "show"
     ".*"        : "index"
 
-  calendar: ->
-    @view = new Denton.Views.Shows.CalendarView(collection: @shows)
+  newShow: ->
+    @view = new Denton.Views.Shows.NewView(collection: @shows)
     $("#shows").html(@view.render().el)
 
   index: ->
@@ -19,13 +22,19 @@ class Denton.Routers.ShowsRouter extends Backbone.Router
     $("#shows").html(@view.render().el)
 
   show: (id) ->
-    show = @shows.get(id)
+    show = @calendar.get(id)
+    console.log show
 
     @view = new Denton.Views.Shows.ShowView(model: show)
-    $("#shows").html(@view.render().el)
+
+    sunday = $("a.active").parent().nextAll('li.sun').first()
+    sunday = $("a.active").parent() if $("li.sun a.active")[0]
+    sunday.after(@view.render().el)
 
   edit: (id) ->
     show = @shows.get(id)
 
     @view = new Denton.Views.Shows.EditView(model: show)
     $("#shows").html(@view.render().el)
+
+

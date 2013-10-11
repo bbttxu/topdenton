@@ -1,6 +1,6 @@
 Denton.Views.Shows ||= {}
 
-class Denton.Views.Shows.NewView extends Backbone.View
+class Denton.Views.Shows.CalendarView extends Backbone.View
   template: JST["backbone/templates/shows/calendar"]
 
   # events:

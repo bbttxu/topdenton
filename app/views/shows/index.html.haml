@@ -11,7 +11,43 @@
           - if count == 0
             &nbsp;
           - else
-            = link_to "/shows/#{date}" do
+            = link_to "/shows\#/#{date}" do
               %span
                 = date > (Date.today + 2.weeks) ? date.strftime("%b") : date.strftime("%a")
               = date.strftime("%d")
+
+#shows
+
+// window.router = new Denton.Routers.ShowRouter({shows: #{@shows.to_json.html_safe}});
+
+:javascript
+  (function($, _) {
+    $(function() {
+      $.getJSON("/shows.json", function(data, status) {
+
+        // console.log(data);
+
+        calendar = _.groupBy(data.shows, function(item){
+          var day = moment(item.starts_at).format("YYYY-MM-DD");
+          return day;
+        });
+
+        var dates = _.map(calendar, function(key, value, item){
+          return {
+            id: value,
+            count: key
+          };
+        });
+        //console.log(dates);
+
+        data.dates = dates;
+        console.log(data);
+
+
+
+        window.router = new Denton.Routers.ShowRouter(data);
+        Backbone.history.start();
+
+      });
+    });
+  })(jQuery, _);

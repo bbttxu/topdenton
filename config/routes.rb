@@ -1,4 +1,6 @@
 Denton::Application.routes.draw do
+
+
   resources :foods do
     member do
       get 'rate'
@@ -18,6 +20,7 @@ Denton::Application.routes.draw do
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
 
+  match "calendar" => 'calendars#index'
   match "shows/calendar" => 'shows#index'
   match "shows" => 'shows#index'
   match "shows/today" => 'shows#today'
@@ -25,5 +28,5 @@ Denton::Application.routes.draw do
   resources :artists
   # resources :shows
 
-  root :to => 'shows#today'
+  root :to => 'shows#index'
 end

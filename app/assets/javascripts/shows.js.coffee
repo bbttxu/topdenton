@@ -28,13 +28,26 @@ handle_typography_and_layout = ->
     # $element.isotope('reLayout')
   $('ul.shows').isotope({})
 
-$(document).ready(handle_typography_and_layout)
+$(document).ready( handle_typography_and_layout )
 # $(document).on('page:load', handle_typography_and_layout)
 
 $(window).resize ->
   do_window_resize = setTimeout ->
     handle_typography_and_layout()
   , 100
+
+
+
+handle_calendar_click = (event)->
+  $('.shows_this_day').remove()
+  $('.active').toggleClass 'active'
+  $(this).toggleClass 'active'
+  # event.preventDefault()
+  # console.log event
+
+
+$(document).ready ()->
+  $('#calendar li a').click handle_calendar_click
 
 
 ###
@@ -81,5 +94,5 @@ beta
 
 # $('#content').swipe(options)
 
-
+#
 

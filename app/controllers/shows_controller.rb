@@ -28,9 +28,11 @@ class ShowsController < ApplicationController
     @prev_show = nil
 
 
+    @shows = Show.upcoming.ordered
+
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @calendar }
+      format.json { render json: @shows }
     end
   end
 
