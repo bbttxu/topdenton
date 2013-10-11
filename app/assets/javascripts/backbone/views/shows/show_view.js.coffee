@@ -16,5 +16,5 @@ class Denton.Views.Shows.ShowView extends Backbone.View
     return false
 
   render: ->
-    $('a.active').parents('li').html(@template(@model.toJSON() ))
+    $(@el).html(@template(@model.toJSON() ))
     return this
