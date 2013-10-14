@@ -7,15 +7,15 @@ class Denton.Routers.ShowRouter extends Backbone.Router
     @calendar.reset options.dates
 
   routes:
-    "new"      : "newShow"
+    # "new"      : "newShow"
     "index"    : "index"
-    ":id/edit" : "edit"
+    # ":id/edit" : "edit"
     ":id"      : "show"
     ".*"        : "index"
 
-  newShow: ->
-    @view = new Denton.Views.Shows.NewView(collection: @shows)
-    $("#shows").html(@view.render().el)
+  # newShow: ->
+  #   @view = new Denton.Views.Shows.NewView(collection: @shows)
+  #   $("#shows").html(@view.render().el)
 
   index: ->
     @view = new Denton.Views.Shows.IndexView(shows: @shows)
@@ -31,10 +31,10 @@ class Denton.Routers.ShowRouter extends Backbone.Router
     sunday = $("a.active").parent() if $("li.sun a.active")[0]
     sunday.after(@view.render().el)
 
-  edit: (id) ->
-    show = @shows.get(id)
+  # edit: (id) ->
+  #   show = @shows.get(id)
 
-    @view = new Denton.Views.Shows.EditView(model: show)
-    $("#shows").html(@view.render().el)
+  #   @view = new Denton.Views.Shows.EditView(model: show)
+  #   $("#shows").html(@view.render().el)
 
 

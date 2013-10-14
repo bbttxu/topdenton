@@ -39,15 +39,22 @@ $(window).resize ->
 
 
 handle_calendar_click = (event)->
-  $('.shows_this_day').remove()
+
+  has_active_class = $(this).hasClass 'active'
   $('.active').toggleClass 'active'
-  $(this).toggleClass 'active'
+  unless has_active_class
+    $(this).toggleClass 'active'
+  if has_active_class
+    $('.shows_this_day').remove()
+  $().scrollTo(this, 300)
+  # console.log event
   # event.preventDefault()
   # console.log event
 
 
 $(document).ready ()->
   $('#calendar li a').click handle_calendar_click
+  # $('#calendar li a.active').click handle_calendar_click
 
 
 ###
