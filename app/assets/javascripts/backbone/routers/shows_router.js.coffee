@@ -23,12 +23,13 @@ class Denton.Routers.ShowRouter extends Backbone.Router
 
   show: (id) ->
     show = @calendar.get(id)
-    console.log show
+    # console.log show
 
     @view = new Denton.Views.Shows.ShowView(model: show)
 
     sunday = $("a.active").parent().nextAll('li.sun').first()
     sunday = $("a.active").parent() if $("li.sun a.active")[0]
+    $('div.shows_this_day').remove()
     sunday.after(@view.render().el)
 
   # edit: (id) ->

@@ -31,6 +31,8 @@ handle_typography_and_layout = ->
 $(document).ready( handle_typography_and_layout )
 # $(document).on('page:load', handle_typography_and_layout)
 
+$(window)._scrollable()
+
 $(window).resize ->
   do_window_resize = setTimeout ->
     handle_typography_and_layout()
@@ -39,22 +41,35 @@ $(window).resize ->
 
 
 handle_calendar_click = (event)->
-
   has_active_class = $(this).hasClass 'active'
+
   $('.active').toggleClass 'active'
+  if has_active_class
+    $( 'div.shows_this_day' ).slideToggle 100, ()->
+      $.scrollTo( $('#page'), 300)
+
+
   unless has_active_class
     $(this).toggleClass 'active'
-  if has_active_class
-    $('.shows_this_day').remove()
-  $().scrollTo(this, 300)
+    $( 'div.shows_this_day' ).slideToggle 100, ()->
+      $next = 'max'
+      $next = $('.shows_this.day').next('li') if $('.shows_this.day').next('li')
+      console.log $next
+      $.scrollTo( $next, 300)
+      # console.log this
+
+  # if has_active_class
   # console.log event
   # event.preventDefault()
   # console.log event
 
 
 $(document).ready ()->
-  $('#calendar li a').click handle_calendar_click
+  $('#calendar li a').on 'click', handle_calendar_click
   # $('#calendar li a.active').click handle_calendar_click
+
+  # unless ( $('#calendar li a.active').length == 0 )
+  #   console.log "do something else"
 
 
 ###
