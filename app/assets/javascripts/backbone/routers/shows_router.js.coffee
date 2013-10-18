@@ -22,8 +22,8 @@ class Denton.Routers.ShowRouter extends Backbone.Router
 
 
     options.calendar = all_of_thems
-    console.log all_of_thems
-    console.log options.shows
+    # console.log all_of_thems
+    # console.log options.shows
 
     @shows = new Denton.Collections.Shows()
     @shows.reset options.shows

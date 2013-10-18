@@ -7,12 +7,14 @@ class Denton.Views.Shows.CalendarView extends Backbone.View
   #   "submit #new-show": "save"
 
   constructor: (options) ->
+    console.log options
     super(options)
+    console.log  @collection
     @model = new @collection.model()
 
-    @model.bind("change:errors", () =>
-      this.render()
-    )
+    # @model.bind("change:errors", () =>
+    #   this.render()
+    # )
 
   # save: (e) ->
   #   e.preventDefault()
