@@ -5,7 +5,7 @@ class Denton.Views.Shows.IndexView extends Backbone.View
 
   initialize: () ->
     # _.bind('all',this);
-    @options.dates.bind('reset', @addAll)
+    @options.calendar.bind('reset', @addAll)
 
   addAll: () =>
     @options.dates.each(@addOne)

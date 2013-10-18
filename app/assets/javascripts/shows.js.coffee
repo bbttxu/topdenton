@@ -54,9 +54,7 @@ handle_calendar_click = (event)->
     $( 'div.shows_this_day' ).slideToggle 100, ()->
       $next = 'max'
       $next = $('.shows_this.day').next('li') if $('.shows_this.day').next('li')
-      console.log $next
       $.scrollTo( $next, 300)
-      # console.log this
 
   # if has_active_class
   # console.log event

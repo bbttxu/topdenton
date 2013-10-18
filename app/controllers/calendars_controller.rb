@@ -18,13 +18,15 @@ class CalendarsController < ApplicationController
     @calendar = (@next_show.starts_at.beginning_of_week.to_date..@prev_show.starts_at.end_of_month.to_date)
     @calendar = @calendar.each do |thing|
       d = @shows[Time.zone.parse("#{thing} 2:00am")]
-      value = 0
-      value = d.count unless d.nil?
+
+
+      value = []
+      value = d.collect{|x| x._id } unless d.nil?
 
       some_hash = {}
       some_hash[thing.strftime('%F')] = { id: thing.strftime('%F'), count: value }
 
-      @calendars << { id: thing.strftime('%F'), count: value }
+      @calendars << { id: thing.strftime('%F'), shows: value }
     end
 
     puts @calendars.to_json
