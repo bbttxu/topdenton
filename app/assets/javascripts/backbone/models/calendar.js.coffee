@@ -1,9 +1,9 @@
 class Denton.Models.Calendar extends Backbone.Model
   paramRoot: 'calendar'
 
-  # defaults:
-  #   count: 0
-  #   id: "idk"
+  defaults:
+    id: "idk"
+    gigs: []
 
   # hello: ()->
   #   this.model.count

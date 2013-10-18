@@ -4,19 +4,19 @@ class Denton.Views.Shows.IndexView extends Backbone.View
   template: JST["backbone/templates/shows/index"]
 
   initialize: () ->
-    # _.bind('all',this);
     @options.calendar.bind('reset', @addAll)
 
   addAll: () =>
-    @options.dates.each(@addOne)
+    @options.calendar.each(@addOne)
 
-  addOne: (show) =>
+  addOne: (calendar) =>
+    # console.log show
     # view = new Denton.Views.Shows.ShowView({model : show})
-    # view = new Denton.Views.Shows.CalendarView({model : show})
-    # @$("#asdf").append(view.render().el)
+    view = new Denton.Views.Shows.CalendarView({model : calendar})
+    @$("#shows").append(view.render().el)
 
   render: =>
-    console.log @options
+    # console.log @options
     $(@el).html(@template(calendar: @options.calendar.toJSON() ))
     @addAll()
 

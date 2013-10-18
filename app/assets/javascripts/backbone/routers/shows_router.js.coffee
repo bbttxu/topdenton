@@ -45,7 +45,7 @@ class Denton.Routers.ShowRouter extends Backbone.Router
   #   $("#shows").html(@view.render().el)
 
   index: ->
-    @view = new Denton.Views.Shows.IndexView(shows: @shows)
+    @view = new Denton.Views.Shows.IndexView calendar: @calendar
     $("#shows").html(@view.render().el)
 
   show: (id) ->
@@ -54,7 +54,7 @@ class Denton.Routers.ShowRouter extends Backbone.Router
     # console.log show
     # console.log gig for gig in show.gigs
 
-    @view = new Denton.Views.Shows.ShowView(model: show)
+    @view = new Denton.Views.Shows.ShowView model: show
 
     sunday = $("a.active").parent().nextAll('li.sun').first()
     sunday = $("a.active").parent() if $("li.sun a.active")[0]
