@@ -3,14 +3,15 @@ Denton.Views.Shows ||= {}
 class Denton.Views.Shows.CalendarView extends Backbone.View
   template: JST["backbone/templates/shows/calendar"]
 
+  tagName: 'li'
   # events:
   #   "submit #new-show": "save"
 
-  constructor: (options) ->
-    console.log options
-    super(options)
-    console.log  @collection
-    @model = new @collection.model()
+  # constructor: (options) ->
+  #   console.log options
+  #   super(options)
+  #   # console.log  @collection
+  #   @model = new @calendar.model options
 
     # @model.bind("change:errors", () =>
     #   this.render()
@@ -32,9 +33,11 @@ class Denton.Views.Shows.CalendarView extends Backbone.View
   #   )
 
   render: ->
-    console.log @model
+    # console.log @model
     $(@el).html(@template(@model.toJSON() ))
 
-    this.$("form").backboneLink(@model)
+    console.log $(@el)
+
+    this.$("#shows").backboneLink(@model)
 
     return this
