@@ -46,7 +46,7 @@ class Denton.Routers.ShowRouter extends Backbone.Router
 
   index: ->
     @view = new Denton.Views.Shows.IndexView calendar: @calendar
-    $("#shows").html(@view.render().el)
+    $("#page").append(@view.render().el)
 
   show: (id) ->
     # console.log id

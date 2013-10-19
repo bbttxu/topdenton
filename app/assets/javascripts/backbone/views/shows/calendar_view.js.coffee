@@ -4,6 +4,15 @@ class Denton.Views.Shows.CalendarView extends Backbone.View
   template: JST["backbone/templates/shows/calendar"]
 
   tagName: 'li'
+  attributes : ()->
+    classes = []
+    classes.push "count-" + this.model.get( 'gigs' ).length
+    day = moment this.model.get 'id'
+    # console.log day
+    classes.push day.format('ddd').toLowerCase()
+
+    return class: classes.sort().join(" "), id: this.model.get( 'id' )
+
   # events:
   #   "submit #new-show": "save"
 
@@ -35,8 +44,6 @@ class Denton.Views.Shows.CalendarView extends Backbone.View
   render: ->
     # console.log @model
     $(@el).html(@template(@model.toJSON() ))
-
-    console.log $(@el)
 
     this.$("#shows").backboneLink(@model)
 

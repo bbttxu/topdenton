@@ -5,6 +5,7 @@ class Denton.Views.Shows.IndexView extends Backbone.View
 
   id: 'shows-calendar'
   tagName: 'div'
+  className: 'row'
 
   initialize: () ->
     @options.calendar.bind 'reset', @addAll
