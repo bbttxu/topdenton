@@ -10,6 +10,9 @@ class Denton.Views.Shows.CalendarView extends Backbone.View
     day = moment this.model.get 'id'
     # console.log day
     classes.push day.format('ddd').toLowerCase()
+    classes.push "day-" + day.format('DD').toLowerCase()
+    classes.push "month-" + day.format('MMM').toLowerCase()
+    classes.push "year-" + day.format('YYYY').toLowerCase()
 
     return class: classes.sort().join(" "), id: this.model.get( 'id' )
 

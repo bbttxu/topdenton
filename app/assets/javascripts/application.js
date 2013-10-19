@@ -10,6 +10,7 @@
 //= require jquery.ui.touch-punch
 //= require jquery.scrollTo
 //= require underscore
+//= require underscore.rateLimit
 //= require moment
 //= require backbone
 //! require backbone-relational

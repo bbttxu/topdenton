@@ -1,6 +1,5 @@
 class Denton.Routers.ShowRouter extends Backbone.Router
   initialize: (options) ->
-    # console.log options.shows
 
     gigs = gig.id for gig in options.shows
 
@@ -11,7 +10,6 @@ class Denton.Routers.ShowRouter extends Backbone.Router
     all_of_thems = []
 
     _.map calendar, (key, value, item)->
-      # ids =
 
       day =
         id: value
@@ -22,13 +20,9 @@ class Denton.Routers.ShowRouter extends Backbone.Router
 
 
     options.calendar = all_of_thems
-    # console.log all_of_thems
-    # console.log options.shows
 
     @shows = new Denton.Collections.Shows()
     @shows.reset options.shows
-
-
 
     @calendar = new Denton.Collections.CalendarsCollection()
     @calendar.reset options.calendar
@@ -49,11 +43,14 @@ class Denton.Routers.ShowRouter extends Backbone.Router
     $("#page").append(@view.render().el)
 
   show: (id) ->
-    # console.log id
-    show = @shows.fetch( id )
-    # console.log show
-    # console.log gig for gig in show.gigs
+    calendar = @calendar.get( id )
 
+    for show_id in calendar.attributes.gigs
+      show = @shows.get( show_id )
+      console.log show
+
+    # show = @shows.get( id )
+    # console.log show, id
     @view = new Denton.Views.Shows.ShowView model: show
 
     sunday = $("a.active").parent().nextAll('li.sun').first()

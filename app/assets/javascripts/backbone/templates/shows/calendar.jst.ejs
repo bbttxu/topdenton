@@ -1,1 +1,10 @@
-<a href="/shows#/<%= id %>"><span><%= id %></span></a>
+<a href="/shows#/<%= id %>">
+  <span>
+  <%if ( moment().diff(moment(id), 'days') < -14 ) { %>
+  <%= moment(id).format('MMM') %>
+  <% } else { %>
+    <%= moment(id).format('ddd') %>
+  <% } %>
+  </span>&nbsp;
+  <%= moment(id).format('DD') %>
+</a>

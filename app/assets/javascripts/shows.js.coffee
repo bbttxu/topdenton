@@ -116,3 +116,7 @@ beta
 
 #
 
+$(document).ready ()->
+  $.bind '*', (event)->
+    console.log event
+
