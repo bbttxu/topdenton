@@ -114,3 +114,5 @@ gem 'active_model_serializers'
 gem 'marionette-rails'
 
 gem 'underscore-rails'
+
+gem 'momentjs-rails'

@@ -178,6 +178,8 @@ GEM
       builder
       minitest (>= 2.12, < 5.0)
       powerbar
+    momentjs-rails (2.2.1)
+      railties (>= 3.1)
     mongo_mapper-accepts_nested_attributes (0.0.2)
     mongo_session_store-rails3 (4.1.1)
       actionpack (>= 3.1)
@@ -371,6 +373,7 @@ DEPENDENCIES
   linguistics
   marionette-rails
   minitest-reporters
+  momentjs-rails
   mongo_mapper-accepts_nested_attributes
   mongo_session_store-rails3
   mongoid (= 3.0.9)
