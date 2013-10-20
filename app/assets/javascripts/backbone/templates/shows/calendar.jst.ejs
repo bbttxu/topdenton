@@ -1,3 +1,3 @@
 <a href="/shows#/<%= id %>">
-  <span><%if ( moment().diff(moment(id), 'days') < -14 ) { %><%= moment(id).format('MMM') %><% } else { %><%= moment(id).format('ddd') %><% } %></span> <%= moment(id).format('DD') %>
+  <span><%if ( moment().diff(moment(id), 'days') < -14 ) { %><%= moment(id).format('ddd') %><% } else { %><%= moment(id).format('ddd') %><% } %></span> <%= moment(id).format('DD') %>
 </a>

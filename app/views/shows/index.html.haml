@@ -1,20 +1,26 @@
+.row
+  .columns.small-12.large-4
+    %button#start Start
+    %button#toggle Toggle
+
 / .panel
 /   - @shows.keys.each do |date|
 /     %pre= date.to_date
 /   %pre= @calendar.to_yaml
-.row
-  .small-12.large-8.columns.large-offset-3
+%noscript
+  .row
+    .small-12.large-8.columns.large-offset-3
 
-    %ul.small-block-grid-7#calendar
-      - @calendar.each do |date, count|
-        %li{ :class=> "#{date.strftime('%a day-%d month-%b year-%Y').downcase} count-#{count}" }
-          - if count == 0
-            &nbsp;
-          - else
-            = link_to "/shows\#/#{date}" do
-              %span
-                = date > (Date.today + 2.weeks) ? date.strftime("%b") : date.strftime("%a")
-              = date.strftime("%d")
+      %ul.small-block-grid-7#calendar
+        - @calendar.each do |date, count|
+          %li{ :class=> "#{date.strftime('%a day-%d month-%b year-%Y').downcase} count-#{count}" }
+            - if count == 0
+              &nbsp;
+            - else
+              = link_to "/shows\#/#{date}" do
+                %span
+                  = date > (Date.today + 2.weeks) ? date.strftime("%b") : date.strftime("%a")
+                = date.strftime("%d")
 
 #shows
 
@@ -53,3 +59,28 @@
       });
     });
   })(jQuery, _);
+
+:coffeescript
+  $ = jQuery
+  $.fn.reverse = Array.prototype.reverse
+
+  toggle_animation = (event)->
+    event.preventDefault()
+    $something = $('.calendar-shows li.count-0')
+    count = $something.length
+    $something.each (i)->
+      base = 0 - count + ( i * 2 )
+      interval = 1000 / count # ms
+      delay = ( i * 2 ) * interval
+      delay = Math.abs base
+
+      options =
+        # height: 'toggle'
+        width: 'toggle'
+      $( this ).delay( delay ).animate(options, 1000).queue()
+
+  $(document).ready ()->
+    $('#start').on 'click', (event)->
+      $('.calendar-shows li').myPlugin()
+
+    $('#toggle').on 'click', toggle_animation

@@ -13,6 +13,7 @@
 //! require underscore.rateLimit
 //= require moment
 //= require twix
+//= require jquery.timespace
 //= require backbone
 //! require backbone-relational
 //= require backbone_rails_sync

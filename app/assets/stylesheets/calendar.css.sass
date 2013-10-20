@@ -1,20 +1,31 @@
 // calendar.css.sass
 #calendar, .calendar-shows
+  &.large-block-grid-7 > li:nth-of-type(7n+1)
+    clear: none
+
   @extend .base-font
-  @extend .small-block-grid-7
+  // @extend .small-block-grid-7
 
   background: rgba(0,0,0,0) !important
 
   a
-    font-size: 1.5em
     line-height: 1.0em
 
   li
+    font-size: 1.5em
     padding: 10px 10px
 
+
+
+
+    .count-0, .count-1, .count-2, .count-3, .count-4
+      height: 4em
+      span
+        display: blockkij
+        min-height: 4em
   .count-0
     padding: 0 important
-    height: 0
+    // height: 0
     background
       color: blue
 
@@ -38,8 +49,8 @@
       color: invert($primary-color) !important
 
 
-#calendar > li:nth-of-type(7n+1)
-  clear: both !important
+// #calendar > li:nth-of-type(7n+1)
+//   clear: both !important
 
 .month-jul, .month-sep, .month-nov
   // background:
