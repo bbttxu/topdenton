@@ -116,7 +116,7 @@ beta
 
 #
 
-$(document).ready ()->
-  $.bind '*', (event)->
-    console.log event
+# $(document).ready ()->
+#   $.on '*', (event)->
+#     console.log event
 

@@ -43,11 +43,14 @@ class Denton.Routers.ShowRouter extends Backbone.Router
     $("#page").append(@view.render().el)
 
   show: (id) ->
-    calendar = @calendar.get( id )
+    show = @shows.get( id )
 
-    for show_id in calendar.attributes.gigs
-      show = @shows.get( show_id )
-      console.log show
+    console.log 'z', id
+
+    # show_ids = for show_id in calendar.attributes.gigs
+    #   show = @shows.get( show_id )
+    #   console.log show
+    #   show.id
 
     # show = @shows.get( id )
     # console.log show, id

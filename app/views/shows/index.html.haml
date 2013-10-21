@@ -76,7 +76,7 @@
       options =
         height: 'toggle'
         width: 'toggle'
-      $( this ).delay( delay ).animate(options, interval ).queue()
+      $( this ).animate(options, interval * 10 ).queue()
 
   $(document).ready ()->
     $('#start').on 'click', (event)->
