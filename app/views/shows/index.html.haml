@@ -69,15 +69,14 @@
     $something = $('.calendar-shows li.count-0')
     count = $something.length
     $something.each (i)->
-      base = 0 - count + ( i * 2 )
-      interval = 1000 / count # ms
-      delay = ( i * 2 ) * interval
-      delay = Math.abs base
+      interval = 300 / count # ms
+      delay = 300 - ( interval * i * 2 )
+      delay = 300 - Math.abs delay
 
       options =
-        # height: 'toggle'
+        height: 'toggle'
         width: 'toggle'
-      $( this ).delay( delay ).animate(options, 1000).queue()
+      $( this ).delay( delay ).animate(options, interval ).queue()
 
   $(document).ready ()->
     $('#start').on 'click', (event)->

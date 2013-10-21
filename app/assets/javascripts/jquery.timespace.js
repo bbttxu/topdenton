@@ -29,7 +29,7 @@
         iter.next();
         while(iter.hasNext()) {
           var date = iter.next();
-          var $span = $('<a>').html('<span>' + date.format('ddd') + '</span>' + date.format('dd') ).attr('href','#');
+          var $span = $('<a>').html( '<span>' + date.format('MMM') + '</span> ' + date.format('DD') ).attr('href','#');
           var $li = $('<li>').attr('id', date.format('YYYY-MM-DD') ).addClass('count-0').append( $span );
           $this.before( $li );
         };
