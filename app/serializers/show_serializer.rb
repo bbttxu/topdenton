@@ -1,6 +1,6 @@
 
 class ShowSerializer < ActiveModel::Serializer
-  attributes :id, :starts_at, :source
+  attributes :id, :starts_at, :source, :time_is_unknown, :price
 
   # has_many :artists, serializer: ArtistSerializer, embed: :ids, include: true, key: :artists
 
