@@ -9,17 +9,6 @@
 //= require jquery.ui.all
 //= require jquery.ui.touch-punch
 //= require jquery.scrollTo
-//= require underscore
-//! require underscore.rateLimit
-//= require moment
-//= require twix
-//= require backbone
-//! require backbone-relational
-//= require backbone_rails_sync
-//= require backbone_datalink
-//= require backbone/denton
-//= require backbone.marionette
-//! require knockout
 //= require foundation
 //! require jquery.slabtext
 //= require jquery.isotope
@@ -28,7 +17,6 @@
 //= require artists
 //= require foods
 //= require gigs
-//= require shows
 //= require venues
 
 $(function(){ $(document).foundation(); });
