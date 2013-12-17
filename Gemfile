@@ -82,7 +82,7 @@ gem 'mongoid', '= 3.0.9'
 gem 'mongoid_rateable'
 gem 'bson_ext'
 
-gem "rails-backbone"
+# gem "rails-backbone"
 gem "mongo_mapper-accepts_nested_attributes", :require => "mongo_mapper/accepts_nested_attributes"
 
 gem "httparty", "0.8.3"
@@ -107,12 +107,12 @@ gem "rolify"
 
 gem "mongo_session_store-rails3"
 
-gem 'knockoutjs-rails'
+# gem 'knockoutjs-rails'
 
 gem 'active_model_serializers'
 
-gem 'marionette-rails'
+# gem 'marionette-rails'
 
-gem 'underscore-rails'
+# gem 'underscore-rails'
 
-gem 'momentjs-rails'
+# gem 'momentjs-rails'
