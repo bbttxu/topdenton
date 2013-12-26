@@ -3,6 +3,9 @@ class Show
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  include ActiveModel::Serialization
+  include ActiveModel::SerializerSupport
+
   field :price, :type => String, :default => "?"
   field :source, :type => String
   field :doors_at, :type => Time

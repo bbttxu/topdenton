@@ -2,9 +2,9 @@
 #   host: 127.0.0.1
 #   port: 27017
 
-# development:
-#   <<: *defaults
-#   database: denton_development
+development:
+  <<: *defaults
+  database: denton_development
 
 # test:
 #   <<: *defaults
