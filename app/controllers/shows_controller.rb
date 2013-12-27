@@ -13,6 +13,7 @@ class ShowsController < ApplicationController
     @shows = Show.upcoming.ordered
 
     respond_to do |format|
+      format.html # index.html.erb
       format.json { render json: @shows, callback: params[:callback] }
     end
   end

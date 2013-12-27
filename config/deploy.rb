@@ -13,9 +13,9 @@ set :rails_env, "production"
 set :deploy_to, "/home/adam/#{application}"
 set :user, "adam" # Login as?
 set :use_sudo, false
-set :hosts, ["192.241.212.23", "192.241.214.127", "192.241.220.139"]
+set :hosts, [ "denton-api1.blackbeartheory.com"]
 
-
+# default_run_options[:pty] = false
 # uyqisbumrkce
 
 if ENV['DEPLOY'] == 'PRODUCTION'
@@ -26,8 +26,8 @@ if ENV['DEPLOY'] == 'PRODUCTION'
    role :db,  "50.56.247.244", :primary => true
 else
    puts "*** Deploying to the \033[1;42m  STAGING  \033[0m server!"
-   role :app, "192.241.212.23", "192.241.214.127", "192.241.220.139"                          # Your HTTP server, Apache/etc
-   role :web, "192.241.212.23", "192.241.214.127", "192.241.220.139"                          # Your HTTP server, Apache/etc
+   role :app, "denton-api1.blackbeartheory.com"                          # Your HTTP server, Apache/etc
+   role :web, "denton-api1.blackbeartheory.com"                          # Your HTTP server, Apache/etc
    # TODO adding db role to production, we don't need it, but a capistrano task is looking for it
    # role :db, "192.241.214.127", :primary => true
 end
