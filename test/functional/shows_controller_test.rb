@@ -5,11 +5,11 @@ class ShowsControllerTest < ActionController::TestCase
   #   @show = shows(:one)
   # end
 
-  # test "should get index" do
-  #   get :index
-  #   assert_response :success
-  #   assert_not_nil assigns(:shows)
-  # end
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:shows)
+  end
 
   # test "should get new" do
   #   get :new
