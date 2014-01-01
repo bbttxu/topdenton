@@ -1,6 +1,4 @@
 Denton::Application.routes.draw do
-
-
   resources :foods do
     member do
       get 'rate'
@@ -21,12 +19,11 @@ Denton::Application.routes.draw do
   match "/signout" => "sessions#destroy", :as => :signout
 
   match "calendar" => 'calendars#index'
-  match "shows/calendar" => 'shows#index'
-  match "shows" => 'shows#index'
-  match "shows/today" => 'shows#today'
-  match "shows/(:date)" => "shows#day", :constraints => { :date => /\d{4}-\d{2}-\d{2}/ }
+  match "shows/calendar" => 'shows#index', :constraints => { :format => /(json)/ }
+  match "shows" => 'shows#index', :constraints => { :format => /(json)/ }
+  match "shows/(:date)" => "shows#day", :constraints => { :date => /\d{4}-\d{2}-\d{2}/, :format => /(json)/ }
   resources :artists
   # resources :shows
 
-  root :to => 'shows#index'
+  root :to => 'foods#index'
 end

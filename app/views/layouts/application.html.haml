@@ -17,7 +17,7 @@
             %ul.title-area
               %li.name
                 %h1
-                  = active_link_to 'Denton, TX', shows_today_path
+                  = active_link_to 'Denton, TX', root_url
               %li.toggle-topbar
                 %a( href="#" ) Menu
 
@@ -25,8 +25,8 @@
 
               %ul.right
                 / %li= link_to "Today", shows_today_path
-                %li= link_to "Calendar", shows_calendar_path
-                / %li= link_to "Food", foods_path
+                / %li= link_to "Calendar", shows_calendar_path
+                %li= link_to "Food", foods_path
                 %li
                   - if current_user
                     = link_to "Sign Out", signout_path
