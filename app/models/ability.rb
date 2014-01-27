@@ -5,6 +5,7 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
+      # can :rate, Food
     end
 
     if user.has_role? :rater

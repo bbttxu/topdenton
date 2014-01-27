@@ -1,21 +1,27 @@
 Denton::Application.routes.draw do
-  resources :foods do
-    member do
-      get 'rate'
-    end
-  end
-  # match "foods/:tag/rate" => 'foods#rate'
 
-  resources :ratings do
-    collection do
-      post 'reorder'
-    end
-  end
+  # resources :ratings do
+  #   collection do
+  #     post 'reorder'
+  #   end
+  # end
 
   # constraints { :id => /\d{4}-\d{2}-\d{2}/ } do
   # end
 
   match "/auth/:provider/callback" => "sessions#create"
+
+
+
+  resources :foods do
+    member do
+      get 'rate'
+    end
+  end
+
+  match "foods/:tag/rate" => 'foods#rate'
+
+
   match "/signout" => "sessions#destroy", :as => :signout
 
   match "calendar" => 'calendars#index'

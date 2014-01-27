@@ -13,4 +13,5 @@ class AbilityTest < ActiveSupport::TestCase
     ability = Ability.new(user)
     assert ability.can? :rate, Food, "twitter cannot rate food"
   end
+
 end

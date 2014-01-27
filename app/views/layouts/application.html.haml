@@ -43,6 +43,9 @@
 
     .small-12.columns#content
     = yield
+    %hr
+    %pre= current_user
+    %hr
     = render partial: "layouts/footer"
 
 
