@@ -46,10 +46,10 @@ group :development do
 
 end
 
-group :test do
-  gem "webmock", "< 1.12"
-  gem "vcr"
-end
+# group :test do
+#   gem "webmock", "< 1.12"
+#   gem "vcr"
+# end
 
 gem "factory_girl_rails", :group => [ :test, :development ]
 
@@ -92,7 +92,7 @@ gem "mongo_mapper-accepts_nested_attributes", :require => "mongo_mapper/accepts_
 
 gem "binding_of_caller", :group => :development
 
-gem "cachebar", github: "bbttxu/cachebar"
+# gem "cachebar", github: "bbttxu/cachebar"
 
 gem "figaro"
 

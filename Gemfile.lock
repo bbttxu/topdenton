@@ -1,13 +1,3 @@
-GIT
-  remote: git://github.com/bbttxu/cachebar.git
-  revision: 20b57b7075f68504f9356ba70ea5d6af382702ae
-  specs:
-    cachebar (1.1.0)
-      activesupport
-      httparty (~> 0.8.3)
-      redis
-      redis-namespace
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -42,7 +32,6 @@ GEM
     activesupport (3.2.16)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
-    addressable (2.3.5)
     arel (3.0.3)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -70,8 +59,6 @@ GEM
       sass (~> 3.1)
     compass-rails (1.1.3)
       compass (>= 0.12.2)
-    crack (0.4.1)
-      safe_yaml (~> 0.9.0)
     daemons (1.1.9)
     debug_inspector (0.0.2)
     dotenv (0.9.0)
@@ -115,9 +102,6 @@ GEM
     hashie (2.0.5)
     hike (1.2.3)
     http_parser.rb (0.5.3)
-    httparty (0.8.3)
-      multi_json (~> 1.0)
-      multi_xml
     i18n (0.6.9)
     journey (1.0.4)
     jquery-rails (3.0.4)
@@ -155,7 +139,6 @@ GEM
       rake
     moped (1.5.2)
     multi_json (1.8.4)
-    multi_xml (0.5.5)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
@@ -208,12 +191,8 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    redis (3.0.7)
-    redis-namespace (1.4.1)
-      redis (~> 3.0.4)
     ref (1.0.5)
     rolify (3.4.0)
-    safe_yaml (0.9.7)
     sass (3.2.14)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -259,10 +238,6 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    vcr (2.8.0)
-    webmock (1.11.0)
-      addressable (>= 2.2.7)
-      crack (>= 0.3.2)
     zurb-foundation (4.3.2)
       sass (>= 3.2.0)
 
@@ -275,7 +250,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bson_ext
-  cachebar!
   cancan
   cane
   capistrano
@@ -314,6 +288,4 @@ DEPENDENCIES
   therubyracer
   thin
   uglifier
-  vcr
-  webmock (< 1.12)
   zurb-foundation
