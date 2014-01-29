@@ -57,6 +57,8 @@ group :test, :development do
   # gem 'minitest'
   # gem 'database_cleaner'
 
+  gem 'rspec-rails'
+
   gem 'guard-rails'
 
   gem 'guard-bundler'
