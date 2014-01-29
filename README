@@ -6,7 +6,6 @@ install rbenv, ruby-build, redis and mongodb
 
 environmental variables are stored in config/application.yml
 
-    REDISTOGO_URL: localhost:6379
     CONSUMER_KEY: twitter_key
     CONSUMER_SECRET: twitter_secret
 
