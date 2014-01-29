@@ -31,7 +31,7 @@ gem 'foreman'
 # gem 'resque'
 # gem 'resque-loner'
 # gem 'clockwork'
-# gem 'nokogiri'
+gem 'nokogiri'
 # gem 'chronic'
 gem 'haml'
 gem 'slim'
@@ -43,6 +43,8 @@ group :development do
   gem "capistrano"
   gem "cane"
   gem 'better_errors'
+
+  gem 'guard-rspec', require: false
 
 end
 
