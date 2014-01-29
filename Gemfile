@@ -38,6 +38,7 @@ gem 'slim'
 # gem 'redcarpet'
 gem 'thin'
 
+
 group :development do
   # Deploy with Capistrano
   gem "capistrano"
@@ -57,7 +58,7 @@ gem "factory_girl_rails", :group => [ :test, :development ]
 
 group :test, :development do
   # gem 'minitest'
-  # gem 'database_cleaner'
+  gem 'database_cleaner'
 
   gem 'rspec-rails'
 
