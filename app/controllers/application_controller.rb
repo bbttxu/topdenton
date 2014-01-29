@@ -1,11 +1,13 @@
 # FIXME
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :grab_model_counts, :get_current_conditions, :authenticate_user!
+  before_filter :grab_model_counts
   helper_method :current_user
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to request.referrer, :notice => exception.message
+    url = request.referrer || root_path
+
+    redirect_to url, :notice => exception.message
   end
 
   def grab_model_counts
@@ -16,9 +18,9 @@ class ApplicationController < ActionController::Base
     # @n_venues = Venue.all.count
   end
 
-  def get_current_conditions
-    weather = Weather.current
-  end
+  # def get_current_conditions
+  #   weather = Weather.current
+  # end
 
   private
   def current_user

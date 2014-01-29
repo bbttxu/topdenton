@@ -15,7 +15,7 @@ gem "active_link_to"
 group :assets do
   gem 'sass'
   gem 'sass-rails'
-  gem 'coffee-rails'
+  # gem 'coffee-rails'
   gem 'uglifier'
 
   gem 'compass-rails'
@@ -28,11 +28,11 @@ gem 'jquery-ui-rails'
 
 gem 'foreman'
 
-gem 'resque'
-gem 'resque-loner'
-gem 'clockwork'
-gem 'nokogiri'
-gem 'chronic'
+# gem 'resque'
+# gem 'resque-loner'
+# gem 'clockwork'
+# gem 'nokogiri'
+# gem 'chronic'
 gem 'haml'
 gem 'slim'
 # gem 'redcarpet'
@@ -54,20 +54,21 @@ end
 gem "factory_girl_rails", :group => [ :test, :development ]
 
 group :test, :development do
-  gem 'database_cleaner'
+  # gem 'minitest'
+  # gem 'database_cleaner'
 
   gem 'guard-rails'
 
   gem 'guard-bundler'
-  gem 'guard-minitest', github: 'guard/guard-minitest'
+  # gem 'guard-minitest', github: 'guard/guard-minitest'
   gem 'guard-livereload'
 
-  gem 'minitest-reporters'
+  # gem 'minitest-reporters'
   gem 'terminal-notifier'
   gem 'terminal-notifier-guard'
 
   gem "railroady"
-  gem "rails-erd"
+  # gem "rails-erd"
 
 end
 
@@ -86,8 +87,8 @@ gem 'bson_ext'
 # gem "rails-backbone"
 gem "mongo_mapper-accepts_nested_attributes", :require => "mongo_mapper/accepts_nested_attributes"
 
-gem "httparty", "0.8.3"
-gem "icalendar"
+# gem "httparty", "0.8.3"
+# gem "icalendar"
 
 gem "binding_of_caller", :group => :development
 
