@@ -1,3 +1,0 @@
-# FIXME
-module GigsHelper
-end
