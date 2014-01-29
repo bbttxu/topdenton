@@ -15,7 +15,7 @@ gem "active_link_to"
 group :assets do
   gem 'sass'
   gem 'sass-rails'
-  # gem 'coffee-rails'
+  gem 'coffee-rails'
   gem 'uglifier'
 
   gem 'compass-rails'

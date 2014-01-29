@@ -14,9 +14,6 @@
 //= require jquery.isotope
 //! require jquery.touchSwipe
 //= require app
-//= require artists
 //= require foods
-//= require gigs
-//= require venues
 
 $(function(){ $(document).foundation(); });
