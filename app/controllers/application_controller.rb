@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   rescue_from CanCan::AccessDenied do |exception|
-    url = request.referrer || "/auth/twitter"
-    redirect_to url, :notice => exception.message
+    destination = request.referer
+    redirect_to "/auth/twitter?origin=#{request.url}", :notice => exception.message
   end
 
   private
