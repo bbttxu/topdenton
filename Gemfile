@@ -38,6 +38,7 @@ gem 'slim'
 # gem 'redcarpet'
 gem 'thin'
 
+gem "font-awesome-rails"
 
 group :development do
   # Deploy with Capistrano

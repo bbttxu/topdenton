@@ -1,15 +1,17 @@
 .row#foods
   .food.title
-    h2 Top Five Foods 
+    h2 Top Five Foods
   - Rating.tags_with_weight.sort_by{|x|[-x[1],x[0]]}.each do |tag|
     .food
       h3
         => tag[0]
         - if can? :rate, Food
-          small= link_to "RATE", rate_food_path(tag[0])
-        - else 
           small= link_to "RATE!", rate_food_path(tag[0])
-
+        - else
+          small
+            = link_to rate_food_path(tag[0]) do
+              | Rate
+              i.fa.fa-twitter
       ol.top-rated
         - Rating.tagged_with(tag[0]).top_five.each do |rating|
           - if rating.rated?
