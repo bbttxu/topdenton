@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 3.2'
 gem "cane"
 
-gem 'sqlite3'
+# gem 'sqlite3'
 
 gem 'json'
 
@@ -42,7 +42,7 @@ gem "font-awesome-rails"
 
 group :development do
   # Deploy with Capistrano
-  gem "capistrano"
+  gem 'capistrano', '~> 2.15'
   gem "cane"
   gem 'better_errors'
 
