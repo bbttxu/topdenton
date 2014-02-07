@@ -123,3 +123,6 @@ gem 'active_model_serializers'
 # gem 'underscore-rails'
 
 # gem 'momentjs-rails'
+
+gem "geocoder"
+

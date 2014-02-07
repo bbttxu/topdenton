@@ -42,5 +42,6 @@ describe "food" do
       food = FactoryGirl.build :food, phone: ""
       food.should_not be_valid
     end
+
   end
 end

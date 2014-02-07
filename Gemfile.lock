@@ -91,6 +91,7 @@ GEM
       thor (>= 0.13.6)
     formatador (0.2.4)
     fssm (0.2.10)
+    geocoder (1.1.9)
     guard (2.3.0)
       formatador (>= 0.2.4)
       listen (~> 2.1)
@@ -291,6 +292,7 @@ DEPENDENCIES
   factory_girl_rails
   figaro
   foreman
+  geocoder
   guard-bundler
   guard-livereload
   guard-rails
