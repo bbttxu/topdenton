@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '~> 3.2'
-gem "cane"
 
 # gem 'sqlite3'
 
@@ -43,7 +41,6 @@ gem "font-awesome-rails"
 group :development do
   # Deploy with Capistrano
   gem 'capistrano', '~> 2'
-  gem "cane"
   gem 'better_errors'
 
   gem 'guard-rspec', require: false
@@ -76,6 +73,7 @@ group :test, :development do
   gem "railroady"
   # gem "rails-erd"
 
+  gem "cane"
 end
 
 gem 'linguistics'
