@@ -1,7 +1,7 @@
 require "bundler/capistrano"
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
-set :application, "top_denton"
+set :application, "topdenton"
 set :scm, :git
 
 set :repository, "git@github.com:bbttxu/topdenton.git"  # Your clone URL
@@ -10,10 +10,10 @@ set :user, "adam"  # The server's user for deploys
 set :deploy_via, :remote_cache # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 set :rails_env, "production"
-set :deploy_to, "/home/adam/#{application}"
+set :deploy_to, "/var/www/denton-api.bbttxu.com"
 set :user, "adam" # Login as?
 set :use_sudo, false
-set :hosts, [ "denton-api1.blackbeartheory.com"]
+set :hosts, [ "192.241.185.162"]
 
 # default_run_options[:pty] = false
 # uyqisbumrkce
@@ -26,8 +26,8 @@ if ENV['DEPLOY'] == 'PRODUCTION'
    role :db,  "50.56.247.244", :primary => true
 else
    puts "*** Deploying to the \033[1;42m  STAGING  \033[0m server!"
-   role :app, "denton-api1.blackbeartheory.com"                          # Your HTTP server, Apache/etc
-   role :web, "denton-api1.blackbeartheory.com"                          # Your HTTP server, Apache/etc
+   role :app, "192.241.185.162"                          # Your HTTP server, Apache/etc
+   role :web, "192.241.185.162"                          # Your HTTP server, Apache/etc
    # TODO adding db role to production, we don't need it, but a capistrano task is looking for it
    # role :db, "192.241.214.127", :primary => true
 end

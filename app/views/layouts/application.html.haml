@@ -17,22 +17,29 @@
             %ul.title-area
               %li.name
                 %h1
-                  = active_link_to 'Denton, TX', root_url
+                  = active_link_to 'TopDenton', root_url
               %li.toggle-topbar
                 %a( href="#" ) Menu
 
             %section.top-bar-section
+              %ul.left
+                %li= link_to "Food", foods_path
+
 
               %ul.right
                 / %li= link_to "Today", shows_today_path
                 / %li= link_to "Calendar", shows_calendar_path
-                %li= link_to "Food", foods_path
+                / %li= link_to "Food", foods_path
                 %li
                   - if current_user
-                    = link_to "Sign Out", signout_path
-
+                    = link_to signout_path do
+                      Sign Out
+                      = current_user.name
+                      %i.fa.fa-twitter-square
                   - else
-                    = link_to "Sign In", "/auth/twitter"
+                    = link_to "/auth/twitter" do
+                      Sign In
+                      %i.fa.fa-twitter
 
       - flash.each do |type, value|
         .flash{ :class => type.to_s }
@@ -43,9 +50,6 @@
 
     .small-12.columns#content
     = yield
-    %hr
-    %pre= current_user
-    %hr
     = render partial: "layouts/footer"
 
 
