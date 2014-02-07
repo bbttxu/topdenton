@@ -12,7 +12,7 @@ class FoodsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @foods }
+      format.json { render json: @foods, callback: params[:callback] }
     end
   end
 
@@ -38,7 +38,7 @@ class FoodsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @food }
+      format.json { render json: @food, callback: params[:callback] }
     end
   end
 
