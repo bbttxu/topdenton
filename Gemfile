@@ -41,7 +41,7 @@ gem 'thin'
 
 group :development do
   # Deploy with Capistrano
-  gem "capistrano"
+  gem "capistrano", "~> 2"
   gem "cane"
   gem 'better_errors'
 
