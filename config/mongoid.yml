@@ -21,9 +21,7 @@ production:
     default:
       database: top_denton
       hosts:
-        - 192.241.214.127:27017
-        - 192.241.212.23:27017
-        - 192.241.220.139:27017
+        - localhost:27017
       options:
         consistency: :strong
   options:
