@@ -9,6 +9,8 @@ require "rails/test_unit/railtie"
 # Uncomment for asset pipelining in Rails 3.1
 require "sprockets/railtie"
 
+require "cancan"
+
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))

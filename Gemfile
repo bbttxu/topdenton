@@ -42,7 +42,7 @@ group :development do
   # Deploy with Capistrano
   gem 'capistrano', '~> 2'
   gem 'better_errors'
-
+  gem 'awesome_print'
   gem 'guard-rspec', require: false
 
 end
@@ -124,4 +124,6 @@ gem 'active_model_serializers'
 # gem 'momentjs-rails'
 
 gem "geocoder"
+
+gem "debugger"
 

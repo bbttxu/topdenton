@@ -47,6 +47,10 @@ describe "abilities" do
       @ability.can?( :rate, Food ).should be_true
     end
 
+    it "can create food" do
+      @ability.can?( :credate, Food ).should be_true
+    end
+
     it "can edit food" do
       @ability.can?( :edit, Food ).should be_true
     end

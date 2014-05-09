@@ -1,8 +1,8 @@
 class FoodsController < ApplicationController
 
-  skip_before_filter :authenticate_user!, only: :index
+  skip_before_filter :authenticate_user! 
 
-  load_and_authorize_resource
+  load_and_authorize_resource 
 
 
   # GET /foods
@@ -26,7 +26,7 @@ class FoodsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @food }
+      format.json { render json: @rated }
     end
   end
 
@@ -60,19 +60,21 @@ class FoodsController < ApplicationController
 
   # POST /foods
   # POST /foods.json
-  # def create
-  #   @food = Food.new(params[:food])
+  def create
+    # debugger
+    @food = Food.new(params[:food])
 
-  #   respond_to do |format|
-  #     if @food.save
-  #       format.html { redirect_to @food, notice: 'Food was successfully created.' }
-  #       format.json { render json: @food, status: :created, location: @food }
-  #     else
-  #       format.html { render action: "new" }
-  #       format.json { render json: @food.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+    respond_to do |format|
+      if @food.save
+        puts "DID SAVE "*5
+        format.html { redirect_to @food, notice: 'Food was successfully created.' }
+        format.json { render json: @food, status: :created, location: @food }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @food.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # PUT /foods/1
   # PUT /foods/1.json

@@ -3,15 +3,32 @@ require 'spec_helper'
 describe FoodsController do
 
 	before do
-		@food_attributes = { name: "restaurant" }
+		# @food = FactoryGirl.build :food
+    @food = {
+      name: "Banter",
+      address: "815 Oak St",
+      city: "Denton",
+      state: "TX",
+      zipcode: "76201",
+      phone: "940-867-5309"
+    }
 	end
 
   describe "POST to create" do
-   it "should change the number of foods" do
+    include Devise::TestHelpers
+    # puts "%"*80
+  
+    before do
+      @user = FactoryGirl.build :user
+      @user.add_role(:admin)
+      session[:user_id] = @user.id
+    end
+
+    it "for admin, should change the number of foods" do
       lambda do
-        post :create, food: @food_attributes
+        post :create, food: @food
       end.should change(Food, :count).by(1)
-   end
+    end
 
   	it "should get new"
   	it "should create food"
