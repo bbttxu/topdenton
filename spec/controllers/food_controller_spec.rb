@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe FoodsController do
-
-	before do
+  config.include Devise::TestHelpers, type: :controller
+	
+  before do
 		# @food = FactoryGirl.build :food
     @food = {
       name: "Banter",
@@ -15,7 +16,7 @@ describe FoodsController do
 	end
 
   describe "POST to create" do
-    include Devise::TestHelpers
+    # include Devise::TestHelpers
     # puts "%"*80
   
     before do
