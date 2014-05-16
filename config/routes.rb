@@ -25,11 +25,11 @@ Denton::Application.routes.draw do
   match "/signout" => "sessions#destroy", :as => :signout
 
   match "calendar" => 'calendars#index'
-  match "shows/calendar" => 'shows#index', :constraints => { :format => /(json)/ }
-  match "shows" => 'shows#index', :constraints => { :format => /(json)/ }
-  match "shows/(:date)" => "shows#day", :constraints => { :date => /\d{4}-\d{2}-\d{2}/, :format => /(json)/ }
-  resources :artists
+  # match "shows/calendar" => 'shows#index', :constraints => { :format => /(json)/ }
+  # match "shows" => 'shows#index', :constraints => { :format => /(json)/ }
+  # match "shows/(:date)" => "shows#day", :constraints => { :date => /\d{4}-\d{2}-\d{2}/, :format => /(json)/ }
+  # resources :artists
   # resources :shows
 
-  root :to => 'foods#index'
+  # root :to => '/public/index.html'
 end
