@@ -42,13 +42,12 @@
                       %i.fa.fa-twitter
 
       - flash.each do |type, value|
-        .flash{ :class => type.to_s }
+        .flash.container{ :class => type.to_s }
           .row
             .small-12.columns
               %p= value
 
 
-    .small-12.columns#content
     = yield
     = render partial: "layouts/footer"
 

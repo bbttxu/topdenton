@@ -10,13 +10,7 @@
             small
               = r.rating if r and r.rating
               = "no ratings" unless r
-
-  .columns.small-12
-    form
-      label(for="newTagInput") New Tag
-      input#newTagInput(type="text")
-      input(type="submit") Add
-
+ 
 
     p= [@food.address, @food.city, "#{@food.state} #{@food.zipcode}", @food.phone ].join ", "
     = link_to 'Edit', edit_food_path(@food), class: 'button' if can? :edit, @food

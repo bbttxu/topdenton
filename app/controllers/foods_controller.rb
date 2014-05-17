@@ -88,19 +88,19 @@ class FoodsController < ApplicationController
 
   # PUT /foods/1
   # PUT /foods/1.json
-  # def update
-  #   @food = Food.find(params[:id])
+  def update
+    @food = Food.find(params[:id])
 
-  #   respond_to do |format|
-  #     if @food.update_attributes(params[:food])
-  #       format.html { redirect_to @food, notice: 'Food was successfully updated.' }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: "edit" }
-  #       format.json { render json: @food.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+    respond_to do |format|
+      if @food.update_attributes(params[:food])
+        format.html { redirect_to @food, notice: 'Food was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @food.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # DELETE /foods/1
   # DELETE /foods/1.json
