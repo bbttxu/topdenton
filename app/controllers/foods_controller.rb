@@ -23,9 +23,16 @@ class FoodsController < ApplicationController
   # GET /foods/1.json
   # NB id is tag name for a Rating, not an id
   def rate
-    @ratings = Rating.tagged_with(params[:id])
+    @tag = params[:id]
+
+
+    @ratings = Rating.tagged_with(@tag)
     @rated = @ratings.rated_by(current_user)
     # @unrated = Rating.unrated_by(current_user).tagged_with(params[:tag])
+    # @unrated = @ratings - @rated
+
+    @tagged_foods = Food.tagged_with @tag
+
 
     respond_to do |format|
       format.html # show.html.erb
