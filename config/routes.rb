@@ -31,5 +31,5 @@ Denton::Application.routes.draw do
   # resources :artists
   # resources :shows
 
-  # root :to => '/public/index.html'
+  root :to => 'foods#index'
 end

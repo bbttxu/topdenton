@@ -23,13 +23,19 @@
 
 
   - rated_tags = Rating.tags
-   - all_tags = Food.tags
-   - unrated_tags = all_tags - rated_tags
-   - unrated_tags.each do |tag|
-     .food
-       h5
+  - all_tags = Food.tags
+  - unrated_tags = all_tags - rated_tags
+  - unrated_tags.each do |tag|
+    .food
+      h5
         => tag
         small= link_to "RATE", rate_food_path(tag[0])
 
-   .actions
-     = link_to "add food", new_food_path if can? :create, Food
+  .actions
+    = link_to "add food", new_food_path if can? :create, Food
+
+
+div(data = { food: @foods.to_json })
+
+// javascript:
+//  var json = "#{j @foods.as_json}";
