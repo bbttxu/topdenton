@@ -10,7 +10,7 @@ class FoodsController < ApplicationController
   def index
     @foods = Food.all
 
-    @tags = Rating.tags
+    @tags = Food.all.tags
 
 
     respond_to do |format|

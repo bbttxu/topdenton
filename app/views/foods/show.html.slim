@@ -7,8 +7,10 @@
           h3
             => can?(:rate, Food) ? link_to(tag, rate_food_path(tag) ) : tag
             - r = Rating.tagged_with(tag).find_by food_id: @food.id
-            small= r.rating || "no ratings"
+            small
+              = r.rating if r and r.rating
+              = "no ratings" unless r
 
     p= [@food.address, @food.city, "#{@food.state} #{@food.zipcode}", @food.phone ].join ", "
     = link_to 'Edit', edit_food_path(@food), class: 'button' if can? :edit, @food
-    = link_to 'Delete', food_path(@food), :method => :delete, :confirm => "Sure? A bunny will die", class: 'button alert' if can? :destroy, @food
+    = link_to 'Delete', food_path(@food), :method => :delete, :confirm => "Sure?", class: 'button alert' if can? :destroy, @food

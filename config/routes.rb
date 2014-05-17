@@ -19,7 +19,7 @@ Denton::Application.routes.draw do
     end
   end
 
-  match "foods/:tag/rate" => 'foods#rate'
+  # match "foods/:tag/rate" => 'foods#rate'
 
 
   match "/signout" => "sessions#destroy", :as => :signout

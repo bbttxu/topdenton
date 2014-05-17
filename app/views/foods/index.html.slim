@@ -43,4 +43,5 @@
 .row.food#tags
   ul
     - @foods.each do |food|
-      li= food.name
+      li
+        = link_to "#{food.name}", "/foods/#{food._id}"
