@@ -1,0 +1,26 @@
+/ index.html.slim
+
+
+.container
+	.row
+		.small-12.columns
+			table
+				thead
+					th name
+					th is admin?
+
+				tbody
+					- @users.each do |user|
+						tr
+							td= user.name	
+							td
+								- if user.has_role? :admin
+									= simple_form_for(user, :url => toggle_user_path(user), :method => :post) do |f|
+										/ = f.input :role_ids, :as => :hidden
+										= f.button :submit, "Demote"
+
+								- unless user.has_role? :admin
+									= simple_form_for(user, :url => toggle_user_path(user), :method => :post) do |f|
+										/ = f.input :role_ids, :as => :hidden
+										= f.button :submit, "Promote"
+
