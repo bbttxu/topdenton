@@ -48,5 +48,7 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner[:mongoid].clean
   end
+
+  config.include RSpec::Rails::RequestExampleGroup, type: :feature
 end
 

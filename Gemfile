@@ -70,7 +70,7 @@ group :test, :development do
   gem 'terminal-notifier'
   gem 'terminal-notifier-guard'
 
-  gem "railroady"
+  # gem "railroady"
   # gem "rails-erd"
 
   gem "cane"

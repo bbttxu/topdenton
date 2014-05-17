@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe FoodsController do
-  config.include Devise::TestHelpers, type: :controller
+  # config.include Devise::TestHelpers, type: :controller
 	
   before do
 		# @food = FactoryGirl.build :food
