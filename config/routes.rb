@@ -19,6 +19,12 @@ Denton::Application.routes.draw do
     end
   end
 
+  resources :users do
+    member do
+      post 'toggle'
+    end
+  end
+
   # match "foods/:tag/rate" => 'foods#rate'
 
 

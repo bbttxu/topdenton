@@ -48,11 +48,15 @@ describe "abilities" do
     end
 
     it "can create food" do
-      @ability.can?( :credate, Food ).should be_true
+      @ability.can?( :create, Food ).should be_true
     end
 
     it "can edit food" do
       @ability.can?( :edit, Food ).should be_true
+    end
+
+    it "can edit user" do
+      @ability.can?( :edit, User ).should be_true
     end
   end
 end

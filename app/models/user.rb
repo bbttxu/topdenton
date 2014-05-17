@@ -2,10 +2,13 @@ class User
   include Mongoid::Document
   rolify
 
+
   field :name, type: String
   field :provider, type: String
   field :uid, type: String
 
+  attr_accessible :role_ids
+  
   validates_presence_of :name, :provider, :uid
 
   after_create :assign_default_role

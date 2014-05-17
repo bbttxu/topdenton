@@ -12,7 +12,7 @@ class Ability
       can :rate, Food
     end
 
-    can :read, :all
-    can :index, :all
+    can :read, Food
+    can :index, Food
   end
 end
