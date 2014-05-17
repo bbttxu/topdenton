@@ -35,7 +35,12 @@
     = link_to "add food", new_food_path if can? :create, Food
 
 
-div(data = { food: @foods.to_json })
+.row.tags#tags
+  ul
+    - @tags.each do |tag|
+      li= tag
 
-// javascript:
-//  var json = "#{j @foods.as_json}";
+.row.food#tags
+  ul
+    - @foods.each do |food|
+      li= food.name

@@ -10,6 +10,9 @@ class FoodsController < ApplicationController
   def index
     @foods = Food.all
 
+    @tags = Rating.tags
+
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @foods, callback: params[:callback] }
