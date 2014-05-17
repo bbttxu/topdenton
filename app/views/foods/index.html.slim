@@ -1,6 +1,6 @@
 .row#foods
-  .food.title
-    h2 Top Five Foods
+  .title
+    h2 Top Five Foods by Tag
   - Rating.tags_with_weight.sort_by{|x|[-x[1],x[0]]}.each do |tag|
     .food
       h3
