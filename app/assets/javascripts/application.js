@@ -9,11 +9,11 @@
 //= require jquery.ui.all
 //= require jquery.ui.touch-punch
 //= require jquery.scrollTo
-//= require foundation
 //! require jquery.slabtext
 //= require jquery.isotope
 //! require jquery.touchSwipe
+//= require bootstrap
 //= require app
 //= require foods
 
-$(function(){ $(document).foundation(); });
+// $(function(){ $(document).foundation(); });

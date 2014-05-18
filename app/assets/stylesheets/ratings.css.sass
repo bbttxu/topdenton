@@ -3,16 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 ol.rated, ol.top-rated, ul.unrated
-  @extend .base-font
+  // @extend .base-font
+  padding:
+    left: 2ex
 
   &.sortable
-    min-height: 2em
-    border: 10px dotted #A3776C
+    min-height: 6em
     padding: 10px
     padding:
       left: 2em
     border:
       radius: 12px
 
-  h3, h4, h5, h6
-    margin: 0
+.rated
+  border: 10px dotted lightgreen
+
+
+.unrated
+  border: 10px dotted #ccc

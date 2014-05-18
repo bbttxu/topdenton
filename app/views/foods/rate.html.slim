@@ -1,23 +1,28 @@
 / tags.html.slim
-.row
-  .columns.small-9.large-6
-    h6 rated
-    ol.rated.sortable
-      - @rated.highest_rated.reverse.each_with_index do |rating,index|
-          li.food( class="rating-#{rating.id}" id="rating_#{rating.id}")
-            h3
+.container
+  .row
+    .col-xs-10
+      h1= @tag
+
+    .col-xs-10.col-sm-4
+      h6 rated
+      ol.rated.sortable
+        - @rated.highest_rated.reverse.each_with_index do |rating,index|
+            li.food( class="rating-#{rating.id}" id="rating_#{rating.id}")
+              / h3
               => rating.food.name
               - if current_user and rating.rated_by?(current_user)
                 small= rating.user_mark(current_user)
 
-    h6 unrated
-    ul.unrated.sortable
-      - @ratings.each do |rating|
-        - unless rating.rated_by? current_user
-          li.food( class="rating-#{rating.id}" id="rating_#{rating.id}")
-            h3= rating.food.name
+    .col-xs-10.col-sm-4
+      h6 unrated
+      ul.unrated.sortable.list-unstyled
+        - @ratings.each do |rating|
+          - unless rating.rated_by? current_user
+            li.food( class="rating-#{rating.id}" id="rating_#{rating.id}")
+              = rating.food.name
 
-  .columns.small-12.large-5
-    h2 About Ratings
-    p Order your favorite restaurants above and see how they compare with others.
-    p If you don't have an opinion about a restaurant, don't rank it—it doesn't count against them in any way.
+    .col-xs-10.col-sm-4
+      h2 About Ratings
+      p Order your favorite restaurants above and see how they compare with others.
+      p If you don't have an opinion about a restaurant, don't rank it—it doesn't count against them in any way.

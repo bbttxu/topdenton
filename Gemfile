@@ -17,8 +17,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 
   gem 'compass-rails'
-  gem 'zurb-foundation'
+  # gem 'zurb-foundation'
 
+  gem 'bootstrap-sass' # , '~> 3.1.1'
 end
 
 gem 'jquery-rails'
@@ -126,4 +127,3 @@ gem 'active_model_serializers'
 gem "geocoder"
 
 gem "debugger"
-
