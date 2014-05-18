@@ -2,7 +2,9 @@
   .row
     .col-xs-12
       .title
-        h2 Top Five Foods by Tag
+        h2
+          | Top Five Foods
+          small by Tag
   .row#foods
     - Rating.tags_with_weight.sort_by{|x|[-x[1],x[0]]}.each do |tag|
       .food.col-xs-5.col-sm-4.col-md-3
@@ -13,16 +15,14 @@
           - else
             small.rate
               = link_to rate_food_path(tag[0]) do
-                | Rate
-                i.fa.fa-twitter
+                | rate
         ol.top-rated
           - Rating.tagged_with(tag[0]).top_five.each do |rating|
             - if rating.rated?
               li
-                h6
-                  => link_to rating.food.name, food_path(rating.food)
-                  - if current_user and rating.rated_by?(current_user)
-                    small.subheader= rating.user_mark(current_user)
+                = link_to rating.food.name, food_path(rating.food)
+                - if current_user and rating.rated_by?(current_user)
+                  small.subheader= rating.user_mark(current_user)
 
 
       - rated_tags = Rating.tags
