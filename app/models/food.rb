@@ -15,6 +15,9 @@ class Food
   field :phone, type: String
   field :coordinates, :type => Array
 
+  index({coordinates: "2dsphere"})
+
+
   validates_presence_of :name, :address, :city, :state, :zipcode, :phone
 
   after_create :ensure_rating_for_food

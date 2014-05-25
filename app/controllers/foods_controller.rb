@@ -8,10 +8,13 @@ class FoodsController < ApplicationController
   # GET /foods
   # GET /foods.json
   def index
-    @foods = Food.all
 
-    @tags = Food.all.tags
+    longitude = params[:longitude].to_f || -97.1248875
+    latitude = params[:latitude].to_f || 33.1997146
+    distance = params[:distance].to_f || 10
 
+    # FIXME the 0.008 multiplier was taken from on-line, needs to be checked
+    @foods = Food.geo_near([longitude, latitude]).max_distance( distance * 0.008 )
 
     respond_to do |format|
       format.html # index.html.erb
