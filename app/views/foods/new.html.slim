@@ -1,0 +1,42 @@
+.container
+	.row
+		.col-xs-12
+			h1 New food
+		.col-xs-12.col-md-6
+			= render 'form' 
+		.col-xs-12.col-md-6
+			input#food_autocomplete(type="text")
+
+		.col-xs-12
+			= link_to 'Back', foods_path 
+
+
+script( type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true")
+coffee:
+
+	input = document.getElementById('food_autocomplete')
+
+	defaultBounds = new google.maps.LatLngBounds(
+		new google.maps.LatLng(32.990236, -97.395172),
+		new google.maps.LatLng(33.395691, -96.855211))
+
+	options =
+		bounds: defaultBounds
+		types: [ "establishment" ]
+
+	autocomplete = new google.maps.places.Autocomplete(input, options)
+
+	google.maps.event.addListener autocomplete, 'place_changed', ()->
+		fillInAddress()
+
+	fillInAddress = ()->
+		place = autocomplete.getPlace()
+		console.log place
+
+		address = place.formatted_address.split(", ")
+
+		$('#food_name').val place.name
+		$('#food_address').val address[0]
+		$('#food_city').val address[1]
+		$('#food_state').val address[2]
+		$('#food_phone').val place.formatted_phone_number
