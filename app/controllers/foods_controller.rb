@@ -107,13 +107,13 @@ class FoodsController < ApplicationController
 
   # DELETE /foods/1
   # DELETE /foods/1.json
-  # def destroy
-  #   @food = Food.find(params[:id])
-  #   @food.destroy
+  def destroy
+    @food = Food.find(params[:id])
+    @food.destroy
 
-  #   respond_to do |format|
-  #     format.html { redirect_to foods_url }
-  #     format.json { head :no_content }
-  #   end
-  # end
+    respond_to do |format|
+      format.html { redirect_to foods_url }
+      format.json { head :no_content }
+    end
+  end
 end

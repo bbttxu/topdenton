@@ -17,7 +17,7 @@ class Food
 
   index({coordinates: "2dsphere"})
 
-
+  validates_uniqueness_of :name
   validates_presence_of :name, :address, :city, :state, :phone
 
   after_create :ensure_rating_for_food
