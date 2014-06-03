@@ -1,0 +1,8 @@
+/ _admin.haml
+
+
+.admin-wrapper
+  .container
+    .admin
+      .actions
+        = link_to "add food", new_food_path if can? :create, Food

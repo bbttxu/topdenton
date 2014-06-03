@@ -5,17 +5,10 @@
         h2
           | Top Five Foods
           small by Tag
-  .row#foods
+  .foods#foods
     - Rating.tags_with_weight.sort_by{|x|[-x[1],x[0]]}.each do |tag|
-      .food.col-xs-5.col-sm-4.col-md-3
-        h3
-          => tag[0]
-          - if can? :rate, Food
-            small.rate= link_to "RATE!", rate_food_path(tag[0])
-          - else
-            small.rate
-              = link_to rate_food_path(tag[0]) do
-                | rate
+      .food
+        h3= link_to tag[0], rate_food_path(tag[0])
         ol.top-rated
           - Rating.tagged_with(tag[0]).top_five.each do |rating|
             - if rating.rated?
@@ -33,6 +26,5 @@
           h5
             => tag
             small.rate= link_to "RATE", rate_food_path(tag)
-    .col-xs-12
-      .actions
-        = link_to "add food", new_food_path if can? :create, Food
+
+= render "shared/admin"

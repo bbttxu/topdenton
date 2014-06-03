@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#foods
-  //@extend .row
+.foods
+  @extend .row
 
 
   .title
@@ -11,14 +11,16 @@
   div.food, div.actions
     @extend .columns
     //@extend .small-offset-1
-    @extend .col-xs-6
-    @extend .large-3
+    @extend .col-xs-11
+    @extend .col-sm-4
+    @extend .col-md-3
 
 
 
 div.food
+
   h3, h2
-    // color: whitesmoke
+    text-transform: capitalize
 
     body.day &
       color: black
