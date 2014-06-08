@@ -23,5 +23,5 @@ Denton::Application.routes.draw do
 
   match "/signout" => "sessions#destroy", :as => :signout
 
-  root :to => 'foods#index'
+  root :to => 'foods#landing'
 end
