@@ -1,0 +1,13 @@
+/ landing.html.slim
+.container.landing
+  .row
+    .col-xs-12.col-sm-8
+			h2
+				span.name>= link_to @food.name, @food
+				| is the top rated place for
+				span.tag<>= link_to @tag.tags, rate_food_path(@tag.tags)
+				| in Denton, TX
+    .col-xs-12.col-sm-4
+    	h4 What is this site?
+    	p Top Denton attempts to explain what is the best blank in Denton, TX.
+    	p Log in (via Twitter) and have your say!

@@ -43,6 +43,20 @@ class FoodsController < ApplicationController
     end
   end
 
+  # GET /foods/1/rate
+  # GET /foods/1.json
+  # NB id is tag name for a Rating, not an id
+  def landing
+    @tags = Rating.tags_with_weight.sort_by{|x|[-x[1],x[0]]}
+    @randomTag = @tags[rand(@tags.length)][0]
+    @tag = Rating.tagged_with(@randomTag).top_one.first
+    @food = @tag.food
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      # format.json { render json: @rated }
+    end
+  end
 
   # GET /foods/1
   # GET /foods/1.json
