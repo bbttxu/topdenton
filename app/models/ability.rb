@@ -14,5 +14,6 @@ class Ability
 
     can :read, Food
     can :index, Food
+    can :landing, Food
   end
 end

@@ -13,6 +13,10 @@ describe "abilities" do
       @ability = Ability.new(@user)
     end
 
+    it "can see landing page food" do
+      @ability.can?( :landing, Food ).should be_true
+    end
+
     it "cannot rate food" do
       @ability.cannot?( :rate, Rating ).should eq(true)
     end
