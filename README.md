@@ -1,4 +1,4 @@
-lots of refactoring happening now
+[![Build Status](https://travis-ci.org/bbttxu/topdenton.svg?branch=master)](https://travis-ci.org/bbttxu/topdenton) [![Coverage Status](https://coveralls.io/repos/bbttxu/topdenton/badge.png?branch=master)](https://coveralls.io/r/bbttxu/topdenton?branch=master)
 
 ### getting started
 

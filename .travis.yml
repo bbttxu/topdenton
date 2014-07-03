@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 2.0.0-p247
+  - 2.1.0
+
+before_script:
+  - echo 'America/Chicago' | sudo tee /etc/timezone
+  - sudo dpkg-reconfigure --frontend noninteractive tzdata
+  - sudo ntpdate ntp.ubuntu.com
+
+services:
+  - mongodb
+  - redis-server
