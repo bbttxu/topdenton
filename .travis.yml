@@ -10,4 +10,5 @@ before_script:
 
 services:
   - mongodb
-  - redis-server
+
+cache: bundler
