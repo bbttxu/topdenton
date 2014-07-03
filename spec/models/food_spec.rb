@@ -33,9 +33,9 @@ describe "food" do
       food.should_not be_valid
     end
 
-    it "needs a zipcode" do
+    it "does not need a zipcode, can geocode without" do
       food = FactoryGirl.build :food, zipcode: ""
-      food.should_not be_valid
+      food.should be_valid
     end
 
     it "needs a phone" do
