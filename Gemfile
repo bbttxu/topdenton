@@ -127,3 +127,5 @@ gem 'active_model_serializers'
 gem "geocoder"
 
 gem "debugger"
+
+gem "coveralls", require: false
