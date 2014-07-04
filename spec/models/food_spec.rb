@@ -3,12 +3,11 @@
 require 'spec_helper'
 
 describe "food" do
+  before(:each) do
+    @food = FactoryGirl.build :food
+  end
 
   describe "model" do
-    before(:each) do
-      @food = FactoryGirl.build :food
-    end
-
     it "is valid" do
       @food.should be_valid
     end
@@ -42,6 +41,13 @@ describe "food" do
       food = FactoryGirl.build :food, phone: ""
       food.should_not be_valid
     end
+  end
 
+  describe 'lower case tags' do
+    it "has only lower case tags" do
+      @food.tags = "Should,BE,LowerCase"
+      @food.save
+      @food.tags.should eq("should,be,lowercase")
+    end
   end
 end
