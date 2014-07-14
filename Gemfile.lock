@@ -147,13 +147,10 @@ GEM
       railties (>= 3.2.16)
     json (1.8.1)
     libv8 (3.16.14.3)
-    linguistics (2.0.3)
-      loggability (~> 0.7)
     listen (2.7.5)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    loggability (0.11.0)
     lumberjack (1.0.5)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -332,7 +329,6 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   json
-  linguistics
   mongo_mapper-accepts_nested_attributes
   mongo_session_store-rails3
   mongoid

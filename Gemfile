@@ -77,7 +77,7 @@ group :test, :development do
   gem "cane"
 end
 
-gem 'linguistics'
+# gem 'linguistics'
 
 gem 'newrelic_rpm'
 
