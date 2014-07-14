@@ -8,7 +8,7 @@ Denton::Application.routes.draw do
     end
   end
 
-  match "/foods/landing" => "foods#landing"
+  get "/foods/landing" => "foods#landing"
   resources :foods do
     member do
       get 'rate'

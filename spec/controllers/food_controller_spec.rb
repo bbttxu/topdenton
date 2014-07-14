@@ -4,26 +4,23 @@ describe FoodsController do
   # config.include Devise::TestHelpers, type: :controller
 
   before do
-		# @food = FactoryGirl.build :food
-	end
+    @user = FactoryGirl.create :user
+    @user.add_role(:admin)
+    session[:user_id] = @user.id
+    @food = {
+      name: "Banter",
+      address: "815 Oak St",
+      city: "Denton",
+      state: "TX",
+      zipcode: "76201",
+      phone: "940-867-1209"
+    }
+  end
 
   describe "POST to create" do
     # include Devise::TestHelpers
     # puts "%"*80
 
-    before do
-      @user = FactoryGirl.build :user
-      @user.add_role(:admin)
-      session[:user_id] = @user.id
-      @food = {
-        name: "Banter",
-        address: "815 Oak St",
-        city: "Denton",
-        state: "TX",
-        zipcode: "76201",
-        phone: "940-867-1209"
-      }
-    end
 
     it "for admin, should change the number of foods" do
       # lambda do
@@ -41,13 +38,26 @@ describe FoodsController do
     it "should return JSON"
     it "should respond properly to a JSONP callback"
   end
+
+  it "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:foods)
+  end
+
+  # it "should get food" do
+  #   get :show, id: @food.id
+  #   assert_response :success
+  #   assert_not_nil assigns(:food)
+  # end
 end
 
-# test "should get index" do
-#   get :index
-#   assert_response :success
-#   assert_not_nil assigns(:foods)
-# end
+  # it "should get landing" do
+  #   get :landing
+  #   # assert_response :success
+  #   # assert_not_nil assigns(:tag)
+  #   # assert_not_nil assigns(:food)
+  # end
 
 # test "should get new" do
 #   get :new
