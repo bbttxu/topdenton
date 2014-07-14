@@ -1,48 +1,36 @@
 # FIXME
 module ApplicationHelper
-  def numerify(text)
-    Linguistics::use(:en)
-    word = text.en.numwords
-    text.to_s.length == 1 ? word : text
-  end
+  # def numerify(text)
+  #   Linguistics::use(:en)
+  #   word = text.en.numwords
+  #   text.to_s.length == 1 ? word : text
+  # end
 
-  def pricify(dollars = nil)
-    return "???" if dollars == nil
-    dollars
-    # return "Free" if dollars == 0
-    # return "$#{dollars}" if dollars < 1
-  end
-
-  def li_active_link_to(text, url)
-    if is_active_link?(url, :exclusive)
-      content_tag :li, :class => "active" do
-        link_to text, url
-      end
-    else
-      content_tag :li do
-        link_to text, url
-      end
-    end
-  end
+  # def pricify(dollars = nil)
+  #   return "???" if dollars == nil
+  #   dollars
+  #   # return "Free" if dollars == 0
+  #   # return "$#{dollars}" if dollars < 1
+  # end
 
   # content_tag
 
   # chronic will parse this no problem
-  def standard_datetime( data )
-    data.strftime('%Y-%m-%d %H:%M')
-  end
+  # def standard_datetime( data )
+  #   data.strftime('%Y-%m-%d %H:%M')
+  # end
 
-  def li_active_link_to(text, url)
-    if is_active_link?(url, :exclusive)
-      content_tag :li, :class => "active" do
-        link_to text, url
-      end
-    else
-      content_tag :li do
-        link_to text, url
-      end
-    end
-  end
+  # def li_active_link_to(text, url)
+  #   if is_active_link?(url, :exclusive)
+  #     content_tag :li, :class => "active" do
+  #       link_to text, url
+  #     end
+  #   else
+  #     content_tag :li do
+  #       link_to text, url
+  #     end
+  #   end
+  # end
 
   # def day_or_night( time = Time.zone.now )
   #   (Weather.current['sys']['sunrise'] < time.to_i and time.to_i < Weather.current['sys']['sunset']) ? "day" : "night"
