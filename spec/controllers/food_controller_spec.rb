@@ -1,12 +1,11 @@
 require 'spec_helper'
 
-describe FoodsController do
+describe FoodsController, :type => :controller do
   # config.include Devise::TestHelpers, type: :controller
   before do
     @food = FactoryGirl.create :food
     @rating = FactoryGirl.create :rating
   end
-
 
 
   describe "admin" do
@@ -15,14 +14,7 @@ describe FoodsController do
       @user.add_role(:admin)
       session[:user_id] = @user.id
 
-      @food = {
-        name: "Banter",
-        address: "815 Oak St",
-        city: "Denton",
-        state: "TX",
-        zipcode: "76201",
-        phone: "940-867-1209"
-      }
+      @newfood = FactoryGirl.build :food, name: 'new food'
     end
 
     it "should get index" do
@@ -31,9 +23,33 @@ describe FoodsController do
       assert_not_nil assigns(:foods)
     end
 
-    it "should be able to create food"
-    it "should be able to edit food"
+    it "should be able to create new food" do
+      get :new
+      response.should be_success
+    end
 
+    it "should create new food" do
+      assert_difference('Food.count') do
+        post :create, food: @newfood.attributes
+      end
+
+      assert_redirected_to food_path(assigns(:food))
+    end
+
+    it "should be able to update food" do
+      @newfood.save
+      put :update, id: @newfood.to_param, food: @newfood.attributes
+      assert_redirected_to food_path(assigns(:food))
+    end
+
+    it "should be able to destroy food" do
+      @newfood.save
+      assert_difference('Food.count', -1) do
+        delete :destroy, id: @newfood.to_param
+      end
+
+      assert_redirected_to foods_path
+    end
   end
 
 
