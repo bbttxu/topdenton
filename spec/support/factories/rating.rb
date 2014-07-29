@@ -1,6 +1,6 @@
 # rating.rb
 FactoryGirl.define do
   factory :rating do
-    # name "hello band"
+    tags "hello band"
   end
 end

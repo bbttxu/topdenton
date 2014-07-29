@@ -129,3 +129,6 @@ gem "geocoder"
 gem "debugger"
 
 gem "coveralls", require: false
+
+gem 'assert_difference'
+

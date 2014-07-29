@@ -39,6 +39,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
+  config.include AssertDifference
 
   config.before(:suite) do
     DatabaseCleaner[:mongoid].strategy = :truncation

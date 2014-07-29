@@ -1,8 +1,8 @@
 class FoodsController < ApplicationController
 
-  skip_before_filter :authenticate_user! 
+  skip_before_filter :authenticate_user!
 
-  load_and_authorize_resource 
+  load_and_authorize_resource
 
 
   # GET /foods
@@ -51,7 +51,7 @@ class FoodsController < ApplicationController
     @randomTag = @tags[rand(@tags.length)][0]
     @tag = Rating.tagged_with(@randomTag).top_one.first
     @food = @tag.food
-    
+
     respond_to do |format|
       format.html # show.html.erb
       # format.json { render json: @rated }
@@ -93,7 +93,6 @@ class FoodsController < ApplicationController
 
     respond_to do |format|
       if @food.save
-        puts "DID SAVE "*5
         format.html { redirect_to @food, notice: 'Food was successfully created.' }
         format.json { render json: @food, status: :created, location: @food }
       else

@@ -1,96 +1,91 @@
 require 'spec_helper'
 
-describe FoodsController do
+describe FoodsController, :type => :controller do
   # config.include Devise::TestHelpers, type: :controller
-
   before do
-    @user = FactoryGirl.create :user
-    @user.add_role(:admin)
-    session[:user_id] = @user.id
-    @food = {
-      name: "Banter",
-      address: "815 Oak St",
-      city: "Denton",
-      state: "TX",
-      zipcode: "76201",
-      phone: "940-867-1209"
-    }
+    @food = FactoryGirl.create :food
+    @rating = FactoryGirl.create :rating
   end
 
-  describe "POST to create" do
-    # include Devise::TestHelpers
-    # puts "%"*80
 
+  describe "admin" do
+    before do
+      @user = FactoryGirl.create :user
+      @user.add_role(:admin)
+      session[:user_id] = @user.id
 
-    it "for admin, should change the number of foods" do
-      # lambda do
-      #   # puts @food
-      #   # puts Food.new(@food).errors.collect{|x| x.keys}
-      #   post :create, @food
-      # end.should change(Food, :count).by(1)
+      @newfood = FactoryGirl.build :food, name: 'new food'
     end
 
-  	it "should get new"
-  	it "should create food"
+    it "should get index" do
+      get :index
+      response.should be_success
+      assert_not_nil assigns(:foods)
+    end
+
+    it "should be able to create new food" do
+      get :new
+      response.should be_success
+    end
+
+    it "should create new food" do
+      assert_difference('Food.count') do
+        post :create, food: @newfood.attributes
+      end
+
+      assert_redirected_to food_path(assigns(:food))
+    end
+
+    it "should be able to update food" do
+      @newfood.save
+      put :update, id: @newfood.to_param, food: @newfood.attributes
+      assert_redirected_to food_path(assigns(:food))
+    end
+
+    it "should be able to destroy food" do
+      @newfood.save
+      assert_difference('Food.count', -1) do
+        delete :destroy, id: @newfood.to_param
+      end
+
+      assert_redirected_to foods_path
+    end
   end
 
-  describe "JSON interaction" do
-    it "should return JSON"
-    it "should respond properly to a JSONP callback"
+
+  describe "rater" do
+    before do
+      @user = FactoryGirl.create :user
+      @user.add_role(:rater)
+      session[:user_id] = @user.id
+    end
+
+    it "should get rating page" do
+      get :rate, id: @food
+      response.should be_success
+    end
   end
 
-  it "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:foods)
-  end
+  describe "anonymous" do
+    before do
+      @user = FactoryGirl.create :user
+      @user.remove_role :rater
+      session[:user_id] = @user.id
+    end
 
-  # it "should get food" do
-  #   get :show, id: @food.id
-  #   assert_response :success
-  #   assert_not_nil assigns(:food)
-  # end
+    it "should get index" do
+      get :index
+      response.should be_success
+    end
+
+    it "should get landing page" do
+      get :landing
+      response.should be_success
+    end
+
+    it "should get detail page" do
+      get :show, id: @food
+      response.should be_success
+    end
+  end
 end
-
-  # it "should get landing" do
-  #   get :landing
-  #   # assert_response :success
-  #   # assert_not_nil assigns(:tag)
-  #   # assert_not_nil assigns(:food)
-  # end
-
-# test "should get new" do
-#   get :new
-#   assert_response :success
-# end
-
-# test "should create food" do
-#   assert_difference('Food.count') do
-#     post :create, food: { address: @food.address, latitude: @food.latitude, longitude: @food.longitude, name: @food.name, phone: @food.phone, state: @food.state, zipcode: @food.zipcode }
-#   end
-
-#   assert_redirected_to food_path(assigns(:food))
-# end
-
-# test "should show food" do
-#   get :show, id: @food
-#   assert_response :success
-# end
-
-# test "should get edit" do
-#   get :edit, id: @food
-#   assert_response :success
-# end
-
-# test "should update food" do
-#   put :update, id: @food, food: { address: @food.address, latitude: @food.latitude, longitude: @food.longitude, name: @food.name, phone: @food.phone, state: @food.state, zipcode: @food.zipcode }
-#   assert_redirected_to food_path(assigns(:food))
-# end
-
-# test "should destroy food" do
-#   assert_difference('Food.count', -1) do
-#     delete :destroy, id: @food
-#   end
-
-#   assert_redirected_to foods_path
-# end
